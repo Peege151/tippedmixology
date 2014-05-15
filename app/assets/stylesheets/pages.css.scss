@@ -1,0 +1,153 @@
+// Place all the styles related to the pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#contentwrap {
+	width:100%;
+	min-height:500px;
+	background-image:url('paperbg.jpg')
+}
+#autoheightwrap {
+	height:auto;
+	width:100%;
+	margin:0 auto;
+	background-color:whitesmoke;
+}
+#content {
+	margin: 0 auto;
+	width:1065px;
+	min-height: 500px;
+	background-color:white;
+	overflow:hidden;
+	border-right: 1px solid #eee;
+	h2, h1 {
+		text-align:center;
+		font-family: "Avenir Condensed";
+		font-weight: 1800;
+
+	}
+	p {
+		line-height: 200%;
+		font-size: 200%;
+		font-family: "Avenir Condensed";
+
+	}
+}
+// MAIL FORM MAIL FORM MAIL FORM 
+#mailform {
+	height:auto;
+	width:600px;
+	margin: 0 auto;
+	background-color: whitesmoke;
+			padding: 6px 12px;
+
+	font-family: "Avenir Condensed";
+	h2, h3 {
+		text-align:center;
+	}
+	input {
+		width:150px;
+	}
+	input[type=submit]{
+		width:180px;
+		position:relative;
+			top:2px;
+			left:10px;
+
+	}
+}
+.form-control {
+	display: inline-block;
+}
+// NEWS NEWS NEWS NEWS NEWS NEWS NEWS NEWS HUH?
+#news {
+	width:100%;
+	height:auto;
+	margin:auto;
+	background-color:whitesmoke;
+	border-bottom:1px solid #eee;
+
+		table {
+			width:1200px;
+			margin:0 auto;
+				th {
+				text-align:center;
+				background-color:whitesmoke;
+				width:33%;
+				padding:0px;
+				}
+			
+				tr.header {
+				height:50px;
+				font-family: "Avenir Condensed";
+				font-size: 200%;
+				line-height: 200%;
+
+			
+				}
+				tr.image {
+				height:200px 
+				}
+				td {
+				height:30px;
+				}
+		}
+}
+
+#news_image  {
+	width:200px;
+	margin:0 auto;
+	img {
+		border-radius: 10px;
+	}
+}
+#news_desc  {
+	width:350px;
+	text-align: center;
+	margin:0 auto;
+	height:auto;
+	padding:10px;
+	p {
+		font-family: "Avenir Condensed";
+			font-size: 150%;
+			line-height: 150%;
+
+	}
+}
+// CONTACT CONTACT CONTACT
+#contactform {
+	width: 400px;
+	height:500px;
+	margin: 0 auto;
+			font-family: "Avenir Condensed";
+			font-size: 150%;
+			line-height: 150%;
+}
+abbr, accronym{ border-bottom: 0px; } /*try adding !important  after 0px if doesn't work*/
+
+// FAQ FAQ FAQ FAQ FAQ FAQ FAQ FAQ FAQ WHAT?
+#faq1, #faq2, #faq3, #faq4, #faq5, #faq6, #faq7, #faq8, #faq9, #faq10, #faq11 {
+:hover {color:black; font-style: normal}
+margin:0 auto;
+width:50%;
+
+}
+.FAQ { cursor:hand;
+ 		cursor:pointer;
+        margin:0 auto;
+        margin-bottom:3px;
+        text-align:center;
+        line-height: 300% ;
+        font-size: 125%;
+        font-family: "Avenir Condensed";
+        color: black;
+        :hover { color: green; font-style: italic }
+
+}
+.FAA { display:none;
+		color:black;
+		font-style: normal;
+
+	:hover {color:black; font-style: normal
+
+	}
+}

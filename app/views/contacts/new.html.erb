@@ -1,0 +1,20 @@
+<div id="contentwrap">	
+	<div id="content">
+		<div align="center" id="contactform">
+		  <h2> <strong> Send us a Message </strong> </h2>
+
+		  <%= simple_form_for @contact, :html => {:class => 'form-horizontal' } do |f| %>
+		    <%= f.input :name, :label => 'Name', :required => true %>
+		    <%= f.input :email, :required => true %>
+		    <%= f.input :message, :as => :text, :required => true %>
+		    <div class= "hidden">
+		      <%= f.input :nickname, :hint => 'Leave this field blank!' %>
+		    </div>
+		    <div>
+		      </br>
+		      <%= f.button :submit, 'Send Message', :class=> "btn btn-primary" %>
+		    </div>
+		  <% end %>
+		</div>
+	</div>
+</div>

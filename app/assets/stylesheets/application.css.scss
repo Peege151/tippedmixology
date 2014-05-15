@@ -1,0 +1,134 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+@import "bootstrap";
+
+@font-face {
+        font-family: "Avenir Condensed";
+        src: url('AvenirCondensedHand.ttf') format("truetype");
+    }
+html {
+	height:100%;
+	width:100%;
+}
+body {
+height: 100%;
+width:100%;
+}
+.navbar {
+	margin-bottom:0px;
+}
+.hidden { display: none; }
+
+#page {
+	height:100%;
+	background-color:#fff;
+}
+#slides {
+	height:500px;
+	width:1065px;
+	margin: 0 auto;
+	ul.pagination {
+			width:100%;
+			text-align: center;
+			li {
+				display:inline-block;
+			}
+        }
+}
+
+
+
+#darkcontainer {
+	height:200px;
+	width:100%;
+	border: none;
+
+	// background-image: url('cbbg1.jpg');
+	// background-size: cover;
+	// background-position: bottom 100px center;
+	background-color:whitesmoke;
+	text-align:center;
+}
+
+#contentcontainer {
+    height:500px;
+   	background-image: url('paperbg.jpg');
+
+
+}
+.navbar-default {
+	margin-bottom:0px;
+}
+
+.navbar .navbar-nav {
+  display: inline-block;
+  float: none;
+}
+
+.navbar .navbar-collapse {
+  text-align: center;
+}
+
+           	.slides_container {
+                width:1065px;
+                height:500px;
+
+
+            }
+            .slides_container div {
+                width:1065px;
+                height:500px;
+                display:block;
+
+                	
+            }
+#clear70 {
+	   	border-top: 1px solid #eee;
+
+	height:70px; 
+	width: 100%;
+	background-color: whitesmoke;
+}
+/*flash*/
+.alert {
+	text-align:center;
+	margin-bottom:0px !important
+}
+.alert-error {
+background-color: #f2dede;
+border-color: #eed3d7;
+color: #b94a48;
+text-align: center;
+}
+
+.alert-alert {
+background-color: #f2dede;
+border-color: #eed3d7;
+color: #b94a48;
+text-align: center;
+}
+
+.alert-success {
+background-color: #dff0d8;
+border-color: #d6e9c6;
+color: #468847;
+text-align: center;
+}
+
+.alert-notice {
+background-color: #dff0d8;
+border-color: #d6e9c6;
+color: #468847;
+text-align: center;
+}

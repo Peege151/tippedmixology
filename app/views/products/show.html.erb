@@ -1,0 +1,32 @@
+<div id="content">
+	<div id="showimage">
+		<%= image_tag(@product.image_url(:show).to_s) %> <br>
+	</div>	
+	<table class="showproduct">
+     <thead>
+      <tr>
+ 
+      </tr>
+     </thead>
+
+    <tbody>
+        <tr>
+          <td class="title"><strong><%= @product.title %></strong></td>
+        </tr>
+        <tr>
+        	<td class="description"><%= @product.description %> </td>
+        </tr>
+        <tr>
+        	<td class="ecom">
+        		<%= @product.price %>
+        	</td>
+        </tr>
+    </tbody>
+  </table>
+  	<%= link_to 'Edit', edit_product_path(@product) %> |
+	<%= link_to 'Back', products_path %>
+
+			
+
+
+</div>
