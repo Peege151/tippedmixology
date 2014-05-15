@@ -1,4 +1,6 @@
 Tippedmixology::Application.routes.draw do
+  resources :carts
+
   resources :mail_subscribers
 
   resources :categories
