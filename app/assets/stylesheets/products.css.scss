@@ -1,6 +1,113 @@
 // Place all the styles related to the products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// INDEX INDEX INDEX INDEX
+#store_index_content {
+	margin: 0 auto;
+	width:1065px;
+	min-height: 500px;
+	height:auto;
+	background-color:white;
+	overflow:hidden;
+	border-right: 1px solid #eee;
+	h2, h1 {
+		text-align:center;
+		font-family: "Avenir Condensed";
+		font-weight: 1800;
+
+	}
+	p {
+		line-height: 200%;
+		font-size: 200%;
+		font-family: "Avenir Condensed";
+
+	}
+
+
+		table {
+			float: left;
+			width:250px;
+				th {
+				text-align:center;
+				width:33%;
+				padding:0px;
+				}
+			
+				tr.header {
+				height:50px;
+				font-family: "Avenir Condensed";
+				font-size: 200%;
+				line-height: 200%;
+				}
+				tr.image {
+				height:200px 
+				}
+				tr.index_store_control{
+				height:50px;
+				vertical-align: middle;
+				}
+				tr.desc {
+					height: 160px;
+					p {
+						margin-bottom: 0px;
+						padding-bottom: 0px;
+					}
+				}
+		}
+}
+.admin_store_controls {
+				width:130px;
+				height:30px;
+				margin:0 auto;
+				position:relative;
+					left:5px;
+				bottom:10px;
+			}
+#store_index_control{
+	margin: 0 auto;
+	width:100px;
+	height:30px;
+}
+.index_store_add {
+	margin: 0 auto; 
+	text-align:center;
+	margin-bottom: 30px;
+}
+.index_store_price {
+	float:left;
+	display:inline;
+	position:relative;
+		top:1px;	
+}
+.index_store_fl {
+	float:left;
+	margin-left:10px;
+	display:inline;
+}
+
+#news_image  {
+	width:200px;
+	margin:0 auto;
+	img {
+		border-radius: 10px;
+	}
+}
+#news_desc  {
+	width:350px;
+	text-align: center;
+	margin:0 auto;
+	height:auto;
+	padding:10px 10px 0px 10px;
+	p {
+		font-family: "Avenir Condensed";
+			font-size: 150%;
+			line-height: 150%;
+
+	}
+}
+
+// SHOW SHOW SHOW SHOW SHOW //
 #showimage {
 	height:500px;
 	width:333px;

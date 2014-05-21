@@ -1,6 +1,67 @@
 <div id="contentwrap">
-  <div id="content">
-  <h1>Listing products</h1>
+  <div id="store_index_content">
+   <h1>Tipped Mixology Store </h1>
+   <h1 style="text-align:left; margin-left:70px"> Drinks: </h1>
+    <% @products.each do |product| %>
+     <table>
+      <tr class="header">
+        <th> <%= link_to "#{product.title}", product %> </th>
+      </tr>
+        <tr class="image">
+          <td>
+            <div id="news_image">
+              <%= link_to(image_tag("#{product.image_url}", :size => "200x200"), product) %>
+            </div>
+          </td>
+        </tr>
+        <tr class="desc">
+          <td>
+            <div id="news_desc">
+              <p>
+                <%= truncate product.description, length: 180 %> <%= link_to "read more", product %>
+              </p>
+            </div>
+          </td>
+        </tr>
+        <tr class="index_store_control">
+          <td>
+            <div id="store_index_control">
+              <div class="index_store_price">
+              $<%= product.price %>
+              </div>
+              <div class="index_store_fl">
+              <%= select_tag "favorite_color", '<option value="1">1</option><option value="2">2</option><option value="3">3</option>'.html_safe %> 
+              </div> <br>
+            </td>
+        </tr>
+        <tr>
+          <td class="store_index_control">
+              <div class="index_store_add">              
+              <%= button_to 'Add to Cart', line_items_path(:product_id=> product), class: "btn btn-primary" %>
+              </div>
+          </td>
+        </tr>
+            </div>
+          </td>
+        </tr>
+      <% if current_admin != nil %>
+        <tr>
+          <td>
+          <div class="admin_store_controls">
+            <%= link_to 'Show', product %>
+            <%= link_to 'Edit', edit_product_path(product) %>
+            <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </td>
+          </div>
+        </tr>
+          <% end %>
+      </table> 
+    <% end %>
+  </div>
+</div>
+
+
+<!-- 
 
   <table>
     <thead>
@@ -21,19 +82,13 @@
           <td><%= product.description %></td>
           <td><%= product.image %></td>
 
-          <% if current_admin != nil %>
-          <td><%= link_to 'Show', product %></td>
-          <td><%= link_to 'Edit', edit_product_path(product) %></td>
-          <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          <% end %>
+  
         </tr>
       <% end %>
     </tbody>
   </table>
 
-  <br>
+  <br> -->
   <% if current_admin.nil? == false %>
   <%= link_to 'New Product', new_product_path %>
   <% end %>
-  </div>
-</div>
