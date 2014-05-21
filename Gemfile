@@ -11,7 +11,6 @@ gem 'mail_form'
 gem "simple_form", "~> 3.0.0.rc"
 gem 'mini_magick'
 # Use sqlite3 as the database for Active Record
-	gem 'sqlite3'
 
 #Use Devise for Auth
 gem 'devise'
@@ -43,6 +42,8 @@ end
 	gem 'better_errors'
 	gem 'binding_of_caller'
 	gem 'pry'
+	gem 'sqlite3'
+
 
 end
 	group :production do
