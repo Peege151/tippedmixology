@@ -15,11 +15,11 @@
 
 @font-face {
         font-family: "Avenir Condensed";
-        src: url('AvenirCondensedHand.ttf') format("truetype");
+        src: font-url('AvenirCondensedHand.ttf') format("truetype");
 }
 @font-face {
         font-family: "Moon Flower";
-        src: url('Moon_Flower.ttf') format("truetype");
+        src: font-url('Moon_Flower.ttf') format("truetype");
     }
 html {
 	height:100%;
