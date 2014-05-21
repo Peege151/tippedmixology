@@ -24,13 +24,14 @@ gem 'actionpack'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
+gem 'stripe'
 
 	group :development, :test do
 		gem 'rails_layout'
 		gem 'better_errors'
 		gem 'binding_of_caller'
 		gem 'pry'
-		gem 'sqlite3', "1.3.8", :require => "sqlite3"
+		gem 'pg'
 	end
 	group :production do
 		gem 'rails_12factor'
