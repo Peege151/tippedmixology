@@ -30,7 +30,7 @@ gem 'jbuilder', '~> 1.2'
 		gem 'better_errors'
 		gem 'binding_of_caller'
 		gem 'pry'
-		gem 'sqlite3'
+		gem 'sqlite3', "1.3.8", :require => "sqlite3"
 	end
 	group :production do
 		gem 'rails_12factor'
