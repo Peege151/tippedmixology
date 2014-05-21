@@ -1,3 +1,98 @@
 // Place all the styles related to the Carts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#cartlist {
+	ul{
+		padding-left:0px;
+	}
+	tr.top_cart {
+		border: 3px solid #eee;
+	}
+	td.img {
+	}
+	td.cart_qty {
+		height:100%;
+		width:50px;
+		margin-left:20px;
+		border-right: 3px solid #eee;
+		vertical-align:middle;
+		text-align:center
+	}
+	td.cart_item {
+		text-align:center;
+		border-right: 3px solid #eee;
+		padding:10px;
+		height:100%;
+		width: 230px;
+		margin-left:20px;
+	}
+	td.cart_description {
+		padding-left:10px;
+		padding-right:10px;
+	
+		margin-left:20px;
+		width:480px;
+		height:150px !important ;
+		overflow:hidden;
+		vertical-align: top;
+	}
+	td.cart_price {
+		width:70px;
+		height:100%;
+		margin-left:20px;
+		border-left: 3px solid #eee
+	}
+	td.cart_remove_button {
+		width:130px;
+		border-left: 3px solid #eee
+
+
+	}
+	td.bottom_cart_qty {
+		height:50px;
+		width:50px;
+		margin-left:20px;
+		vertical-align:middle;
+		text-align:center
+	}
+	td.bottom_cart_item {
+		text-align:center;
+		padding:10px;
+		height:50px;
+		width: 230px;
+		margin-left:20px;
+	}
+	td.bottom_cart_description {
+		padding-left:10px;
+		padding-right:10px;
+		text-align:right;
+		margin-left:20px;
+		width:480px;
+		height:50px !important ;
+		overflow:hidden;
+		vertical-align: top;
+	}
+	td.bottom_cart_price {
+		width:70px;
+		height:50px;
+		margin-left:20px;
+	}
+	td.bottom_cart_remove_button {
+		height:50px;
+		width:130px;
+
+
+	}
+	td {
+		text-align: center;
+		padding:0;	
+		vertical-align: middle;
+		line-height: 200%;
+		font-size: 200%;
+		font-family: "Moon Flower";
+
+	}
+}
+.btn-danger {
+	width: 103px;
+}

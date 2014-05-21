@@ -10,12 +10,16 @@ class CartsController < ApplicationController
   # GET /carts/1
   # GET /carts/1.json
   def show
-      @mail_subscriber = MailSubscriber.new(mail_subscriber_params)
+    @cart = Cart.find_by_id(session[:cart_id])
   end
 
   # GET /carts/new
   def new
-    @cart = Cart.new
+    @cart = Cart.create
+        @cart = Cart.create
+      session[:cart_id] = @cart.id
+      @cart
+      redirect_to @cart
   end
 
   # GET /carts/1/edit
@@ -90,4 +94,5 @@ class CartsController < ApplicationController
     def mail_subscriber_params
       params.fetch(:mail_subscriber, {}).permit(:email, :name)
     end 
+
 end

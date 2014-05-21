@@ -1,12 +1,44 @@
-<% if notice %>
-<p id="notice"><%= notice %></p>
-<% end %>
+<div id ="content">
 
-<h2>Your Pragmatic Cart</h2>
-<ul>    
-  <% @cart.line_items.each do |item| %>
-    <li><%= item.quantity %> &times; <%= item.product.title %></li>
-  <% end %>
-</ul>
-<%= button_to 'Empty cart', @cart, :method => :delete %>
-<%= link_to 'Back', products_path %>
+	<% if @cart.line_items.count == 0 %>
+		<h2> Your Cart is Empty!</h2> <br>
+	<% else %>
+	<h2>Your Cart</h2>
+		<div id="cartlist">
+
+		<ul>    
+		  <% @cart.line_items.each do |item| %>
+		  	<table>
+		  		<tr class="top_cart">
+		  			<td class="img"><%= image_tag(item.product.image_url(:thumb)) %> </td>
+			    	<td class="cart_qty"><%= item.quantity %> x </td>
+			    	<td class="cart_item"> <%= item.product.title %></td>
+			    	<td class="cart_description"> <%= truncate item.product.description, length:160 %> <%= link_to "read more", "http://localhost:3000/products/#{item.product_id}"%> </td>	
+			    	<td class="cart_price"><%= (item.product.price) * (item.quantity) %> </td>
+			    	<td class="cart_remove_button"><%= button_to 'Remove Item', item, :method => :patch, class: "btn btn-danger" %> <%= %> </td>
+			    </tr>
+		  	<% end %>
+		  		<tr class="total_line">
+    				<td class="img"></td>
+    				<td class="bottom_cart_qty"></td>
+    				<td class="bottom_cart_item"> </td>
+    				<td class="bottom_cart_description">Total:</td>
+    				<td class="bottom_cart_price"> $<%= @cart.total_price %> </td>
+    				<td class="bottom_cart_remove_button"> </td>
+  				</tr>
+  				<tr class="total_line">
+    				<td class="img"></td>
+    				<td class="bottom_cart_qty"></td>
+    				<td class="bottom_cart_item"> </td>
+    				<td class="bottom_cart_description"></td>
+    				<td class="bottom_cart_price"> </td>
+    				<td class="bottom_cart_remove_button"> <%= button_to 'Empty cart', @cart, :method => :delete, class: "btn btn-danger" %> </td>
+  				</tr>
+  			</table>
+
+
+		</ul>
+		</div>
+		<% end %>
+	<%= link_to 'Back', products_path %>
+</div>

@@ -82,7 +82,4 @@ class ProductsController < ApplicationController
     def product_params
       params.require(:product).permit(:title, :description, :price, :image)
     end
-    def mail_subscriber_params
-      params.fetch(:mail_subscriber, {}).permit(:email, :name)
-    end 
 end

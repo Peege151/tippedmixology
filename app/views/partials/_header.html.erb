@@ -22,7 +22,15 @@
   <%= link_to ('Contact'), new_contact_path %> </li>
         <li><%= link_to "Blog", "http://www.tippedmixology.blogspot.com"  %></li>
         <li><%= link_to "Store", products_path  %></li>
-        <li><%= link_to "Cart"  %></li>
+        <% if session[:cart_id] == nil %>
+            <li><%= link_to "Cart", new_cart_path %></li>
+        <% else %>
+            <li><%= link_to "Cart", cart_path(id: session[:cart_id]) %></li>
+        <% end %>
+        <% if current_admin.nil? == false %>
+        <li><%= link_to "Sign Out", destroy_admin_session_path, :method => 'delete'  %></li>
+        <% end %>
+
 
 
 

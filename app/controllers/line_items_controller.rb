@@ -32,7 +32,7 @@ class LineItemsController < ApplicationController
     respond_to do |format|
       if @line_item.save
         format.html { redirect_to(@line_item.cart,
-          :notice => 'Line item was successfully created.') }
+          :notice => 'Item Added to Cart.') }
         format.xml  { render :xml => @line_item,
           :status => :created, :location => @line_item }
       else
@@ -45,15 +45,21 @@ class LineItemsController < ApplicationController
   # PATCH/PUT /line_items/1
   # PATCH/PUT /line_items/1.json
   def update
-    respond_to do |format|
-      if @line_item.update(line_item_params)
-        format.html { redirect_to @line_item, notice: 'Line item was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @line_item.errors, status: :unprocessable_entity }
-      end
-    end
+      @cart = current_cart
+      product = @line_item.product_id
+      @line_item = @cart.remove_product(product)
+        if @line_item.quantity > 0
+           @line_item.update_attributes(params[:line_item])
+           flash[:success] = "Item Removed!"
+           redirect_to @line_item.cart
+        else
+            @line_item.destroy
+            redirect_to :back
+            flash[:success] = "Item Removed!"
+        end 
+        # format.html { redirect_to current_cart, notice: 'Line item was successfully updated.' }
+        # format.json { head :no_content }
+
   end
 
   # DELETE /line_items/1
@@ -74,6 +80,6 @@ class LineItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def line_item_params
-      params.require(:line_item).permit(:product_id, :cart_id)
+      params.fetch(:line_item, {}).permit(:product_id, :cart_id, :quantity)
     end
 end
