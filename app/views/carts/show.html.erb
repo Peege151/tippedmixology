@@ -9,13 +9,25 @@
 		<ul>    
 		  <% @cart.line_items.each do |item| %>
 		  	<table>
+		  		<tr class="total_line">
+    				<td class="img"></td>
+    				<td class="header_cart_item_cart_qty"> QTY:</td>
+    				<td class="header_cart_item_cart_item"> Name:</td>
+    				<td class="header_cart_description">Description:</td>
+    				<td class="header_cart_item_cart_price">Price: </td>
+  				</tr>
 		  		<tr class="top_cart">
 		  			<td class="img"><%= image_tag(item.product.image_url(:thumb)) %> </td>
-			    	<td class="cart_qty"><%= item.quantity %> x </td>
-			    	<td class="cart_item"> <%= item.product.title %></td>
+						<%= simple_form_for(item) do |f| %>
+				    		<td class="cart_qty"> 
+				    		<%= f.input :quantity, :value => "#{item.quantity}", :label => false %>
+				    		</td>
+			    	<td class="cart_item"> <%= link_to "#{item.product.title}", product_path(:id => item.product_id) %>
+			    	</td>
 			    	<td class="cart_description"> <%= truncate item.product.description, length:160 %> <%= link_to "read more", "http://localhost:3000/products/#{item.product_id}"%> </td>	
 			    	<td class="cart_price"><%= (item.product.price) * (item.quantity) %> </td>
-			    	<td class="cart_remove_button"><%= button_to 'Remove Item', item, :method => :patch, class: "btn btn-danger" %> <%= %> </td>
+			    	<td class="cart_remove_button"><%= f.button :submit, 'Update Quantity',class: "btn btn-primary" %></td>
+			    	<% end %>
 			    </tr>
 		  	<% end %>
 		  		<tr class="total_line">
@@ -24,7 +36,7 @@
     				<td class="bottom_cart_item"> </td>
     				<td class="bottom_cart_description">Total:</td>
     				<td class="bottom_cart_price"> $<%= @cart.total_price %> </td>
-    				<td class="bottom_cart_remove_button"> </td>
+    				<td class="bottom_cart_checkout_button"> <%= button_to 'Begin Checkout', @cart, :method => :delete, class: "btn btn-success" %> </td>
   				</tr>
   				<tr class="total_line">
     				<td class="img"></td>

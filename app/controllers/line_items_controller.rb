@@ -45,21 +45,16 @@ class LineItemsController < ApplicationController
   # PATCH/PUT /line_items/1
   # PATCH/PUT /line_items/1.json
   def update
-      @cart = current_cart
-      product = @line_item.product_id
-      @line_item = @cart.remove_product(product)
-        if @line_item.quantity > 0
-           @line_item.update_attributes(params[:line_item])
-           flash[:success] = "Item Removed!"
-           redirect_to @line_item.cart
-        else
-            @line_item.destroy
-            redirect_to :back
-            flash[:success] = "Item Removed!"
-        end 
-        # format.html { redirect_to current_cart, notice: 'Line item was successfully updated.' }
-        # format.json { head :no_content }
-
+        @line_item.update(line_item_params)
+        if 
+        @line_item.quantity <= 0
+        @line_item.destroy
+        flash[:success] = "Item Removed"
+        redirect_to :back
+        else    
+        flash[:success] = "Producted Updated"
+        redirect_to @line_item.cart
+        end
   end
 
   # DELETE /line_items/1

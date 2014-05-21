@@ -5,7 +5,7 @@
     <% @products.each do |product| %>
      <table>
       <tr class="header">
-        <th> <%= link_to "#{product.title}", product %> </th>
+        <th> <%= link_to "#{product.title}", :action => 'show', :id => product %> </th>
       </tr>
         <tr class="image">
           <td>

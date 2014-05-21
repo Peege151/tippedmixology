@@ -7,7 +7,9 @@ class Product < ActiveRecord::Base
 
   validates :price, :numericality => {:greater_than_or_equal_to => 0.01}
   validates :title, :uniqueness => true
-  
+  def to_param
+    "#{id}_#{permalink}"
+  end
   private
  
     # ensure that there are no line items referencing this product
