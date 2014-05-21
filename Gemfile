@@ -10,7 +10,6 @@ gem 'carrierwave'
 gem 'mail_form'
 gem "simple_form", "~> 3.0.0.rc"
 gem 'mini_magick'
-# Use sqlite3 as the database for Active Record
 
 #Use Devise for Auth
 gem 'devise'
@@ -37,15 +36,13 @@ gem 'jbuilder', '~> 1.2'
   # bundle exec rake doc:rails generates the API under doc/api.
   	gem 'sdoc', require: false
 end
-	group :development do
-	gem 'rails_layout'
-	gem 'better_errors'
-	gem 'binding_of_caller'
-	gem 'pry'
-	gem 'sqlite3'
-
-
-end
+	group :development, :test do
+		gem 'rails_layout'
+		gem 'better_errors'
+		gem 'binding_of_caller'
+		gem 'pry'
+		gem 'sqlite3'
+	end
 	group :production do
 		gem 'rails_12factor'
 		gem 'pg'
