@@ -10,7 +10,6 @@ gem 'carrierwave'
 gem 'mail_form'
 gem "simple_form", "~> 3.0.0.rc"
 gem 'mini_magick'
-
 #Use Devise for Auth
 gem 'devise'
 # Use Uglifier as compressor for JavaScript assets
@@ -25,7 +24,6 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'execjs'
 gem 'actionpack'
-gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 
@@ -33,9 +31,8 @@ gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'jbuilder', '~> 1.2'
 
 	group :doc do
-  # bundle exec rake doc:rails generates the API under doc/api.
-  	gem 'sdoc', require: false
-end
+  		gem 'sdoc', require: false
+	end
 	group :development, :test do
 		gem 'rails_layout'
 		gem 'better_errors'
@@ -48,14 +45,4 @@ end
 		gem 'pg'
 	end
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.1.2'
 
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
