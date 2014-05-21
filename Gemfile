@@ -42,7 +42,7 @@ end
 	gem 'better_errors'
 	gem 'binding_of_caller'
 	gem 'pry'
-	gem 'sqlite3'
+	gem 'pg'
 
 
 end
