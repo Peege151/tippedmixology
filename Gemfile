@@ -25,7 +25,7 @@ gem 'actionpack'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 gem 'stripe'
-
+gem 'active_shipping'
 	group :development, :test do
 		gem 'rails_layout'
 		gem 'better_errors'

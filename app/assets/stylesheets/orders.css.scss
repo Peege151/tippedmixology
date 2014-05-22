@@ -1,0 +1,14 @@
+// Place all the styles related to the Orders controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+ 
+#orderform {
+	width: 400px;
+	margin: 0 auto;
+			font-family: "Avenir Condensed";
+			font-size: 150%;
+			line-height: 150%;
+			textarea {
+				width:321px;
+			}
+}

@@ -6,8 +6,7 @@
 	<h2>Your Cart</h2>
 		<div id="cartlist">
 
-		<ul>    
-		  <% @cart.line_items.each do |item| %>
+		<ul>
 		  	<table>
 		  		<tr class="total_line">
     				<td class="img"></td>
@@ -15,7 +14,9 @@
     				<td class="header_cart_item_cart_item"> Name:</td>
     				<td class="header_cart_description">Description:</td>
     				<td class="header_cart_item_cart_price">Price: </td>
-  				</tr>
+  				</tr>  
+		  <% @cart.line_items.each do |item| %>
+		
 		  		<tr class="top_cart">
 		  			<td class="img"><%= image_tag(item.product.image_url(:thumb)) %> </td>
 						<%= simple_form_for(item) do |f| %>
@@ -36,7 +37,7 @@
     				<td class="bottom_cart_item"> </td>
     				<td class="bottom_cart_description">Total:</td>
     				<td class="bottom_cart_price"> $<%= @cart.total_price %> </td>
-    				<td class="bottom_cart_checkout_button"> <%= button_to 'Begin Checkout', @cart, :method => :delete, class: "btn btn-success" %> </td>
+    				<td class="bottom_cart_checkout_button"> <%= button_to 'Begin Checkout', new_order_path, :method => :get, class: "btn btn-success" %> </td>
   				</tr>
   				<tr class="total_line">
     				<td class="img"></td>

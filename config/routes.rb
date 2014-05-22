@@ -1,4 +1,6 @@
 Tippedmixology::Application.routes.draw do
+  resources :orders
+
   devise_for :admins
   resources :line_items
   resources :carts
