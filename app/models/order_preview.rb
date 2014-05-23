@@ -1,8 +1,9 @@
-class Order < ActiveRecord::Base
+class OrderPreview < ActiveRecord::Base
 	#dependencies
 	include ActiveMerchant::Shipping
 	#active record associations
 	belongs_to :cart
+	has_one :order
 	# validations
 	validates :name, presence: true
   	validates :city, presence: true

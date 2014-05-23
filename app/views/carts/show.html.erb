@@ -36,8 +36,8 @@
     				<td class="bottom_cart_qty"></td>
     				<td class="bottom_cart_item"> </td>
     				<td class="bottom_cart_description">Total:</td>
-    				<td class="bottom_cart_price"> $<%= @cart.total_price %> </td>
-    				<td class="bottom_cart_checkout_button"> <%= button_to 'Begin Checkout', new_order_path, :method => :get, class: "btn btn-success" %> </td>
+    				<td class="bottom_cart_price"> $<%= @cart.sub_total %> </td>
+    				<td class="bottom_cart_checkout_button"> <%= button_to 'Begin Checkout', new_order_preview_path,  :method => :get, class: "btn btn-success" %> </td>
   				</tr>
   				<tr class="total_line">
     				<td class="img"></td>

@@ -1,0 +1,51 @@
+<%= link_to "Edit order", edit_order_path(@order_preview) %>&nbsp;|&nbsp;
+
+<h3>Shipping Information</h3>
+<table style="width:100%; text-align:left;">
+  <tr>
+    <th>Name</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Zip</th>
+  </tr>
+  <tr>
+    <td><%= @order_preview.name %></td>
+    <td><%= @order_preview.city %></td>
+    <td><%= @order_preview.state %></td>
+    <td><%= @order_preview.zip %></td>
+  </tr>
+  <tr>
+    <th>Length</th>
+    <th>Width</th>
+    <th>Height</th>
+    <th>Weight</th>
+    <th>Cylinder?</th>
+  </tr>
+  <tr>
+    <td><%= "#{@order_preview.length} inches" %></td>
+    <td><%= "#{@order_preview.width} inches" %></td>
+    <td><%= "#{@order_preview.height} inches" %></td>
+    <td><%= "#{@order_preview.weight}".to_f * 16 %> ounces (<%= "#{@order_preview.weight}" %> lb)   </td>
+    <td><%= @order_preview.cylinder ? "Yes" : "No" %></td>
+  </tr>
+</table>
+<h3>Shipping Options</h3>
+
+  <select name="shipping option">
+      <option>
+      </option>
+  <% @order_preview.fedex_rates.each do |rate| %>
+      <option>
+      <%= rate.service_name %>
+      <%= number_to_currency(rate.price.to_f / 100) %>
+      </option>
+  <% end %>
+      <option>
+      </option>
+  <% @order_preview.usps_rates.each do |rate| %>
+      <option>
+      <%= rate.service_name %>
+      <%= number_to_currency(rate.price.to_f / 100) %>
+      </option>
+  <% end %>
+</select>

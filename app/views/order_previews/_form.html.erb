@@ -15,14 +15,14 @@
 
 
 
-    <%= form_for(@order) do |f| %>
-      <% if @order.errors.any? %>
+    <%= form_for(@order_preview) do |f| %>
+      <% if @order_preview.errors.any? %>
         <div id="error_explanation">
-          <h2><%= pluralize(@order.errors.count, "error") %>
-          prohibited this order from being saved:</h2>
+          <h2><%= pluralize(@order_preview.errors.count, "error") %>
+          prohibited this order_preview from being saved:</h2>
      
           <ul>
-          <% @order.errors.full_messages.each do |msg| %>
+          <% @order_preview.errors.full_messages.each do |msg| %>
             <li><%= msg %></li>
           <% end %>
           </ul>
@@ -115,9 +115,9 @@
         </td>
       </tr>
       <tr class="shippingrow">
-        <td class="ship_col1">
+        <td class="ship_col_full">
           <div class="actions">
-            <%= f.submit 'Place Order', class: "btn btn-success" %>
+            <%= f.submit 'Get Shipping Rates', class: "btn btn-primary" %>
           </div>
         </td>
       </tr>

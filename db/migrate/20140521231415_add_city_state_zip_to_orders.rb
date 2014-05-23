@@ -3,6 +3,6 @@ class AddCityStateZipToOrders < ActiveRecord::Migration
     add_column :orders, :address2, :string
     add_column :orders, :city, :string
     add_column :orders, :state, :string
-    add_column :orders, :zip, :integer
+    add_column :orders, :zip, :string
   end
 end

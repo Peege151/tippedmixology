@@ -1,0 +1,53 @@
+<h1>Listing order_previews</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Address2</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Zip</th>
+      <th>Width</th>
+      <th>Height</th>
+      <th>Length</th>
+      <th>Weight</th>
+      <th>Cylinder</th>
+      <th>Country</th>
+      <th>Cart</th>
+      <th>Email</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @order_previews.each do |order_preview| %>
+      <tr>
+        <td><%= order_preview.name %></td>
+        <td><%= order_preview.address %></td>
+        <td><%= order_preview.address2 %></td>
+        <td><%= order_preview.city %></td>
+        <td><%= order_preview.state %></td>
+        <td><%= order_preview.zip %></td>
+        <td><%= order_preview.width %></td>
+        <td><%= order_preview.height %></td>
+        <td><%= order_preview.length %></td>
+        <td><%= order_preview.weight %></td>
+        <td><%= order_preview.cylinder %></td>
+        <td><%= order_preview.country %></td>
+        <td><%= order_preview.cart_id %></td>
+        <td><%= order_preview.email %></td>
+        <td><%= link_to 'Show', order_preview %></td>
+        <td><%= link_to 'Edit', edit_order_preview_path(order_preview) %></td>
+        <td><%= link_to 'Destroy', order_preview, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Order preview', new_order_preview_path %>

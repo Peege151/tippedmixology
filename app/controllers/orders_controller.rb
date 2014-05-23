@@ -1,5 +1,7 @@
 class OrdersController < ApplicationController
-  before_action :set_order, only: [:show, :edit, :update, :destroy]
+  # before_action :set_order, only: [:show, :edit, :update, :destroy]
+
+
   def index
     @orders = Order.all
   end
@@ -18,7 +20,8 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.new(order_params)
+    @cart = current_cart
+    @order = @cart.build_order(order_params)
     if @order.save
       redirect_to @order, notice: "The order has been successfully created.  Below are your shipping options."
     else
@@ -42,7 +45,7 @@ class OrdersController < ApplicationController
 private
 
   def order_params
-    params.require(:order).permit(:name, :country, :city, :state, :postal_code, :length, :width, :height, :weight, :cylinder)
+    params.require(:order).permit(:name, :address, :address2, :zip, :city, :state, :country, :length, :width, :height, :weight, :cylinder)
   end
 end
 

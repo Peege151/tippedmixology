@@ -25,8 +25,12 @@
         <td><%= order.city %></td>
         <td><%= order.state %></td>
         <td><%= order.zip %></td>
+        <td><%= "#{shipment.length} centimeters" %></td>
+        <td><%= "#{shipment.width} centimeters" %></td>
+        <td><%= "#{shipment.height} centimeters" %></td>
+        <td><%= "#{shipment.weight} grams" %></td>
+        <td><%= shipment.cylinder ? "Yes" : "No" %></td>
         <td><%= order.email %></td>
-        <td><%= order.pay_type %></td>
         <td><%= link_to 'Show', order %></td>
         <td><%= link_to 'Edit', edit_order_path(order) %></td>
         <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
