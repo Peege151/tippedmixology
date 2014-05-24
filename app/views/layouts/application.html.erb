@@ -47,6 +47,13 @@
                        ? 'block' : 'none';
                 }
         </script>
+        <script>
+            $(window).ready(function(e){
+                  $.each($('div.progress-bar'),function(){
+                    $(this).css('width', $(this).attr('aria-valuetransitiongoal')+'%');
+                  });
+            });
+        </script>
   </head>
   <body>
   <div id="page">

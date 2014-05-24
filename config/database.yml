@@ -15,11 +15,12 @@ development:
 test:
   adapter: postgresql
   database: tippedmixology
+  database: my_db_test
   pool: 5
   timeout: 5000
 
 production:
   adapter: postgresql
-  database: db/production.sqlite3
+  database: tippedmixology
   pool: 5
   timeout: 5000

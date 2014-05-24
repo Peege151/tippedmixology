@@ -1,0 +1,58 @@
+<%= link_to "Edit order", edit_order_path(@order) %>&nbsp;|&nbsp;
+<%= link_to "Back to Index", orders_path %>
+
+<h3>Shipping Information</h3>
+<table style="width:100%; text-align:left;">
+  <tr>
+    <th>Name</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Zip</th>
+  </tr>
+  <tr>
+    <td><%= @order.name %></td>
+    <td><%= @order.city %></td>
+    <td><%= @order.state %></td>
+    <td><%= @order.zip %></td>
+  </tr>
+  <tr>
+    <th>Length</th>
+    <th>Width</th>
+    <th>Height</th>
+    <th>Weight</th>
+    <th>Cylinder?</th>
+  </tr>
+  <tr>
+    <td><%= "#{@order.length} inches" %></td>
+    <td><%= "#{@order.width} inches" %></td>
+    <td><%= "#{@order.height} inches" %></td>
+    <td><%= "#{@order.weight}".to_f * 16 %> ounces (<%= "#{@order.weight}" %> lb)   </td>
+    <td><%= @order.cylinder ? "Yes" : "No" %></td>
+  </tr>
+</table>
+<%= raise %>
+<h3>Shipping Options</h3>
+<table>
+  <tr>
+    <th>Service Name</th>
+    <th>Price</th>
+  </tr>
+  <% @order.ups_rates.each do |rate| %>
+    <tr>
+      <td><%= rate.service_name %></td>
+      <td><%= number_to_currency(rate.price.to_f / 100) %></td>
+    </tr>
+  <% end %>
+  <% @order.fedex_rates.each do |rate| %>
+    <tr>
+      <td><%= rate.service_name %></td>
+      <td><%= number_to_currency(rate.price.to_f / 100) %></td>
+    </tr>
+  <% end %>
+  <% @order.usps_rates.each do |rate| %>
+    <tr>
+      <td><%= rate.service_name %></td>
+      <td><%= number_to_currency(rate.price.to_f / 100) %></td>
+    </tr>
+  <% end %>
+</table>

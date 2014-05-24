@@ -1,0 +1,127 @@
+
+
+    <h1> You are Buying: </h1>
+    <ul>
+    <% @cart.line_items.each do |i| %>
+    <li>
+    <%=i.quantity %>  x  
+    <%=i.product.title %>
+    <%=i.product.price %>
+    <%= truncate i.product.description, length: 40 %>
+    </li>
+    <br>
+    <% end %>
+    </ul>
+
+
+
+    <%= form_for(@order) do |f| %>
+      <% if @order.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@order.errors.count, "error") %>
+          prohibited this order from being saved:</h2>
+     
+          <ul>
+          <% @order.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+  <div id="shipping_table_wrap">
+    <table id="shipping_info_table">
+      <tr class="shippingrow">
+        <td class="ship_col1">
+          <div class="field">
+            <%= f.label :name %><br />
+            <%= f.text_field :name, :size => 50 %>
+          </div>
+        </td>
+        <td class="ship_col2">
+          <div class="field">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, :size => 50 %>
+          </div>
+        </td>
+      </tr>
+      <tr class="shippingrow">
+        <td class="ship_col1">
+          <div class="field">
+            <%= f.label :address %><br />
+            <%= f.text_field :address, :size => 50 %>
+          </div>
+        </td>
+        <td class="ship_col2">
+          <div class="field">
+            <%= f.label :address2 %><br />
+            <%= f.text_field :address2, size: 50 %> 
+          </div>      
+        </td>
+      </tr>
+      <tr class="shippingrow">
+        <td class="ship_col1">
+          <div class="field">
+            <%= f.label :city %> <br />
+            <%= f.text_field :city, :size => 50 %>
+          </div>
+        </td>
+        <td class="ship_col2">
+          <div class="field">
+            <%= f.label :state %><br />
+            <%= f.text_field :state, :size => 50 %>
+          </div>
+        </td>
+      </tr>
+      <tr class="shippingrow">
+        <td class="ship_col1">
+            <div class="field">
+            <%= f.label :zip %> <br />
+            <%= f.text_field :zip, :size => 50 %>
+          </div>
+        </td>
+        <td class="ship_col2">
+          <div class="field">
+            <%= f.label :country %><br />
+            <%= f.text_field :country, :size => 50 %>
+          </div>
+        </td>
+      </tr>
+      <tr class="shippingrow">
+        <td class="ship_col1">
+          <div class="field">
+            <%= f.label :width %><br />
+            <%= f.text_field :width, :size => 50 %>
+          </div>
+        </td>
+        <td class="ship_col2">
+           <div class="field">
+            <%= f.label :height %><br />
+            <%= f.text_field :height, :size => 50 %>
+          </div>
+        </td>
+      </tr>
+      <tr class="shippingrow">
+        <td class="ship_col1">
+           <div class="field">
+            <%= f.label :weight %><br />
+            <%= f.text_field :weight, :size => 50 %>
+          </div>
+        </td>
+        <td class="ship_col2">
+          <div class="field">
+            <%= f.label :length %><br />
+            <%= f.text_field :length, :size => 50 %>
+          </div>
+        </td>
+      </tr>
+      <tr class="shippingrow">
+        <td class="ship_col1">
+          <div class="actions">
+            <%= f.submit 'Place Order', class: "btn btn-success" %>
+          </div>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+

@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: 
+  address: 
+  address2: 
+  city: 
+  state: 
+  zip: 
+  width: 
+  height: 
+  length: 
+  weight: 
+  cylinder: 
+  country: 
+  cart_id: 
+  email: MyString
+
+two:
+  name: 
+  address: 
+  address2: 
+  city: 
+  state: 
+  zip: 
+  width: 
+  height: 
+  length: 
+  weight: 
+  cylinder: 
+  country: 
+  cart_id: 
+  email: MyString
