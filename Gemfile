@@ -25,17 +25,13 @@ gem 'actionpack'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
-
-	group :doc do
-  # bundle exec rake doc:rails generates the API under doc/api.
-  	gem 'sdoc', require: false
-end
-
-
-
-end
 gem 'stripe'
 gem 'active_shipping'
+	group :doc do
+  # bundle exec rake doc:rails generates the API under doc/api.
+  		gem 'sdoc', require: false
+	end
+
 	group :development, :test do
 		gem 'rails_layout'
 		gem 'better_errors'
