@@ -11,6 +11,7 @@ class OrderPreviewsController < ApplicationController
   # GET /order_previews/1.json
   def show
     @cart = current_cart
+    @order_preview = @cart.order_preview
   end
 
   # GET /order_previews/new
@@ -21,13 +22,20 @@ class OrderPreviewsController < ApplicationController
 
   # GET /order_previews/1/edit
   def edit
+    @cart = current_cart
   end
 
   # POST /order_previews
   # POST /order_previews.json
   def create
     @cart = current_cart
-    @order_preview = @cart.build_order_preview(order_preview_params)
+    if  @cart.order_preview == nil
+        @order_preview = @cart.build_order_preview(order_preview_params)
+    else
+        @order_preview = @cart.order_preview
+        render action: 'show'
+        return @order_preview
+    end
     respond_to do |format|
       if @order_preview.save
         format.html { redirect_to @order_preview, notice: 'Order preview was successfully created.' }
@@ -66,11 +74,11 @@ class OrderPreviewsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_order_preview
-      @order_preview = OrderPreview.find(params[:id])
+        @cart = current_cart
+        @order_preview = @cart.order_preview
     end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_preview_params
-      params.require(:order_preview).permit(:name, :address, :address2, :city, :state, :zip, :width, :height, :length, :weight, :cylinder, :country, :cart_id, :email)
+      params.require(:order_preview).permit(:name, :address, :address2, :city, :state, :zip, :width, :height, :length, :weight, :cylinder, :country, :cart_id, :email, :permalink)
     end
 end

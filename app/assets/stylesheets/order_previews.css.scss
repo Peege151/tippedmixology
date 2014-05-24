@@ -4,7 +4,16 @@
 // Place all the styles related to the Orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
- 
+.progress .progress-bar.six-sec-ease-in-out {
+    -webkit-transition: width 6s ease-in-out;
+    -moz-transition: width 6s ease-in-out;
+    -ms-transition: width 6s ease-in-out;
+    -o-transition: width 6s ease-in-out;
+    transition: width 6s ease-in-out;
+}
+.progress {
+	height:40px !important;
+} 
 #orderform {
 	width: 800px;
 	margin: 0 auto;
@@ -18,8 +27,6 @@
 			font-family: "Avenir Condensed";
 			text-align: center;
 			}
-}
-#shipping_table_wrap {
 }
 tr.shippingrow {
 			width:600px;
@@ -47,5 +54,129 @@ table#shipping_info_table {
 	width:600px;
 	margin: 0 auto;
 	text-align: center;
-			font-family: "Avenir Condensed";
+	font-family: "Avenir Condensed";
+}
+#shipping_to_address_wrap {
+	width:400px;
+	float:right;
+	margin-right:80px;
+	overflow: hidden
+}
+table#shipping_to_address_table {
+	width:400px;
+	height:458px;
+	border:1px solid #eee;
+	tr.ship_row {
+		height:76px;
+		width: 400px;
+		border: 3px solid #eee;	
+
+	}
+	td.ship_label {
+		width:50px;
+		height:75px;
+		display:table-cell;
+		text-align:right;
+		vertical-align:middle;
+		font-family: "Avenir Condensed";
+		font-size: 150%;
+
+	}
+	td.info{
+		width:120px;
+		height:75px;
+		display:table-cell;
+		text-align:left;
+		vertical-align:middle;
+		font-family: "Avenir Condensed";
+		font-size: 150%;
+		padding-left:40px;
+		position:relative;
+
+
+	}
+}
+#shipping_products_preview_wrap {
+	width:500px;
+	float:left;
+	margin: 0 auto;
+	margin-left:40px;
+
+}
+table#shipping_products_preview {
+	width:500px;
+
+	tr.cart_ship_prev {
+		border: 3px solid #eee;
+		height:150px;
+		margin:0px;
+	}
+
+	td.cart_ship_prev_item {
+		text-align:center;
+		padding:10px;
+		height:100%;
+		width: 230px;
+		margin-left:20px;
+		font-family: "Avenir Condensed";
+		font-size:150%;
+		line-height: 150%;
+		margin:2px;
+
+	}
+	td.cart_ship_prev_price {
+		width:70px;
+		height:100%;
+		font-family: "Avenir Condensed";
+		font-size:150%;
+		margin:2px;
+
+
+	}
+	td.cart_ship_prev_qty {
+		height:100%;
+		width:80px;
+		vertical-align:middle;
+		text-align:center;
+		font-family: "Avenir Condensed";
+		font-size:150%;
+		margin:0px;
+
+	}
+	td.cart_ship_prev_img {
+		margin:0px;
+		img {
+			height:150px;
+			margin:0px;
+		}
+	}
+}
+
+#shipping_option_wrapper {
+	height:150px;
+	width:510px;
+	margin-left:40px;
+	margin-top:50px;
+	float:left;
+		select {
+		font-family: "Avenir Condensed";
+		font-size:150%;
+		border: 3px solid #eee;
+		width:505px;
+		}
+		option {
+		font-family: "Avenir Condensed";
+		}
+}
+#submit_to_stripe_button {
+	width:100%;
+	height:100px;
+	float:left;
+	margin-bottom:30px;
+	text-align: center;
+		input {
+			height:50px;
+			width:50%;
+			text-align:center;	
+		}
 }

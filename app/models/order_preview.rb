@@ -5,6 +5,7 @@ class OrderPreview < ActiveRecord::Base
 	belongs_to :cart
 	has_one :order
 	# validations
+	validates :cart_id, presence:true
 	validates :name, presence: true
   	validates :city, presence: true
   	validates :state, presence: true
@@ -16,6 +17,9 @@ class OrderPreview < ActiveRecord::Base
   	validates :weight, presence: true
 
   	#methods
+  	def to_param
+    	"#{id}#{permalink}"
+  	end
 	def origin
 	    Location.new(address: "1 northside Piers", state: "NY", city: "Brooklyn", zip: "11249", country: "US")
 	end
@@ -29,6 +33,7 @@ class OrderPreview < ActiveRecord::Base
 	end
 
 	def get_rates_from_shipper(shipper)
+
 	    response = shipper.find_rates(origin, destination, packages)
 	    response.rates.sort_by(&:price)
 	end
@@ -48,6 +53,7 @@ class OrderPreview < ActiveRecord::Base
 
 	def usps_rates
 	    usps = USPS.new(login: '712TIPPE4855', password: '873SM63PI387')
+		# response_first_class = usps.find_rates(origin, destination, packages, {service: :first_class})
 	    get_rates_from_shipper(usps)
 	end
 end
