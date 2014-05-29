@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140523075403) do
+ActiveRecord::Schema.define(version: 20140528055130) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,6 +80,9 @@ ActiveRecord::Schema.define(version: 20140523075403) do
     t.datetime "updated_at"
     t.string   "permalink"
     t.float    "grand_total"
+    t.float    "shipping_price"
+    t.string   "shipping_type"
+    t.float    "sub_total"
   end
 
   create_table "orders", force: true do |t|
@@ -100,6 +103,9 @@ ActiveRecord::Schema.define(version: 20140523075403) do
     t.boolean  "cylinder"
     t.string   "country"
     t.integer  "cart_id"
+    t.float    "shipping_price"
+    t.float    "grand_total"
+    t.string   "shipping_type"
   end
 
   create_table "products", force: true do |t|

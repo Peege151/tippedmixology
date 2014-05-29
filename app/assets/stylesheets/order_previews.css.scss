@@ -153,7 +153,7 @@ table#shipping_products_preview {
 }
 
 #shipping_option_wrapper {
-	height:150px;
+	height:100px;
 	width:510px;
 	margin-left:40px;
 	margin-top:50px;
@@ -168,15 +168,25 @@ table#shipping_products_preview {
 		font-family: "Avenir Condensed";
 		}
 }
+#bottom_line {
+	height:50px;
+	width:510px;
+	font-family: "Avenir Condensed";
+	font-size:150%;
+	margin-left:40px;
+	margin-top:10px;
+	float:left;
+	text-align: left;
+}
 #submit_to_stripe_button {
-	width:100%;
+	width:510px;
 	height:100px;
 	float:left;
-	margin-bottom:30px;
-	text-align: center;
+	margin-left:40px;
+	margin-top:10px;
 		input {
 			height:50px;
-			width:50%;
+			width:510px;
 			text-align:center;	
 		}
 }

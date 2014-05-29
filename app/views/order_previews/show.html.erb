@@ -1,3 +1,16 @@
+
+<% ship_hash = {} %>
+       <% @order_preview.fedex_rates.each do |rate| %>
+            <% if rate.service_name == "FedEx Ground Home Delivery" || rate.service_name == "FedEx 2 Day" || rate.service_name == "FedEx Standard Overnight" %>
+            <% ship_hash["#{rate.service_name}"] = "#{number_to_currency(rate.price.to_f / 100)}" %>
+            <% end %>
+        <% end %>
+       <% @order_preview.usps_rates.each do |rate| %>
+            <% if rate.service_name == "USPS Priority Mail 1-Day" %>
+              <% ship_hash["#{rate.service_name}"] = "#{number_to_currency(rate.price.to_f / 100)}" %>
+            <% end %>
+        <% end %>
+
 <div id="contentwrap">
   <div id="content">
               <div class="progress progress-striped active">
@@ -56,42 +69,35 @@
   </div>
   <br />
   <div id="shipping_option_wrapper">
+    <%= form_for(@order_preview) do |f| %> 
+    <% if @order_preview.shipping_type == nil %>  
       <h2>Select Shipping Option</h2>
-        <select name="shipping option">
-            <option>
-            </option>
-        <% @order_preview.fedex_rates.each do |rate| %>
-            <option>
-            <%= rate.service_name %>
-            <%= number_to_currency(rate.price.to_f / 100) %>
-            </option>
-        <% end %>
-            <option>
-            </option>
-        <% @order_preview.usps_rates.each do |rate| %>
-            <% if rate.service_name.include?("Letter") || rate.service_name.include?("Envelope") || rate.service_name.include?("Media") || rate.service_name.include?("Library") %>
-            <% else %>
-            <option>
-                <%= rate.service_name %>
-                <%= number_to_currency(rate.price.to_f / 100) %>
-            </option>
-            <% end %>
-        <% end %>
-      </select>
-    </div>
-    <br/>
+    <% else %>
+      <h2>Change Shipping Option? </h2>
+      <%= f.select :shipping_type, options_for_select(ship_hash.map { |k, v| ["#{k}: #{v}", "#{k}  " + "#{v}"] }) %>  
+      <% end %> 
+  </div>
+  
+  <br/>
+  <div id="bottom_line">
+    <% if @order_preview.shipping_price !=nil %>
+    Sub Total: <%=@order_preview.sub_total %> <br>
+    Shipping: <%= @order_preview.shipping_price %><br>
+    Grand Total: <strong> <%= @order_preview.grand_total %> </strong>
+  <% end %>  
+  </div>
     <%= @order_preview.cart.sub_total %>
     <% if @order_preview.grand_total == nil %>
-      <%= form_for(@order_preview) do |f| %>    
         <div id="submit_to_stripe_button">
           <%= button_to "Get Grand Total", root_path, class: "btn btn-primary" %>
         </div> 
-      <% end %>
     <% else %> 
     <div id="submit_to_stripe_button">
+      <%= button_to "Change Shipping", root_path,  class: "btn btn-primary" %>
       <%= button_to "Pay With Stripe", root_path, class: "btn btn-success" %>
     </div>
     <% end %>
+  <% end %>
   </div>
 </div>
       <!-- 

@@ -12,6 +12,8 @@ class OrderPreviewsController < ApplicationController
   def show
     @cart = current_cart
     @order_preview = @cart.order_preview
+    ship_methods = @order_preview.fedex_rates.each
+
   end
 
   # GET /order_previews/new
@@ -52,7 +54,16 @@ class OrderPreviewsController < ApplicationController
   def update
     respond_to do |format|
       if @order_preview.update(order_preview_params)
-        format.html { redirect_to @order_preview, notice: 'Order preview was successfully updated.' }
+        if @order_preview.shipping_type != nil
+           @order_preview.update_attribute(:sub_total, @order_preview.cart.sub_total)
+        end
+        if @order_preview.shipping_type != nil
+           @order_preview.update_attribute(:shipping_price, @order_preview.shipping_type.split(/\$(.*)\z/)[1])
+        end 
+        if @order_preview.shipping_price != nil
+           @order_preview.update_attribute(:grand_total, @order_preview.shipping_price + @order_preview.sub_total)
+        end       
+        format.html { redirect_to @order_preview, notice: "Order preview was successfully updated '#{@order_preview.shipping_type}'" }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -79,6 +90,6 @@ class OrderPreviewsController < ApplicationController
     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_preview_params
-      params.require(:order_preview).permit(:name, :address, :address2, :city, :state, :zip, :width, :height, :length, :weight, :cylinder, :country, :cart_id, :email, :permalink)
+      params.fetch(:order_preview, {}).permit(:name, :address, :address2, :city, :state, :zip, :width, :height, :length, :weight, :cylinder, :country, :cart_id, :email, :permalink, :shipping_type, :shipping_price, :sub_total, :grand_total)
     end
 end
