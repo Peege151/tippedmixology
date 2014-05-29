@@ -1,16 +1,4 @@
 
-<% ship_hash = {} %>
-       <% @order_preview.fedex_rates.each do |rate| %>
-            <% if rate.service_name == "FedEx Ground Home Delivery" || rate.service_name == "FedEx 2 Day" || rate.service_name == "FedEx Standard Overnight" %>
-            <% ship_hash["#{rate.service_name}"] = "#{number_to_currency(rate.price.to_f / 100)}" %>
-            <% end %>
-        <% end %>
-       <% @order_preview.usps_rates.each do |rate| %>
-            <% if rate.service_name == "USPS Priority Mail 1-Day" %>
-              <% ship_hash["#{rate.service_name}"] = "#{number_to_currency(rate.price.to_f / 100)}" %>
-            <% end %>
-        <% end %>
-
 <div id="contentwrap">
   <div id="content">
               <div class="progress progress-striped active">
@@ -74,8 +62,8 @@
       <h2>Select Shipping Option</h2>
     <% else %>
       <h2>Change Shipping Option? </h2>
-      <%= f.select :shipping_type, options_for_select(ship_hash.map { |k, v| ["#{k}: #{v}", "#{k}  " + "#{v}"] }) %>  
-      <% end %> 
+          <%= f.select(:shipping_type, options_for_select(ship_options)) %>
+    <% end %> 
   </div>
   
   <br/>
