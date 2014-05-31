@@ -58,33 +58,51 @@
   <br />
   <div id="shipping_option_wrapper">
     <%= form_for(@order_preview) do |f| %> 
-    <% if @order_preview.shipping_type == nil %>  
+    <% if @order_preview.shipping_type == nil %> 
       <h2>Select Shipping Option</h2>
-    <% else %>
-      <h2>Change Shipping Option? </h2>
+          <% if @order_preview.ship_option_hash != nil %>
+          <%= f.select(:shipping_type, options_for_select(@order_preview.ship_option_hash)) %>
+          <% else %>
           <%= f.select(:shipping_type, options_for_select(ship_options)) %>
+          <% end %>
+      <% else %>
+       <h2>Change Shipping Option? </h2>
+          <% if @order_preview.ship_option_hash == nil %>
+          <% else %>
+          <%= f.select(:shipping_type, options_for_select(@order_preview.ship_option_hash)) %>
+          <% end %>
     <% end %> 
+
   </div>
   
   <br/>
-  <div id="bottom_line">
-    <% if @order_preview.shipping_price !=nil %>
-    Sub Total: <%=@order_preview.sub_total %> <br>
-    Shipping: <%= @order_preview.shipping_price %><br>
-    Grand Total: <strong> <%= @order_preview.grand_total %> </strong>
-  <% end %>  
-  </div>
-    <%= @order_preview.cart.sub_total %>
     <% if @order_preview.grand_total == nil %>
         <div id="submit_to_stripe_button">
           <%= button_to "Get Grand Total", root_path, class: "btn btn-primary" %>
         </div> 
     <% else %> 
-    <div id="submit_to_stripe_button">
-      <%= button_to "Change Shipping", root_path,  class: "btn btn-primary" %>
-      <%= button_to "Pay With Stripe", root_path, class: "btn btn-success" %>
-    </div>
+      <div id="submit_to_stripe_button">
+        <%= button_to "Change Shipping", root_path,  class: "btn btn-primary" %>
+        <br>
+        <%= button_to "Check Order Page", charges_path, :method => "POST", :action => "create", class: "btn btn-success" %>
+
+          <div id="bottom_line">
+            <% if @order_preview.shipping_price !=nil %>
+            Sub Total: <%= number_to_currency(@order_preview.sub_total) %> <br>
+            Shipping: <%= number_to_currency(@order_preview.shipping_price) %><br>
+            Grand Total: <strong> <%= number_to_currency(@order_preview.grand_total) %> </strong>
+            <% end %>  
+          </div>
+        <br >
+        <%= form_tag charges_path do %>
+            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                    data-description="Tipped Mixology"
+                    data-amount="<%= @amount * 100 %>"> </script>
+            <% end %>    
     <% end %>
+     
+    </div>
   <% end %>
   </div>
 </div>

@@ -12,8 +12,7 @@ class OrderPreviewsController < ApplicationController
   def show
     @cart = current_cart
     @order_preview = @cart.order_preview
-    ship_methods = @order_preview.fedex_rates.each
-
+    @amount = @order_preview.grand_total
   end
 
   # GET /order_previews/new

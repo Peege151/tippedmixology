@@ -15,7 +15,7 @@ class OrderPreview < ActiveRecord::Base
   	validates :width, presence: true
   	validates :height, presence: true
   	validates :weight, presence: true
-
+  	serialize :ship_option_hash, JSON
   	#methods
   	def to_param
     	"#{id}#{permalink}"
