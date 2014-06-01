@@ -12,17 +12,17 @@ class ChargesController < ApplicationController
     @order_preview = @cart.order_preview
     @amount = @order_preview.grand_total
 
-    # customer = Stripe::Customer.create(
-    #   :email => 'example@stripe.com',
-    #   :card  => params[:stripeToken]
-    # )
+    customer = Stripe::Customer.create(
+      :email => 'example@stripe.com',
+      :card  => params[:stripeToken]
+    )
 
-    # charge = Stripe::Charge.create(
-    #   :customer    => customer.id,
-    #   :amount      => (@amount * 100).to_i,
-    #   :description => 'Rails Stripe customer',
-    #   :currency    => 'usd'
-    # )
+    charge = Stripe::Charge.create(
+      :customer    => customer.id,
+      :amount      => (@amount * 100).to_i,
+      :description => 'Rails Stripe customer',
+      :currency    => 'usd'
+    )
     @order = Order.new(
                 :name => @order_preview.name,
                 :email => @order_preview.email,
@@ -41,8 +41,8 @@ class ChargesController < ApplicationController
     @order.save
     redirect_to order_path(@order.id)
 
-  # rescue Stripe::CardError => e
-  #   flash[:error] = e.message
-  #   redirect_to charges_path
+  rescue Stripe::CardError => e
+    flash[:error] = e.message
+    redirect_to charges_path
   end
 end

@@ -84,8 +84,6 @@
       <div id="submit_to_stripe_button">
         <%= button_to "Change Shipping", root_path,  class: "btn btn-primary" %>
         <br>
-        <%= button_to "Check Order Page", charges_path, :method => "POST", :action => "create", class: "btn btn-success" %>
-
           <div id="bottom_line">
             <% if @order_preview.shipping_price !=nil %>
             Sub Total: <%= number_to_currency(@order_preview.sub_total) %> <br>
