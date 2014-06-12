@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Your Order Order, #<%= @order.id %></h1>
+    <p>
+        Name: <%= @order.name %>  <br>
+        Address: <%= @order.address %>  <br>
+        Address2: <%= @order.address2 %>  <br>
+        City: <%= @order.city %>  <br>
+        State: <%= @order.state %>  <br>
+        Zip: <%= @order.zip %>  <br>
+
+        Items:
+
+        <% @cart.line_items.each do |item| %>
+            <%= item.product.title %>
+            <%= item.quantity %>
+            <% end %>
+</p>
+    </body>
+</html>

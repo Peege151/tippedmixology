@@ -36,9 +36,17 @@ class ChargesController < ApplicationController
                 :shipping_type => @order_preview.shipping_type,
                 :shipping_price => @order_preview.shipping_price,
                 :grand_total => @amount,
-                :cart => @cart
+                :cart => @cart,
+                #:items => @cart.line_items.to_a
+
                 )
     @order.save
+    raise
+    ##MAIL STUFF
+    OrderMailer.new_order
+    OrderMailer.confirmation
+    ##redirect_conf page
+    @cart.destroy
     redirect_to order_path(@order.id)
 
   rescue Stripe::CardError => e
