@@ -1,66 +1,68 @@
-<div id ="content">
-<%= @cart.active? %>
+<div id="contentwrap">
+	<div id ="content">
+	(TEST: Cart Active: <%= @cart.active? %>)
 
-<% if @cart.active? %>
-	<% if @cart.line_items.count == 0 %>
-		<h2> Your Cart is Empty!</h2> <br>
-	<% else %>
-	<h2>Your Cart</h2>
-		<div id="cartlist">
+	<% if @cart.active? %>
+		<% if @cart.line_items.count == 0 %>
+			<h2> Your Cart is Empty!</h2> <br>
+		<% else %>
+		<h2>Your Cart</h2>
+			<div id="cartlist">
 
-		<ul>
-		  	<table>
-		  		<tr class="total_line">
-    				<td class="img"></td>
-    				<td class="header_cart_item_cart_qty"> QTY:</td>
-    				<td class="header_cart_item_cart_item"> Name:</td>
-    				<td class="header_cart_description">Description:</td>
-    				<td class="header_cart_item_cart_price">Price: </td>
-  				</tr>  
-		  <% @cart.line_items.each do |item| %>
-		
-		  		<tr class="top_cart">
-		  			<td class="img"><%= image_tag(item.product.image_url(:thumb)) %> </td>
-						<%= simple_form_for(item) do |f| %>
-				    		<td class="cart_qty"> 
-				    		<%= f.input :quantity, :value => "#{item.quantity}", :label => false %>
-				    		</td>
-			    	<td class="cart_item"> <%= link_to "#{item.product.title}", product_path(:id => item.product_id) %>
-			    	</td>
-			    	<td class="cart_description"> <%= truncate item.product.description, length:160 %> <%= link_to "read more", product_path(:id=> item.product_id) %> </td>	
-			    	<td class="cart_price"><%= (item.product.price) * (item.quantity) %> </td>
-			    	<td class="cart_remove_button"><%= f.button :submit, 'Update Quantity',class: "btn btn-primary" %></td>
-			    	<% end %>
-			    </tr>
-		  	<% end %>
-		  		<tr class="total_line">
-    				<td class="img"></td>
-    				<td class="bottom_cart_qty"></td>
-    				<td class="bottom_cart_item"> </td>
-    				<td class="bottom_cart_description">Total:</td>
-    				<td class="bottom_cart_price"> $<%= @cart.sub_total %> </td>
-    				
-    				<% if @cart.order_preview == nil %>
-    					<td class="bottom_cart_checkout_button"> <%= button_to 'Begin Checkout', new_order_preview_path(cart_id: @cart.id),  :method => :get, class: "btn btn-success" %> </td>
-    				<% else %>
-    					<td class="bottom_cart_checkout_button"> <%= button_to 'Resume Checkout', order_preview_path(id: (@cart.order_preview.id.to_s) + (@cart.order_preview.permalink.to_s)),  :method => :get, class: "btn btn-success" %> </td>
-    				<% end %>
-  				</tr>
-  				<tr class="total_line">
-    				<td class="img"></td>
-    				<td class="bottom_cart_qty"></td>
-    				<td class="bottom_cart_item"> </td>
-    				<td class="bottom_cart_description"></td>
-    				<td class="bottom_cart_price"> </td>
-    				<td class="bottom_cart_remove_button"> <%= button_to 'Empty cart', @cart, :method => :delete, class: "btn btn-danger" %> </td>
-  				</tr>
-  			</table>
-		</ul>
-		</div>
+			<ul>
+			  	<table>
+			  		<tr class="total_line">
+	    				<td class="img"></td>
+	    				<td class="header_cart_item_cart_qty"> QTY:</td>
+	    				<td class="header_cart_item_cart_item"> Name:</td>
+	    				<td class="header_cart_description">Description:</td>
+	    				<td class="header_cart_item_cart_price">Price: </td>
+	  				</tr>  
+			  <% @cart.line_items.each do |item| %>
+			
+			  		<tr class="top_cart">
+			  			<td class="img"><%= image_tag(item.product.image_url(:thumb)) %> </td>
+							<%= simple_form_for(item) do |f| %>
+					    		<td class="cart_qty"> 
+					    		<%= f.input :quantity, :value => "#{item.quantity}", :label => false %>
+					    		</td>
+				    	<td class="cart_item"> <%= link_to "#{item.product.title}", product_path(:id => item.product_id) %>
+				    	</td>
+				    	<td class="cart_description"> <%= truncate item.product.description, length:160 %> <%= link_to "read more", product_path(:id=> item.product_id) %> </td>	
+				    	<td class="cart_price"><%= (item.product.price) * (item.quantity) %> </td>
+				    	<td class="cart_remove_button"><%= f.button :submit, 'Update Quantity',class: "btn btn-primary" %></td>
+				    	<% end %>
+				    </tr>
+			  	<% end %>
+			  		<tr class="total_line">
+	    				<td class="img"></td>
+	    				<td class="bottom_cart_qty"></td>
+	    				<td class="bottom_cart_item"> </td>
+	    				<td class="bottom_cart_description">Total:</td>
+	    				<td class="bottom_cart_price"> $<%= @cart.sub_total %> </td>
+	    				
+	    				<% if @cart.order_preview == nil %>
+	    					<td class="bottom_cart_checkout_button"> <%= button_to 'Begin Checkout', new_order_preview_path(cart_id: @cart.id),  :method => :get, class: "btn btn-success" %> </td>
+	    				<% else %>
+	    					<td class="bottom_cart_checkout_button"> <%= button_to 'Resume Checkout', order_preview_path(id: (@cart.order_preview.id.to_s) + (@cart.order_preview.permalink.to_s)),  :method => :get, class: "btn btn-success" %> </td>
+	    				<% end %>
+	  				</tr>
+	  				<tr class="total_line">
+	    				<td class="img"></td>
+	    				<td class="bottom_cart_qty"></td>
+	    				<td class="bottom_cart_item"> </td>
+	    				<td class="bottom_cart_description"></td>
+	    				<td class="bottom_cart_price"> </td>
+	    				<td class="bottom_cart_remove_button"> <%= button_to 'Empty cart', @cart, :method => :delete, class: "btn btn-danger" %> </td>
+	  				</tr>
+	  			</table>
+			</ul>
+			</div>
+			<% end %>
+		<%= link_to 'Back', products_path %>
+		<% else %>
+		<h1> You Have Placed Your Order.  Go To The Store To Start A New One! </h1>
 		<% end %>
-	<%= link_to 'Back', products_path %>
-	<% else %>
-	<h1> You Have Placed Your Order.  Go To The Store To Start A New One! </h1>
-	<% end %>
+	</div>
 </div>
 
