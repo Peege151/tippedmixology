@@ -1,5 +1,6 @@
 <div id ="content">
 <% if @cart.active? %>
+<%= @cart.active? %>
 	<% if @cart.line_items.count == 0 %>
 		<h2> Your Cart is Empty!</h2> <br>
 	<% else %>
