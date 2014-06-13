@@ -10,21 +10,22 @@
     <h3> An email has been sent to <%= @order.email %>! </h3>
     <div id="shipping_products_preview_wrap">
     <h2>You Have Ordered</h2>
+
+
       <table id="shipping_products_preview">
-        <% @order.cart.line_items.each do |item| %>  
-          <tr class="top_cart">
-            <td class="img"><%= image_tag(item.product.image_url(:thumb)) %> </td>
-                  <td class="cart_qty"> 
-                  <%=  "#{item.quantity}" %>
-                  </td>
-              <td class="cart_item"> <%= link_to "#{item.product.title}", product_path(:id => item.product_id) %>
-              </td>
-              <td class="cart_description"> <%= truncate item.product.description, length:160 %> <%= link_to "read more", "http://localhost:3000/products/#{item.product_id}"%> </td> 
-              <td class="cart_price"><%= (item.product.price) * (item.quantity) %> </td>
-            </tr>
-          <% end %>     
+          <% @order.items.each do |id| %>
+             <% @line_item = LineItem.find(id) %>
+          <tr class="cart_ship_prev">
+            <td class="cart_ship_img"><%= image_tag(@line_item.product.image_url(:thumb)) %> </td>
+                <td class="cart_ship_prev_qty"> 
+                <%= "#{@line_item.quantity}"  %>
+                </td>
+            <td class="cart_ship_prev_item"> <%= "#{@line_item.product.title}" %>
+            </td>
+            <td class="cart_ship_prev_price">$<%= (@line_item.product.price) * (@line_item.quantity) %> </td>
+          </tr>
+        <% end %>
       </table>
-   <%= link_to "Edit Cart Contents", cart_path(@cart) %>
     </div>
     <div id="shipping_to_address_wrap">  
       <h2> ...To... </h2>

@@ -25,7 +25,7 @@
 				    		</td>
 			    	<td class="cart_item"> <%= link_to "#{item.product.title}", product_path(:id => item.product_id) %>
 			    	</td>
-			    	<td class="cart_description"> <%= truncate item.product.description, length:160 %> <%= link_to "read more", "http://localhost:3000/products/#{item.product_id}"%> </td>	
+			    	<td class="cart_description"> <%= truncate item.product.description, length:160 %> <%= link_to "read more", product_path(:id=> item.product_id) %> </td>	
 			    	<td class="cart_price"><%= (item.product.price) * (item.quantity) %> </td>
 			    	<td class="cart_remove_button"><%= f.button :submit, 'Update Quantity',class: "btn btn-primary" %></td>
 			    	<% end %>

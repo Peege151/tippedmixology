@@ -37,13 +37,12 @@ class ChargesController < ApplicationController
                 :shipping_price => @order_preview.shipping_price,
                 :grand_total => @amount,
                 :cart => @cart,
-                #:items => @cart.line_items.to_a
-
+                :items => @cart.line_items.to_a
                 )
     @order.save
     ##MAIL STUFF
-    OrderMailer.new_order
-    OrderMailer.confirmation
+    OrderMailer.new_order(@order)
+    OrderMailer.confirmation(@order)
     ##redirect_conf page
     @cart.destroy
     redirect_to order_path(@order.id)

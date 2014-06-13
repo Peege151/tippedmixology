@@ -108,7 +108,7 @@ ActiveRecord::Schema.define(version: 20140612220646) do
     t.float    "grand_total"
     t.string   "shipping_type"
     t.string   "permalink"
-    t.text     "items",          array: true
+    t.integer  "items",          array: true
   end
 
   create_table "products", force: true do |t|
