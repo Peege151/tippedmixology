@@ -86,7 +86,7 @@
         <br>
           <div id="bottom_line">
             <% if @order_preview.shipping_price !=nil %>
-            Sub Total: <%= number_to_currency(@order_preview.sub_total) %> <br>
+            Sub Total: <%= number_to_currency(@cart.order_preview.sub_total) %> <br>
             Shipping: <%= number_to_currency(@order_preview.shipping_price) %><br>
             Grand Total: <strong> <%= number_to_currency(@order_preview.grand_total) %> </strong>
             <% end %>  
