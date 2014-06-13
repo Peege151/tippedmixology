@@ -6,13 +6,14 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all
     @line_item = LineItem.new
+    @cart = current_cart
   end
 
   # GET /products/1
   # GET /products/1.json
   def show
 
-
+    @cart = current_cart
   end
 
   # GET /products/new

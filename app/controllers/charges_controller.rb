@@ -11,7 +11,6 @@ class ChargesController < ApplicationController
     @cart = current_cart
     @order_preview = @cart.order_preview
     @amount = @order_preview.grand_total
-
     customer = Stripe::Customer.create(
       :email => 'example@stripe.com',
       :card  => params[:stripeToken]
@@ -43,7 +42,6 @@ class ChargesController < ApplicationController
     OrderMailer.new_order(@order).deliver
     OrderMailer.confirmation(@order).deliver
     ##redirect_conf page
-    @cart.destroy
     redirect_to order_path(@order.id)
 
   rescue Stripe::CardError => e

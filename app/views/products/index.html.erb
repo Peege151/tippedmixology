@@ -30,8 +30,7 @@
               $<%= product.price %>
               </div>
               <div class="index_store_fl">
-              <%= form_for(( LineItem.find_by(product_id:product.id) || LineItem.new)) do |f| %>
-              
+              <%= form_for(( @cart.line_items.find_by(product_id:product.id) || LineItem.new)) do |f| %>  
               <%= f.hidden_field :product_id, value:product.id %>
               <%= f.select :quantity, options_for_select([1,2,3]) %> 
               </div> <br>

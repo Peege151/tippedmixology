@@ -1,5 +1,5 @@
 <div id ="content">
-
+<% if @cart.active? %>
 	<% if @cart.line_items.count == 0 %>
 		<h2> Your Cart is Empty!</h2> <br>
 	<% else %>
@@ -53,10 +53,12 @@
     				<td class="bottom_cart_remove_button"> <%= button_to 'Empty cart', @cart, :method => :delete, class: "btn btn-danger" %> </td>
   				</tr>
   			</table>
-
-
 		</ul>
 		</div>
 		<% end %>
 	<%= link_to 'Back', products_path %>
+	<% else %>
+	<h1> You Have Placed Your Order.  Go To The Store To Start A New One! </h1>
+	<% end %>
 </div>
+
