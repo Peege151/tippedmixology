@@ -41,7 +41,6 @@ class ChargesController < ApplicationController
 
                 )
     @order.save
-    raise
     ##MAIL STUFF
     OrderMailer.new_order
     OrderMailer.confirmation
