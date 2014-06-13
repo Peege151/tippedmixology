@@ -5,28 +5,24 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @products = Product.all
-    @mail_subscriber = MailSubscriber.new(mail_subscriber_params)
-
+    @line_item = LineItem.new
   end
 
   # GET /products/1
   # GET /products/1.json
   def show
 
-    @mail_subscriber = MailSubscriber.new(mail_subscriber_params)
 
   end
 
   # GET /products/new
   def new
     @product = Product.new
-    @mail_subscriber = MailSubscriber.new(mail_subscriber_params)
 
   end
 
   # GET /products/1/edit
   def edit
-    @mail_subscriber = MailSubscriber.new(mail_subscriber_params)
 
   end
 
