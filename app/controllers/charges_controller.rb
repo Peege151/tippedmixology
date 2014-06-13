@@ -41,8 +41,8 @@ class ChargesController < ApplicationController
                 )
     @order.save
     ##MAIL STUFF
-    OrderMailer.new_order(@order)
-    OrderMailer.confirmation(@order)
+    OrderMailer.new_order(@order).deliver
+    OrderMailer.confirmation(@order).deliver
     ##redirect_conf page
     @cart.destroy
     redirect_to order_path(@order.id)
