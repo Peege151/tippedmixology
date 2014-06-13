@@ -52,7 +52,7 @@ class LineItemsController < ApplicationController
         redirect_to :back
         else    
         flash[:success] = "Producted Updated"
-        redirect_to @line_item.cart
+        redirect_to current_cart
         end
   end
 

@@ -1,5 +1,5 @@
 class Cart < ActiveRecord::Base
-  has_many :line_items
+  has_many :line_items, dependent: :destroy
   has_one :order_preview
   has_one :order
   def sub_total
