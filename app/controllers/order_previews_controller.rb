@@ -1,8 +1,13 @@
 class OrderPreviewsController < ApplicationController
   before_action :set_order_preview, only: [:show, :edit, :update, :destroy]
+   
 
   # GET /order_previews
   # GET /order_previews.json
+  include ActiveMerchant::Shipping
+  include ActionView::Helpers::NumberHelper
+
+
   def index
     @order_previews = OrderPreview.all
   end
@@ -30,6 +35,7 @@ class OrderPreviewsController < ApplicationController
   # POST /order_previews.json
   def create
     @cart = current_cart
+    get_ship_options
     if  @cart.order_preview == nil
         @order_preview = @cart.build_order_preview(order_preview_params)
     else
@@ -39,7 +45,7 @@ class OrderPreviewsController < ApplicationController
     end
     respond_to do |format|
       if @order_preview.save
-        format.html { redirect_to @order_preview, notice: 'Order preview was successfully created.' }
+        format.html { redirect_to @order_preview }
         format.json { render action: 'show', status: :created, location: @order_preview }
       else
         format.html { render action: 'new' }
@@ -51,18 +57,11 @@ class OrderPreviewsController < ApplicationController
   # PATCH/PUT /order_previews/1
   # PATCH/PUT /order_previews/1.json
   def update
+    get_ship_options
+    @order_preview.change_shipping_type if params['order_preview']['shipping_type'].present?
     respond_to do |format|
-      if @order_preview.update(order_preview_params)
-        if @order_preview.shipping_type != nil
-           @order_preview.update_attribute(:sub_total, @order_preview.cart.sub_total)
-        end
-        if @order_preview.shipping_type != nil
-           @order_preview.update_attribute(:shipping_price, @order_preview.shipping_type.split(/\$(.*)\z/)[1])
-        end 
-        if @order_preview.shipping_price != nil
-           @order_preview.update_attribute(:grand_total, @order_preview.shipping_price + @order_preview.sub_total)
-        end       
-        format.html { redirect_to @order_preview, notice: "Order preview was successfully updated '#{@order_preview.shipping_type}'" }
+      if @order_preview.update(order_preview_params)   
+        format.html { redirect_to @order_preview, notice: "Added: '#{@order_preview.shipping_type}'" }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -83,12 +82,20 @@ class OrderPreviewsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_order_preview
+  def get_ship_options
+      @order_preview.get_ship_options
+  end
+  def set_order_preview
         @cart = current_cart
         @order_preview = @cart.order_preview
-    end
+  end
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_preview_params
-      params.fetch(:order_preview, {}).permit(:name, :address, :address2, :city, :state, :zip, :width, :height, :length, :weight, :cylinder, :country, :cart_id, :email, :permalink, :shipping_type, :shipping_price, :sub_total, :grand_total)
+      params.fetch(:order_preview, {}).permit(:name, :address, :address2, :city, :state, :zip, :width, :height, :length, :weight, :cylinder, :country, :cart_id, :email, :permalink, :shipping_type, :shipping_price, :sub_total, :grand_total, :ship_option_hash)
+    end
+    def update_ship_options
+      if @order_preview.zip_changed?
+          get_ship_options
+      end
     end
 end

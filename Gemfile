@@ -9,7 +9,7 @@ gem 'carrierwave'
 gem 'mail_form'
 gem "simple_form", "~> 3.0.0.rc"
 gem 'mini_magick'
-
+gem 'pry-rails'
 #Use Devise for Auth
 gem 'devise'
 # Use Uglifier as compressor for JavaScript assets

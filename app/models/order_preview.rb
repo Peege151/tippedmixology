@@ -1,6 +1,7 @@
 class OrderPreview < ActiveRecord::Base
 	#dependencies
 	include ActiveMerchant::Shipping
+	include ActionView::Helpers::NumberHelper
 	#active record associations
 	belongs_to :cart
 	has_one :order
@@ -17,6 +18,8 @@ class OrderPreview < ActiveRecord::Base
   	validates :weight, presence: true
   	serialize :ship_option_hash, JSON
   	#methods
+
+  	
   	def to_param
     	"#{id}#{permalink}"
   	end
@@ -33,7 +36,6 @@ class OrderPreview < ActiveRecord::Base
 	end
 
 	def get_rates_from_shipper(shipper)
-
 	    response = shipper.find_rates(origin, destination, packages)
 	    response.rates.sort_by(&:price)
 	end
@@ -56,4 +58,31 @@ class OrderPreview < ActiveRecord::Base
 		# response_first_class = usps.find_rates(origin, destination, packages, {service: :first_class})
 	    get_rates_from_shipper(usps)
 	end
+	def change_shipping_type
+			self.sub_total = cart.sub_total
+           	self.shipping_price = self.shipping_type.split(/\$(.*)\z/)[1]
+           	self.grand_total = self.shipping_price + cart.sub_total
+			self.save
+	end
+	def get_ship_options
+	
+ 		ship_options = {}
+	        fedex_rates.each do |k, v|
+	            if k.service_name == "FedEx Ground Home Delivery" || k.service_name == "FedEx 2 Day" || k.service_name == "FedEx Standard Overnight"
+					ship_options["#{k.service_name}"] = "#{number_to_currency(k.price.to_f / 100)}"
+				end
+	        end
+	        usps_rates.each do |k, v|
+	            if k.service_name == "USPS Priority Mail 1-Day"
+					ship_options["#{k.service_name}"] = "#{number_to_currency(k.price.to_f / 100)}"
+	            end
+	        end
+			self.ship_option_hash = ship_options.map { |k,v| ["#{k} - #{v}","#{k} - #{v}" ] }
+ 			self.sub_total = nil
+            self.shipping_price = nil
+           	self.grand_total = nil
+			self.save
+	end
+
+	private
 end

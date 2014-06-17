@@ -1,0 +1,83 @@
+<% if @cart.order_preview != nil %>
+<h2> Shipping Address </h2>
+    <%= form_for(@order_preview) do |f| %>
+      <% if @order_preview.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@order_preview.errors.count, "error") %>
+          prohibited this order_preview from being saved:</h2>
+     
+          <ul>
+          <% @order_preview.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+  <div id="shipping_table_wrap">
+    <table id="shipping_info_table">
+      <tr class="shippingrow">
+            <%= f.hidden_field :permalink, value: 12, :size => 50 %>
+        <td class="ship_col1">
+          <div class="field">
+            <%= f.label :name %><br />
+            <%= f.text_field :name, value: "#{@cart.order_preview.name}",:size => 50 %>
+          </div>
+        </td>
+        <td class="ship_col2">
+          <div class="field">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, value: "#{@cart.order_preview.email}",:size => 50 %>
+          </div>
+        </td>
+      </tr>
+      <tr class="shippingrow">
+        <td class="ship_col1">
+          <div class="field">
+            <%= f.label :address %><br />
+            <%= f.text_field :address, value: "#{@cart.order_preview.address}",:size => 50 %>
+          </div>
+        </td>
+        <td class="ship_col2">
+          <div class="field">
+            <%= f.label :address2 %><br />
+            <%= f.text_field :address2, value: "#{@cart.order_preview.address2}",size: 50 %> 
+          </div>      
+        </td>
+      </tr>
+      <tr class="shippingrow">
+        <td class="ship_col1">
+          <div class="field">
+            <%= f.label :city %> <br />
+            <%= f.text_field :city, value: "#{@cart.order_preview.city}",:size => 50 %>
+          </div>
+        </td>
+        <td class="ship_col2">
+          <div class="field">
+            <%= f.label :state %><br />
+            <%= f.collection_select :state, State.all, :name, :name, value: "#{@cart.order_preview.state}",:size => 50 %>
+          </div>
+        </td>
+      </tr>
+      <tr class="shippingrow">
+        <td class="ship_col1">
+            <div class="field">
+            <%= f.label :zip %> <br />
+            <%= f.text_field :zip, :value => "#{@cart.order_preview.zip}", :size => 50 %>
+          </div>
+        </td>
+            <%= f.hidden_field :country, :value => 'US', :size => 50 %>
+            <%= f.hidden_field :width, value: 10, :size => 50 %>
+            <%= f.hidden_field :height, :value => 10, :size => 50 %>
+            <%= f.hidden_field :weight, value: 10, :size => 50 %>
+            <%= f.hidden_field :length, :value => 10, :size => 50 %>
+      <tr class="shippingrow">
+        <td class="ship_col_full">
+          <div class="actions">
+            	<%= f.submit 'Update Address', class: "btn btn-primary" %>
+          </div>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+<% end %>
