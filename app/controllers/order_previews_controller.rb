@@ -35,7 +35,6 @@ class OrderPreviewsController < ApplicationController
   # POST /order_previews.json
   def create
     @cart = current_cart
-    get_ship_options
     if  @cart.order_preview == nil
         @order_preview = @cart.build_order_preview(order_preview_params)
     else
@@ -45,6 +44,7 @@ class OrderPreviewsController < ApplicationController
     end
     respond_to do |format|
       if @order_preview.save
+          get_ship_options
         format.html { redirect_to @order_preview }
         format.json { render action: 'show', status: :created, location: @order_preview }
       else
@@ -57,11 +57,18 @@ class OrderPreviewsController < ApplicationController
   # PATCH/PUT /order_previews/1
   # PATCH/PUT /order_previews/1.json
   def update
-    get_ship_options
-    @order_preview.change_shipping_type if params['order_preview']['shipping_type'].present?
+    
     respond_to do |format|
-      if @order_preview.update(order_preview_params)   
-        format.html { redirect_to @order_preview, notice: "Added: '#{@order_preview.shipping_type}'" }
+      if @order_preview.update(order_preview_params) 
+          if params['order_preview']['shipping_type'].present?
+             @order_preview.change_shipping_type 
+             flash[:success] =  "Added: '#{@order_preview.shipping_type}'"
+          else
+          get_ship_options
+              flash[:success] =  "Address Updated"
+
+      end
+        format.html { redirect_to @order_preview }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

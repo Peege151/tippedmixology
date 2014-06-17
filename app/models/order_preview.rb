@@ -65,7 +65,7 @@ class OrderPreview < ActiveRecord::Base
 			self.save
 	end
 	def get_ship_options
-	
+		    # binding.pry
  		ship_options = {}
 	        fedex_rates.each do |k, v|
 	            if k.service_name == "FedEx Ground Home Delivery" || k.service_name == "FedEx 2 Day" || k.service_name == "FedEx Standard Overnight"
@@ -80,8 +80,13 @@ class OrderPreview < ActiveRecord::Base
 			self.ship_option_hash = ship_options.map { |k,v| ["#{k} - #{v}","#{k} - #{v}" ] }
  			self.sub_total = nil
             self.shipping_price = nil
-           	self.grand_total = nil
+            self.grand_total = nil
 			self.save
+	end
+	def clear_hash
+		 	self.sub_total = nil
+            self.shipping_price = nil
+           	self.grand_total = nil
 	end
 
 	private
