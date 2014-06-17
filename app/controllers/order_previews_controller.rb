@@ -62,7 +62,7 @@ class OrderPreviewsController < ApplicationController
       if @order_preview.update(order_preview_params) 
           if params['order_preview']['shipping_type'].present?
              @order_preview.change_shipping_type 
-             flash[:success] =  "Added: '#{@order_preview.shipping_type}'"
+             flash[:success] =  "Added: #{@order_preview.shipping_type}".chomp
           else
           get_ship_options
               flash[:success] =  "Address Updated"
