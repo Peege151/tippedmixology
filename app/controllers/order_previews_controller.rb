@@ -59,6 +59,7 @@ class OrderPreviewsController < ApplicationController
   def update
     
     respond_to do |format|
+
       if @order_preview.update(order_preview_params) 
           if params['order_preview']['shipping_type'].present?
              @order_preview.change_shipping_type 
@@ -66,8 +67,7 @@ class OrderPreviewsController < ApplicationController
           else
           get_ship_options
               flash[:success] =  "Address Updated"
-
-      end
+          end
         format.html { redirect_to @order_preview }
         format.json { head :no_content }
       else
