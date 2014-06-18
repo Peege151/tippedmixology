@@ -1,10 +1,11 @@
 <div id="contentwrap">
 	<div id ="content">
-	(TEST: Cart Active: <%= @cart.active? %>)
-
 	<% if @cart.active? %>
 		<% if @cart.line_items.count == 0 %>
+		<div id="emptycartmsg">
 			<h2> Your Cart is Empty!</h2> <br>
+			<%= link_to "Go To Store", products_path %>
+		</div>
 		<% else %>
 		<h2>Your Cart</h2>
 			<div id="cartlist">
@@ -58,10 +59,13 @@
 	  			</table>
 			</ul>
 			</div>
+				<%= link_to 'Back', products_path %>
+
 			<% end %>
-		<%= link_to 'Back', products_path %>
 		<% else %>
-		<h1> You Have Placed Your Order.  Go To The Store To Start A New One! </h1>
+		<div id="emptycartmsg">
+			<h1> You Have Placed Your Order.  Go To The Store To Start A New One! </h1>
+		</div>
 		<% end %>
 	</div>
 </div>

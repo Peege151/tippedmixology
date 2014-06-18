@@ -10,6 +10,11 @@ class Cart < ActiveRecord::Base
       update_attribute(:active, false)
     end
     
+    def to_param
+      permalink
+    end
+
+
     def add_product(product_id)
         current_item = line_items.find_by_product_id(product_id)
         if current_item

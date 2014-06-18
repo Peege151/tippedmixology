@@ -12,7 +12,7 @@ Tippedmixology::Application.routes.draw do
   resources :charges
   resources :contacts, only: [:new, :create]
 
-
+  
   get "pages/home"
   get "pages/news"
   get "pages/contact"
