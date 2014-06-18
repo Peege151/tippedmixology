@@ -54,6 +54,18 @@
                   });
             });
         </script>
+        <script>
+        $(function() {
+            $('.dee').delay(100).fadeIn('normal', function() {
+                $(this).delay(1500).fadeOut();
+                });
+            });
+        $('document').ready(function() {
+            setTimeout(function() {
+                $('.alert').slideUp();
+            }, 1500);
+        });
+        </script>
   </head>
   <body>
   <div id="page">

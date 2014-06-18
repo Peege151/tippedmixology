@@ -29,8 +29,19 @@ body {
 height: 100%;
 width:100%;
 }
+
 .navbar {
 	margin-bottom:0px;
+	li.items_here {
+		 a {
+		  &:visited {
+    		color: blue;
+  			}
+  		  &:link {
+  		  	color:blue
+  			}
+		}
+	}
 }
 .hidden { display: none; }
 
@@ -48,7 +59,7 @@ width:100%;
 			li {
 				display:inline-block;
 			}
-        }
+    }
 }
 
 
@@ -98,14 +109,14 @@ width:100%;
                 	
             }
 #clear70 {
-	   	border-top: 1px solid #eee;
-
+	border-top: 1px solid #eee;
 	height:70px; 
 	width: 100%;
 	background-color: whitesmoke;
 }
 /*flash*/
 .alert {
+	display:none;
 	text-align:center;
 	margin-bottom:0px !important
 }

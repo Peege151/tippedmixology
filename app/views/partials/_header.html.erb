@@ -25,7 +25,11 @@
         <% if session[:cart_id] == nil %>
             <li><%= link_to "Cart", new_cart_path %></li>
         <% else %>
-            <li><%= link_to "Cart", cart_path(id: session[:cart_id]) %></li>
+            <% if @cart.line_items.empty? %>
+                <li><%= link_to "Cart", cart_path(id: session[:cart_id]) %></li>
+            <% else %>
+              <li class="items_here"><%= link_to "Cart", cart_path(id: session[:cart_id]) %></li>
+            <% end %>
         <% end %>
         <% if current_admin.nil? == false %>
         <li><%= link_to "Sign Out", destroy_admin_session_path, :method => 'delete'  %></li>

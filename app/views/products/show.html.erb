@@ -19,22 +19,23 @@
     </tbody>
   </table>
   <%= form_for(( @cart.line_items.find_by(product_id: @product.id) || LineItem.new)) do |f| %> 
-    <%= f.hidden_field :product_id, value: @product.id %>
-
-  <div id="price"> 
-  	<p>Price: $<%= @product.price %></p>
-  </div>
-  <div id="quantitydropdown">
-    <div id="qlabel"> 
-      Quantity: 
+      <%= f.hidden_field :product_id, value: @product.id %>
+    <div id="price"> 
+    	<p>Price: $<%= @product.price %></p>
     </div>
-    <div id="qdropdown">
-      <%= f.select :quantity, options_for_select([1,2,3]) %> 
+    
+    <div id="quantitydropdown">
+      <div id="qlabel"> 
+        Quantity: 
+      </div>
+     
+      <div id="qdropdown">
+        <%= f.select :quantity, options_for_select([1,2,3]) %> 
+      </div>
     </div>
-  </div>
-  <div id="addtocartbutton">
+    <div id="addtocartbutton">
 	 <%= f.submit 'Add to Cart', class: "btn btn-primary" %>
-              <% end %>
+  <% end %>
   </div>
  
 

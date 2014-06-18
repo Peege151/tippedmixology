@@ -28,7 +28,7 @@ class LineItemsController < ApplicationController
       #product = Product.find_by(params[:id])
       #@line_item = @cart.add_product(product.id)
       @line_item = @cart.line_items.build(line_item_params)
-    respond_to do |format|
+      respond_to do |format|
       if @line_item.save
         format.html { redirect_to products_path, 
           :notice => 'Item Added to Cart.' }
@@ -44,15 +44,16 @@ class LineItemsController < ApplicationController
   # PATCH/PUT /line_items/1
   # PATCH/PUT /line_items/1.json
   def update
+    @line_item.attributes = line_item_params
         @line_item.update(line_item_params)
-        if 
-        @line_item.quantity <= 0
-        @line_item.destroy
-        flash[:success] = "Item Removed"
-        redirect_to :back
-        else    
-        flash[:success] = "Producted Updated"
-        redirect_to current_cart
+
+        if @line_item.quantity <= 0
+           @line_item.destroy
+              flash[:success] = "Item Removed"
+              redirect_to :back
+        else  
+              flash[:success] = "Producted Updated"
+              redirect_to current_cart
         end
   end
 

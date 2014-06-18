@@ -1,7 +1,7 @@
 class ContactsController < ApplicationController
   def new
     @contact = Contact.new
-    @mail_subscriber = MailSubscriber.new(mail_subscriber_params)
+    @cart= current_cart
 
   end
 
