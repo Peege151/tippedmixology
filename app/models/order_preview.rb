@@ -83,10 +83,8 @@ class OrderPreview < ActiveRecord::Base
             self.grand_total = nil
 			self.save
 	end
-	def clear_hash
-		 	self.sub_total = nil
-            self.shipping_price = nil
-           	self.grand_total = nil
+	def zip_different?
+		self.zip_changed?
 	end
 
 	private
