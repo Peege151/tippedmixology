@@ -1,18 +1,21 @@
 Tippedmixology::Application.routes.draw do
-  resources :order_previews
-
-  resources :orders
+  # resources :order_previews
+  # resources :orders
 
   devise_for :admins
   resources :line_items
-  resources :carts
+  resource :cart, only: [:show] do
+    resource :order_preview, only: [:show] do
+      resource :order, only: [:show]
+    end
+  end
   resources :mail_subscribers
   resources :categories
   resources :products
   resources :charges
   resources :contacts, only: [:new, :create]
 
-  
+  get '/:carts/:id' => 'carts#show'
   get "pages/home"
   get "pages/news"
   get "pages/contact"

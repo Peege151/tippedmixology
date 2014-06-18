@@ -81,7 +81,7 @@ class CartsController < ApplicationController
     def set_cart
         @mail_subscriber = MailSubscriber.new(mail_subscriber_params)
       begin
-        @cart = Cart.find(params[:id])
+        @cart = current_cart
           rescue ActiveRecord::RecordNotFound
               logger.error "Attempt to access invalid cart #{params[:id]}"
               flash[:error] = "Invalid Cart"

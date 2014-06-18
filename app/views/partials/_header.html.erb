@@ -26,9 +26,9 @@
             <li><%= link_to "Cart", new_cart_path %></li>
         <% else %>
             <% if @cart.line_items.empty? %>
-                <li><%= link_to "Cart", cart_path(id: session[:cart_id]) %></li>
+                <li><%= link_to "Cart", cart_path %></li>
             <% else %>
-              <li class="items_here"><%= link_to "Cart", cart_path(id: session[:cart_id]) %></li>
+              <li class="items_here"><%= link_to "Cart", cart_path %></li>
             <% end %>
         <% end %>
         <% if current_admin.nil? == false %>
