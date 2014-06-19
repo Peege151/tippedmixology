@@ -4,7 +4,6 @@ class OrderPreview < ActiveRecord::Base
 	include ActionView::Helpers::NumberHelper
 	#active record associations
 	belongs_to :cart
-	has_one :order
 	# validations
 	validates :cart_id, presence:true
 	validates :name, presence: true

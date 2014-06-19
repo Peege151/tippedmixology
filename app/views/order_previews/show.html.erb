@@ -21,7 +21,7 @@
           </tr>
         <% end %>
       </table>
-   <%= link_to "Edit Cart Contents", cart_path(@cart) %>
+   <%= link_to "Edit Cart Contents", cart_path %>
     </div>
     <div id="shipping_to_address_wrap">  
       <h2> ...To... </h2>
@@ -53,11 +53,11 @@
         <td class="info"><%= @order_preview.zip %></td>
       </tr>  
     </table>
-   <%= link_to "Edit Shipping Address", edit_order_preview_path(@order_preview) %>
+   <%= link_to "Edit Shipping Address", edit_cart_order_preview_path %>
   </div>
   <br />
   <div id="shipping_option_wrapper">
-    <%= form_for(@order_preview) do |f| %> 
+    <%= form_for(@order_preview, :url => {:controller => "order_previews", :action => "update"}) do |f| %> 
     <% if @order_preview.shipping_type == nil %> 
       <h2>Select Shipping Option</h2>
           <%= f.select(:shipping_type, options_for_select(@order_preview.ship_option_hash)) %>

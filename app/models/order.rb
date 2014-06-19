@@ -1,7 +1,6 @@
 class Order < ActiveRecord::Base
 	#dependencies
 	include ActiveMerchant::Shipping
-  after_commit :archive_cart, on: :create
 
 
 	#active record associations
@@ -22,9 +21,7 @@ class Order < ActiveRecord::Base
 
   private
 
-  def archive_cart
-    cart.archive!
-  end
+
 
 
 end

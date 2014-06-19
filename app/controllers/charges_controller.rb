@@ -21,7 +21,7 @@ class ChargesController < ApplicationController
       :description => 'Rails Stripe customer',
       :currency    => 'usd'
     )
-    @order = Order.new(
+    @cart.build_order(
                 :name => @order_preview.name,
                 :email => @order_preview.email,
                 :address => @order_preview.address,
@@ -37,12 +37,14 @@ class ChargesController < ApplicationController
                 :cart => @cart,
                 :items => @cart.line_items.to_a
                 )
-    @order.save
+
     ##MAIL STUFF
-    OrderMailer.new_order(@order).deliver
-    OrderMailer.confirmation(@order).deliver
+    
+    @cart.order.save
+    OrderMailer.new_order(@cart.order).deliver
+    OrderMailer.confirmation(@cart.order).deliver
     ##redirect_conf page
-    redirect_to order_path(@order.id)
+    redirect_to cart_order_path
 
   rescue Stripe::CardError => e
     flash[:error] = e.message

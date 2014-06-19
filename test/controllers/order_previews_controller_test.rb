@@ -44,6 +44,5 @@ class OrderPreviewsControllerTest < ActionController::TestCase
       delete :destroy, id: @order_preview
     end
 
-    assert_redirected_to order_previews_path
   end
 end

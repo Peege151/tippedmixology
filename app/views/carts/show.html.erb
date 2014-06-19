@@ -1,10 +1,11 @@
+
 <div id="contentwrap">
 	<div id ="content">
-	<% if @cart.active? %>
+	<% if @cart.order.nil? %>
 		<% if @cart.line_items.count == 0 %>
 		<div id="emptycartmsg">
 			<h2> Your Cart is Empty!</h2> <br>
-			<%= link_to "Go To Store", products_path %>
+			<%= link_to "Go To Store",products_path %>
 		</div>
 		<% else %>
 		<h2>Your Cart</h2>
@@ -43,9 +44,9 @@
 	    				<td class="bottom_cart_price"> $<%= @cart.sub_total %> </td>
 	    				
 	    				<% if @cart.order_preview == nil %>
-	    					<td class="bottom_cart_checkout_button"> <%= button_to 'Begin Checkout', new_order_preview_path(cart_id: @cart.id),  :method => :get, class: "btn btn-success" %> </td>
+	    					<td class="bottom_cart_checkout_button"> <%= button_to 'Begin Checkout', new_cart_order_preview_path,  :method => :get, class: "btn btn-success" %> </td>
 	    				<% else %>
-	    					<td class="bottom_cart_checkout_button"> <%= button_to 'Resume Checkout', order_preview_path, :method => :put, class: "btn btn-success" %> </td>
+	    					<td class="bottom_cart_checkout_button"> <%= button_to 'Resume Checkout', cart_order_preview_path, :method => :put, class: "btn btn-success" %> </td>
 	    				<% end %>
 	  				</tr>
 	  				<tr class="total_line">
@@ -54,7 +55,7 @@
 	    				<td class="bottom_cart_item"> </td>
 	    				<td class="bottom_cart_description"></td>
 	    				<td class="bottom_cart_price"> </td>
-	    				<td class="bottom_cart_remove_button"> <%= button_to 'Empty cart', @cart, :method => :delete, class: "btn btn-danger" %> </td>
+	    				<td class="bottom_cart_remove_button"> <%= button_to 'Empty cart', cart_path, :method => :delete, class: "btn btn-danger" %> </td>
 	  				</tr>
 	  			</table>
 			</ul>
@@ -64,7 +65,9 @@
 			<% end %>
 		<% else %>
 		<div id="emptycartmsg">
-			<h1> You Have Placed Your Order.  Go To The Store To Start A New One! </h1>
+			<h1> Thank You For Your Recent Purchase! </h1> <br> 
+			<h2> If you'd like to make another one, click below </h2><br>
+			 <%= button_to 'Empty cart', cart_path, :method => :delete, class: "btn btn-primary" %>
 		</div>
 		<% end %>
 	</div>

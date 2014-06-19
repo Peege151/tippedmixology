@@ -4,11 +4,13 @@ Tippedmixology::Application.routes.draw do
 
   devise_for :admins
   resources :line_items
-  resource :cart, only: [:show] do
-    resource :order_preview, only: [:show] do
-      resource :order, only: [:show]
-    end
+  resource :cart, only: [:show, :update, :destroy] do
+    resource :order_preview, only: [:show, :create, :update, :edit, :new] 
   end
+  resource :cart, only: [:show, :update, :destroy] do
+    resource :order, only: [:show]
+  end
+
   resources :mail_subscribers
   resources :categories
   resources :products

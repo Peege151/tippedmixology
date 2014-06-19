@@ -1,6 +1,6 @@
 <% if @cart.order_preview != nil %>
 <h2> Shipping Address </h2>
-    <%= form_for(@order_preview) do |f| %>
+    <%= form_for(@order_preview, :url => {:controller => "order_previews", :action => "create"}) do |f| %>
       <% if @order_preview.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(@order_preview.errors.count, "error") %>

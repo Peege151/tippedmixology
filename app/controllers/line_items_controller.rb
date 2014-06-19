@@ -46,14 +46,13 @@ class LineItemsController < ApplicationController
   def update
     @line_item.attributes = line_item_params
         @line_item.update(line_item_params)
-
         if @line_item.quantity <= 0
            @line_item.destroy
               flash[:success] = "Item Removed"
               redirect_to :back
         else  
               flash[:success] = "Producted Updated"
-              redirect_to current_cart
+              redirect_to cart_path
         end
   end
 

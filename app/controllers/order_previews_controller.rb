@@ -45,7 +45,7 @@ class OrderPreviewsController < ApplicationController
     respond_to do |format|
       if @order_preview.save
           get_ship_options
-        format.html { redirect_to @order_preview }
+        format.html { redirect_to cart_order_preview_path }
         format.json { render action: 'show', status: :created, location: @order_preview }
       else
         format.html { render action: 'new' }
@@ -69,7 +69,7 @@ class OrderPreviewsController < ApplicationController
               get_ship_options
                   flash[:success] =  "Address Updated"
               end
-            format.html { redirect_to @order_preview }
+            format.html { redirect_to cart_order_preview_path }
             format.json { head :no_content }
           else
             format.html { render action: 'edit' }
@@ -83,7 +83,7 @@ class OrderPreviewsController < ApplicationController
               else
                   flash[:success] =  "Address Updated"
               end
-            format.html { redirect_to @order_preview }
+            format.html { redirect_to cart_order_preview_path }
             format.json { head :no_content }
           else
             format.html { render action: 'edit' }

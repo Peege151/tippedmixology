@@ -1,14 +1,15 @@
 class OrdersController < ApplicationController
   # before_action :set_order, only: [:show, :edit, :update, :destroy]
-  #after_action :archive_cart, only: [:show]
+    after_action :new_cart, only: [:show]
     def index
       @orders = Order.all
     end
 
     def show
-        @order = Order.find(params[:id])
+        @cart = current_cart
+
+        @order = @cart.order
         @line_items = @order.items
-        @cart = @order.cart
         rescue ActiveRecord::RecordNotFound
               logger.error "User Refresh Page"
               redirect_to products_path
@@ -48,9 +49,9 @@ class OrdersController < ApplicationController
     end
 
 private
-    def archive_cart
+    def new_cart
       @cart = @order.cart
-      @cart.update_attributes(status:0)
+      @cart.delete
     end
     def order_params
       params.require(:order).permit(:name, :address, :address2, :zip, :city, :state, :country, :length, :width, :height, :weight, :cylinder)
