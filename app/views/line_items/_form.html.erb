@@ -1,3 +1,10 @@
+<div id="contentwrap">
+<div id="content">  
+<% if current_admin.nil? %>
+  <div id="no_access">
+  <h2> This Page Is Reserved For Admins <h2>
+  </div>
+  <% else %>
 <%= simple_form_for(@line_item) do |f| %>
   <%= f.error_notification %>
 
@@ -10,4 +17,7 @@
   <div class="form-actions">
     <%= f.button :submit %>
   </div>
+  <% end %>
 <% end %>
+</div>
+</div>

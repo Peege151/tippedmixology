@@ -2,8 +2,9 @@ Tippedmixology::Application.routes.draw do
   # resources :order_previews
   # resources :orders
 
-  devise_for :admins
+  devise_for :admins 
   resources :line_items
+
   resource :cart, only: [:show, :update, :destroy] do
     resource :order_preview, only: [:show, :create, :update, :edit, :new] 
   end

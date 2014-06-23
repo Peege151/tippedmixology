@@ -1,28 +1,38 @@
-<h1>Listing line_items</h1>
+<div id="contentwrap">
+ <div id="content">
+  <% if current_admin.nil? %>
+  <div id="no_access">
+  <h2> This Page Is Reserved For Admins <h2>
+  </div>
+  <% else %>
+  <h1>Listing line_items</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Product</th>
-      <th>Cart</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @line_items.each do |line_item| %>
+  <table>
+    <thead>
       <tr>
-        <td><%= line_item.product_id %></td>
-        <td><%= line_item.cart_id %></td>
-        <td><%= link_to 'Show', line_item %></td>
-        <td><%= link_to 'Edit', edit_line_item_path(line_item) %></td>
-        <td><%= link_to 'Destroy', line_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Product</th>
+        <th>Cart</th>
+        <th></th>
+        <th></th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @line_items.each do |line_item| %>
+        <tr>
+          <td><%= line_item.product_id %></td>
+          <td><%= line_item.cart_id %></td>
+          <td><%= link_to 'Show', line_item %></td>
+          <td><%= link_to 'Edit', edit_line_item_path(line_item) %></td>
+          <td><%= link_to 'Destroy', line_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+  <% end %>
+ </div>
+</div>
 
