@@ -1,6 +1,5 @@
 class MailSubscribersController < ApplicationController
   before_action :set_mail_subscriber, only: [:show, :edit, :update, :destroy]
-
   # GET /mail_subscribers
   # GET /mail_subscribers.json
   def index
@@ -28,9 +27,11 @@ class MailSubscribersController < ApplicationController
 
     respond_to do |format|
       if @mail_subscriber.save
+         SubscriberMailer.new_subscriber(@mail_subscriber).deliver
         format.html { redirect_to root_path, notice: 'Mail subscriber was successfully created.' }
         format.json { redirect_to root_path, status: :created, location: @mail_subscriber }
       else
+        flash[:error] = "You Are Already On Our Newsletter Mailing List!"
         format.html { redirect_to root_path }
         format.json { render json: @mail_subscriber.errors, status: :unprocessable_entity }
       end
@@ -71,4 +72,5 @@ class MailSubscribersController < ApplicationController
     def mail_subscriber_params
       params.require(:mail_subscriber).permit(:email, :name)
     end
+
 end

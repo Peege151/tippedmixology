@@ -18,15 +18,14 @@
         <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "About Us", pages_about_us_path %></li>
         <li><%= link_to "FAQ", pages_faq_path %></li>
-<li>
-  <%= link_to ('Contact'), new_contact_path %> </li>
+        <li><%= link_to ('Contact'), new_contact_path %> </li>
         <li><%= link_to "Blog", "http://www.tippedmixology.blogspot.com"  %></li>
         <li><%= link_to "Store", products_path  %></li>
         <% if session[:cart_id] == nil %>
-            <li><%= link_to "Cart", new_cart_path %></li>
+              <li><%= link_to "Cart", new_cart_path %></li>
         <% else %>
             <% if @cart.line_items.empty? %>
-                <li><%= link_to "Cart", cart_path %></li>
+              <li><%= link_to "Cart", cart_path %></li>
             <% else %>
               <li class="items_here"><%= link_to "Cart", cart_path %></li>
             <% end %>

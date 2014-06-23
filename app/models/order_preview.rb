@@ -67,7 +67,7 @@ class OrderPreview < ActiveRecord::Base
 		    # binding.pry
  		ship_options = {}
 	        fedex_rates.each do |k, v|
-	            if k.service_name == "FedEx Ground Home Delivery" || k.service_name == "FedEx 2 Day" || k.service_name == "FedEx Standard Overnight"
+	            if k.service_name == "FedEx Ground Home Delivery" || k.service_name == "FedEx Standard Overnight"
 					ship_options["#{k.service_name}"] = "#{number_to_currency(k.price.to_f / 100)}"
 				end
 	        end
