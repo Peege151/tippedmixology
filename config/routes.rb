@@ -10,19 +10,19 @@ Tippedmixology::Application.routes.draw do
   resource :cart, only: [:show, :update, :destroy] do
     resource :order, only: [:show]
   end
-
   resources :mail_subscribers
   resources :categories
   resources :products
   resources :charges
   resources :contacts, only: [:new, :create]
 
-  get '/:carts/:id' => 'carts#show'
   get "pages/home"
   get "pages/news"
   get "pages/contact"
   get "pages/faq"
   get "pages/about_us"
+  get '/:carts/:id' => 'carts#show'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

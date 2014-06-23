@@ -24,10 +24,13 @@
         <% if session[:cart_id] == nil %>
               <li><%= link_to "Cart", new_cart_path %></li>
         <% else %>
-            <% if @cart.line_items.empty? %>
-              <li><%= link_to "Cart", cart_path %></li>
+            <% if @cart.nil? %>
             <% else %>
-              <li class="items_here"><%= link_to "Cart", cart_path %></li>
+              <% if @cart.line_items.empty? %>
+                <li><%= link_to "Cart", cart_path %></li>
+              <% else %>
+                <li class="items_here"><%= link_to "Cart", cart_path %></li>
+              <% end %>
             <% end %>
         <% end %>
         <% if current_admin.nil? == false %>

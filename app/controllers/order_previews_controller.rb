@@ -1,7 +1,5 @@
 class OrderPreviewsController < ApplicationController
   before_action :set_order_preview, only: [:show, :edit, :update, :destroy]
-   
-
   # GET /order_previews
   # GET /order_previews.json
   include ActiveMerchant::Shipping
@@ -60,13 +58,13 @@ class OrderPreviewsController < ApplicationController
     
     respond_to do |format|
       @order_preview.attributes = order_preview_params
-        if @order_preview.zip_different?
+        if @order_preview.zip_different? || @order_preview.weight_different?
           if @order_preview.update(order_preview_params) 
               if params['order_preview']['shipping_type'].present?
-                 @order_preview.change_shipping_type 
+                get_ship_options
                  flash[:success] =  "Added: #{@order_preview.shipping_type}".chomp
               else
-              get_ship_options
+                get_ship_options
                   flash[:success] =  "Address Updated"
               end
             format.html { redirect_to cart_order_preview_path }
@@ -117,7 +115,7 @@ class OrderPreviewsController < ApplicationController
       params.fetch(:order_preview, {}).permit(:name, :address, :address2, :city, :state, :zip, :width, :height, :length, :weight, :cylinder, :country, :cart_id, :email, :permalink, :shipping_type, :shipping_price, :sub_total, :grand_total, :ship_option_hash)
     end
     def update_ship_options
-      if @order_preview.zip_changed?
+      if @order_preview.zip_changed? || @order_preview.weight_changed?
           get_ship_options
       end
     end

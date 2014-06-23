@@ -1,5 +1,6 @@
 class CartsController < ApplicationController
   before_action :set_cart, only: [:show, :edit, :update]
+  after_action :set_cart_weight, only: [:update, :create]
 
   # GET /carts
   # GET /carts.json
@@ -62,8 +63,14 @@ class CartsController < ApplicationController
     @cart = current_cart
     @cart.line_items.destroy_all
     @cart.save
+    if @cart.order_preview == nil
     flash[:success] = "Cart Now Empty"
     redirect_to products_path
+    else
+    @cart.order_preview.delete 
+    flash[:success] = "Cart Now Empty"
+    redirect_to products_path
+  end
   end
 
   private
@@ -74,7 +81,7 @@ class CartsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cart_params
-      params[:cart]
+      params.require(:cart).permit(:total_weight)
 
     end
     def mail_subscriber_params

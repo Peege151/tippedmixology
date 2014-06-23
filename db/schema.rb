@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140616162752) do
+ActiveRecord::Schema.define(version: 20140623202849) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,7 +37,8 @@ ActiveRecord::Schema.define(version: 20140616162752) do
   create_table "carts", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "active",     default: true
+    t.boolean  "active",       default: true
+    t.float    "total_weight"
   end
 
   create_table "categories", force: true do |t|
@@ -53,6 +54,8 @@ ActiveRecord::Schema.define(version: 20140616162752) do
     t.datetime "updated_at"
     t.integer  "quantity",   default: 1
     t.integer  "order_id"
+    t.float    "weight"
+    t.float    "units"
   end
 
   create_table "mail_subscribers", force: true do |t|
@@ -120,6 +123,8 @@ ActiveRecord::Schema.define(version: 20140616162752) do
     t.string   "image"
     t.decimal  "price",       precision: 8, scale: 2
     t.string   "permalink"
+    t.float    "weight"
+    t.float    "units"
   end
 
   create_table "sessions", force: true do |t|

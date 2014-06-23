@@ -1,7 +1,9 @@
 <div id="contentwrap">
   <div id="content">
     <div id="contactform">
-      <h1>New product</h1>
+      <% if current_admin.present? %>
+
+      <h1> Edit: <%= @product.title %></h1>
         <%= simple_form_for(@product) do |f| %>
       <% if @product.errors.any? %>
         <div id="error_explanation">
@@ -27,6 +29,14 @@
         <%= f.label :price %><br>
         <%= f.text_field :price, class: "form-control"%>
       </div>
+      <div class="field">
+        <%= f.label :weight %><br>
+        <%= f.text_field :weight, class: "form-control" %>
+      </div>
+      <div class="field">
+        <%= f.label :units %><br>
+        <%= f.text_field :units, class: "form-control" %>
+      </div>
        <div class="field">
         <%= f.label :permalink %><br>
         <%= f.text_field :permalink, class: "form-control"%>
@@ -36,6 +46,15 @@
         <%= f.submit class: "btn btn-primary" %>
       </div>
     <% end %>
+
     </div>
+    <div id="new_product_link">
+      <%= link_to 'Show', @product %> |
+      <%= link_to 'Back', products_path %>
+      <% else %>
+      <h1> This Page is for Admins Only, Sorry</h1>
+      <% end %>
+    </div>  
   </div>
 </div>
+

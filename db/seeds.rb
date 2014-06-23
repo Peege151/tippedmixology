@@ -12,6 +12,8 @@
 				:description => "It was November. Although it was not yet late, the sky was dark when I turned into Laundress Passage. Father had finished for the day, switched off the shop lights and closed the shutters; but so I would not come home to darkness he had left on the light over the stairs to the flat.",
 				:price => 24.99, 
 				:permalink => "cherry_apple",
+				:weight => 1.00,
+				:units => 1.00,
 				:image => (File.open(File.join(Rails.root, "app/assets/images/cherryapple.jpg")))
 
 			}
@@ -22,6 +24,8 @@
 				:description => "It was November. Although it was not yet late, the sky was dark when I turned into Laundress Passage. Father had finished for the day, switched off the shop lights and closed the shutters; but so I would not come home to darkness he had left on the light over the stairs to the flat.",
 				:price => 24.99,
 				:permalink => "earl_gray",
+				:weight => 1.00,
+				:units => 1.00,
 				:image => (File.open(File.join(Rails.root, "app/assets/images/earlgray.jpg")))
 
 			}
@@ -31,7 +35,9 @@
 				:title => "Ginger Jalepeño Margarita",
 				:description => "It was November. Although it was not yet late, the sky was dark when I turned into Laundress Passage. Father had finished for the day, switched off the shop lights and closed the shutters; but so I would not come home to darkness he had left on the light over the stairs to the flat.",
 				:price => 24.99,
-				:permalink => "ginger_jalapeño",			
+				:permalink => "ginger_jalapeño",
+				:weight => 1.00,
+				:units => 1.00,
 				:image => (File.open(File.join(Rails.root, "app/assets/images/gingerjala.jpg")))
 
 			}
@@ -41,7 +47,9 @@
 				:title => "Three Pack",
 				:description => "It was November. Although it was not yet late, the sky was dark when I turned into Laundress Passage. Father had finished for the day, switched off the shop lights and closed the shutters; but so I would not come home to darkness he had left on the light over the stairs to the flat.",
 				:price => 74.97,
-				:permalink => "threepack",			
+				:permalink => "threepack",	
+				:weight => 3.00,
+				:units => 3.00,		
 				:image => (File.open(File.join(Rails.root, "app/assets/images/cherryapple.jpg")))
 
 			}

@@ -18,7 +18,6 @@ class OrderPreview < ActiveRecord::Base
   	serialize :ship_option_hash, JSON
   	#methods
 
-  	
   	def to_param
     	"#{id}#{permalink}"
   	end
@@ -58,9 +57,9 @@ class OrderPreview < ActiveRecord::Base
 	    get_rates_from_shipper(usps)
 	end
 	def change_shipping_type
-			self.sub_total = cart.sub_total
+			self.sub_total = self.cart.sub_total
            	self.shipping_price = self.shipping_type.split(/\$(.*)\z/)[1]
-           	self.grand_total = self.shipping_price + cart.sub_total
+           	self.grand_total = self.shipping_price + self.cart.sub_total
 			self.save
 	end
 	def get_ship_options
@@ -83,7 +82,11 @@ class OrderPreview < ActiveRecord::Base
 			self.save
 	end
 	def zip_different?
-		self.zip_changed?
+		self.zip_changed? 
+		# || self.weight_changed?
+	end
+	def weight_different?
+		self.weight_changed?
 	end
 
 	private

@@ -29,7 +29,8 @@ class LineItemsController < ApplicationController
       #@line_item = @cart.add_product(product.id)
       @line_item = @cart.line_items.build(line_item_params)
       respond_to do |format|
-      if @line_item.save
+      if  @line_item.save
+          @line_item.set_cart_weight
         format.html { redirect_to products_path, 
           :notice => 'Item Added to Cart.' }
         format.xml  { render :xml => @line_item,
@@ -45,7 +46,16 @@ class LineItemsController < ApplicationController
   # PATCH/PUT /line_items/1.json
   def update
     @line_item.attributes = line_item_params
+      if @line_item.over_order_cap?
+        @line_item.quantity = 5
+        @line_item.save
+        @line_item.set_cart_weight
+        flash[:error] = "#{view_context.link_to('Contact Us', new_contact_path)} For Orders of This Size".html_safe
+        redirect_to cart_path
+      else
         @line_item.update(line_item_params)
+            @line_item.set_cart_weight
+        
         if @line_item.quantity <= 0
            @line_item.destroy
               flash[:success] = "Item Removed"
@@ -54,6 +64,7 @@ class LineItemsController < ApplicationController
               flash[:success] = "Producted Updated"
               redirect_to cart_path
         end
+      end
   end
 
   # DELETE /line_items/1
@@ -74,6 +85,6 @@ class LineItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def line_item_params
-      params.fetch(:line_item, {}).permit(:product_id, :cart_id, :quantity)
+      params.fetch(:line_item, {}).permit(:product_id, :cart_id, :quantity, :weight, :units)
     end
 end
