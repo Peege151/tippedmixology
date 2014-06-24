@@ -91,3 +91,7 @@ class OrderPreview < ActiveRecord::Base
 
 	private
 end
+# Fed FedEx
+# ---------
+# Tippedmixology
+# Mineral25

@@ -5,7 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-
+			Admin.create(:email => 'pjsulli2k@gmail.com', :password => 'shithead1', :password_confirmation => 'shithead1')
+			Admin.create(:email => 'adam@tippedmixology.com', :password => 'Mineral25', :password_confirmation => "Mineral25")
 			Product.create!([
 			{
 				:title => "Cherry Apple Old Fashioned",
