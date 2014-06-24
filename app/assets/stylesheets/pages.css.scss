@@ -14,13 +14,13 @@
 }
 #content {
 	margin: 0 auto;
-	width:1065px;
+	width:1095px;
 	min-height: 500px;
 	background-color: white;
 	// background-image: asset-url("teastained1bg.jpg");
 	// box-shadow: 2px 10px 10px 10px gray;
 	// border-top: 1px solid gray;
-	overflow:scroll;
+	overflow-y:scroll;
 	border-right: 1px solid #eee;
 	h2, h1 {
 		text-align:center;
