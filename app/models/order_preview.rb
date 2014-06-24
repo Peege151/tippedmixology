@@ -17,7 +17,9 @@ class OrderPreview < ActiveRecord::Base
   	validates :weight, presence: true
   	serialize :ship_option_hash, JSON
   	#methods
-
+  	def ship_name
+  		self.shipping_type.to_s.scan(/^[^\$]*/).to_s[2..(self.shipping_type.to_s.scan(/^[^\$]*/).join.length)-2] 
+  	end
   	def to_param
     	"#{id}#{permalink}"
   	end

@@ -5,91 +5,109 @@
                 <div class="progress-bar two-sec-ease-in-out" role="progressbar"  aria-valuetransitiongoal="66" width = "100$"></div>
               </div>
     <h2> Review Order and Select Shipping Method </h2>
-    <div id="shipping_products_preview_wrap">
-    <h2>Shipping...</h2>
-      <table id="shipping_products_preview">
-          <% @cart.line_items.each do |item| %>
-          <tr class="cart_ship_prev">
-            <td class="cart_ship_img"><%= image_tag(item.product.image_url(:thumb)) %> </td>
-                <td class="cart_ship_prev_qty"> 
-                <%= "#{item.quantity}"  %>
-                </td>
-            <td class="cart_ship_prev_item"> <%= "#{item.product.title}" %>
-            </td>
-            <td class="cart_ship_prev_price">$<%= (item.product.price) * (item.quantity) %> </td>
-          </tr>
-        <% end %>
-      </table>
-   <%= link_to "Edit Cart Contents", cart_path %>
-    </div>
-    <div id="shipping_to_address_wrap">  
-      <h2> ...To... </h2>
-    <table id="shipping_to_address_table">
-      <tr class="ship_row">
-        <td class="ship_label">Name:</td>
-        <td class="info"><%= @order_preview.name %></td>
-      </tr>
-      <tr class="ship_row">        
-        <td class="ship_label">Address:</td>
-        <td class="info"><%= @order_preview.address %></td>
-      </tr>
-        <% if @order_preview.address2 != nil %>
-        <tr class="ship_row">
-        <td class="ship_label">Address(2):</td>
-        <td class="info"><%= @order_preview.address2 %></td>
-        </tr>
-        <% end %>
-      <tr class="ship_row"> 
-        <td class="ship_label">City:</td> 
-        <td class="info"><%= @order_preview.city %></td>
-      </tr>
-      <tr class="ship_row">  
-        <td class="ship_label">State:</td>
-        <td class="info"><%= @order_preview.state %></td>
-      </tr>
-      <tr class="ship_row">  
-        <td class="ship_label">Zip:</td>
-        <td class="info"><%= @order_preview.zip %></td>
-      </tr>  
-    </table>
-   <%= link_to "Edit Shipping Address", edit_cart_order_preview_path %>
-  </div>
+    <div id="ship_to_from_wrap">
+      <div id="shipping_products_preview_wrap">
+      <h2>Shipping...</h2>
+        <table id="shipping_products_preview">
+            <% @cart.line_items.each do |item| %>
+            <tr class="cart_ship_prev">
+              <td class="cart_ship_img"><%= image_tag(item.product.image_url(:thumb)) %> </td>
+                  <td class="cart_ship_prev_qty"> 
+                  <%= "#{item.quantity}"  %>
+                  </td>
+              <td class="cart_ship_prev_item"> <%= "#{item.product.title}" %>
+              </td>
+              <td class="cart_ship_prev_price">$<%= (item.product.price) * (item.quantity) %> </td>
+            </tr>
+          <% end %>
+        </table>
+     <%= link_to "Edit Cart Contents", cart_path %>
+      </div>
+      <div id="shipping_to_address_wrap">  
+        <h2> ...To... </h2>
+          <table id="shipping_to_address_table">
+            <tr class="ship_row">
+              <td class="ship_label">Name:</td>
+              <td class="info"><%= @order_preview.name %></td>
+            </tr>
+            <tr class="ship_row">        
+              <td class="ship_label">Address:</td>
+              <td class="info"><%= @order_preview.address %></td>
+            </tr>
+              <% if @order_preview.address2 != nil %>
+              <tr class="ship_row">
+              <td class="ship_label">Address(2):</td>
+              <td class="info"><%= @order_preview.address2 %></td>
+              </tr>
+              <% end %>
+            <tr class="ship_row"> 
+              <td class="ship_label">City:</td> 
+              <td class="info"><%= @order_preview.city %></td>
+            </tr>
+            <tr class="ship_row">  
+              <td class="ship_label">State:</td>
+              <td class="info"><%= @order_preview.state %></td>
+            </tr>
+            <tr class="ship_row">  
+              <td class="ship_label">Zip:</td>
+              <td class="info"><%= @order_preview.zip %></td>
+            </tr>  
+          </table>
+        <%= link_to "Edit Shipping Address", edit_cart_order_preview_path %>
+      </div>
   <br />
-  <div id="shipping_option_wrapper">
-    <%= form_for(@order_preview, :url => {:controller => "order_previews", :action => "update"}) do |f| %> 
-    <% if @order_preview.shipping_type == nil %> 
-      <h2>Select Shipping Option</h2>
-          <%= f.select(:shipping_type, options_for_select(@order_preview.ship_option_hash)) %>
-      <% else %>
-       <h2>Change Shipping Option? </h2>
-          <%= f.select(:shipping_type, options_for_select(@order_preview.ship_option_hash)) %>
-      <% end %>
-  </div>
-  
-  <br/>
-    <% if @order_preview.grand_total.nil? %>
-        <div id="submit_to_stripe_button">
-          <%= button_to "Get Grand Total", root_path, class: "btn btn-primary" %>
-        </div> 
-    <% else %> 
-      <div id="submit_to_stripe_button">
-        <%= button_to "Change Shipping", root_path,  class: "btn btn-primary" %>
-        <br>
-          <div id="bottom_line">
-            Sub Total: <%= number_to_currency(@cart.order_preview.sub_total) %> <br>
-            Shipping: <%= number_to_currency(@order_preview.shipping_price) %><br>
-            Grand Total: <strong> <%= number_to_currency(@order_preview.grand_total) %> </strong>
-          </div>
-        <br >
-        <%= form_tag charges_path do %>
-            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                    data-description="Tipped Mixology"
-                    data-amount="<%= (@order_preview.grand_total).to_i * 100 %>"> </script>
-            <% end %>    
-    <% end %>
-     
+  <div id="shipping_control_wrap">
+    <div id="shipping_option_wrapper">
+      <%= form_for(@order_preview, :url => {:controller => "order_previews", :action => "update"}) do |f| %> 
+      <% if @order_preview.shipping_type == nil %> 
+        <h2>Select Shipping Option</h2>
+            <%= f.select(:shipping_type, options_for_select(@order_preview.ship_option_hash, @order_preview.shipping_type)) %>
+        <% else %>
+         <h2>Change Shipping Option? </h2>
+            <%= f.select(:shipping_type, options_for_select(@order_preview.ship_option_hash, @order_preview.shipping_type)) %>
+        <% end %>
     </div>
+    
+    <br/>
+      <% if @order_preview.grand_total.nil? %>
+          <div id="submit_to_stripe_button">
+            <%= button_to "Get Grand Total", root_path, class: "btn btn-primary" %>
+          </div> 
+      <% else %> 
+        <div id="submit_to_stripe_button">
+          <%= button_to "Change Shipping", root_path,  class: "btn btn-primary" %>
+        </div>
+          <div id="bottom_line">
+            <table id="op_bottom_line">
+              <tr ="op_bottom_line">
+                <td class="op_bottom_line_left"> Sub Total: </td>
+                <td class="op_bottom_line_right"><%= number_to_currency(@cart.order_preview.sub_total) %> </td>  
+              </tr>
+                
+              <tr ="op_bottom_line">
+                <td class="op_bottom_line_left"> Shipping -- <%= @order_preview.ship_name %> : </td>
+                 <td class="op_bottom_line_right"> <%= number_to_currency(@order_preview.shipping_price) %> </td>
+              </tr>
+
+              <tr ="op_bottom_line">
+                <td class="op_bottom_line_left"> Grand Total: </td>
+                <td class="op_bottom_line_right"><strong> <%= number_to_currency(@order_preview.grand_total) %> </strong> </td>
+              </tr>
+            </table>
+          </div>
+          <div id="pay_button_center">
+          <%= form_tag charges_path do %>
+              <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                      data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                      data-description="Tipped Mixology"
+                      data-amount="<%= (@order_preview.grand_total).to_i * 100 %>"> </script>
+            <% end %>  
+          </div>  
+      <% end %>
+    </div>
+  </div>
+      </div>
+
   <% end %>
   </div>
 </div>

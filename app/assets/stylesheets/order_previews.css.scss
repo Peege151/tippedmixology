@@ -61,18 +61,18 @@ table#shipping_info_table {
 	font-family: "Avenir Condensed";
 }
 #shipping_to_address_wrap {
-	width:400px;
+	width:40%;
 	float:right;
-	margin-right:80px;
+	margin-right:30px;
 	overflow: hidden
 }
 table#shipping_to_address_table {
-	width:400px;
-	height:458px;
+	width:100%;
+	height:100%;
 	border:1px solid #eee;
 	tr.ship_row {
 		height:76px;
-		width: 400px;
+		width: 100%;
 		border: 3px solid #eee;	
 
 	}
@@ -101,14 +101,14 @@ table#shipping_to_address_table {
 	}
 }
 #shipping_products_preview_wrap {
-	width:500px;
+	width:46%;
 	float:left;
 	margin: 0 auto;
 	margin-left:40px;
 
 }
 table#shipping_products_preview {
-	width:500px;
+	width:100%;
 
 	tr.cart_ship_prev {
 		border: 3px solid #eee;
@@ -120,7 +120,7 @@ table#shipping_products_preview {
 		text-align:center;
 		padding:10px;
 		height:100%;
-		width: 230px;
+		width: 50%;
 		margin-left:20px;
 		font-family: "Avenir Condensed";
 		font-size:150%;
@@ -129,7 +129,7 @@ table#shipping_products_preview {
 
 	}
 	td.cart_ship_prev_price {
-		width:70px;
+		width:15%;
 		height:100%;
 		font-family: "Avenir Condensed";
 		font-size:150%;
@@ -139,7 +139,7 @@ table#shipping_products_preview {
 	}
 	td.cart_ship_prev_qty {
 		height:100%;
-		width:80px;
+		width:15%;
 		vertical-align:middle;
 		text-align:center;
 		font-family: "Avenir Condensed";
@@ -155,42 +155,83 @@ table#shipping_products_preview {
 		}
 	}
 }
+#ship_to_from_wrap {
+	width:100%;
+	display: table;
 
+}
+#shipping_control_wrap {
+width:46%;
+height:auto;
+display:table;
+margin-left:40px;
+float:left;
+clear:left;
+}
 #shipping_option_wrapper {
 	height:100px;
-	width:510px;
-	margin-left:40px;
-	margin-top:50px;
+	width:100%;
 	float:left;
 		select {
 		font-family: "Avenir Condensed";
 		font-size:150%;
 		border: 3px solid #eee;
-		width:505px;
+		width:100%;
 		}
 		option {
 		font-family: "Avenir Condensed";
 		}
 }
 #bottom_line {
-	height:50px;
-	width:510px;
+	width:100%;
 	font-family: "Avenir Condensed";
 	font-size:150%;
-	margin-left:40px;
 	margin-top:10px;
 	float:left;
 	text-align: left;
+		table {
+			width:100%;
+			border: 3px solid  #eee;
+			margin-bottom:20px;
+			tr {
+				border-bottom:3px solid #eee;
+				height:40px;
+				td {
+					font-family: "Moon Flower";
+					font-size: 120%;
+
+				}
+				td.op_bottom_line_left {
+					margin-right:20px;
+					text-align: right;
+					border-right: 3px solid #eee
+				}
+				td.op_bottom_line_right {
+					text-align: right;
+
+				}
+
+			}
+		}
+}
+#pay_button_center {
+	margin: 0 auto;
+	margin-top: 10px;
+	margin-bottom: 20px;
+	height:45px;
+	width:100%;
+	float:left;
+	text-align:center;
 }
 #submit_to_stripe_button {
-	width:510px;
+	width:100%;
 	float:left;
-	margin-left:40px;
 	margin-top:10px;
 	margin-bottom: 40px;
+
 		input {
 			height:50px;
-			width:510px;
+			width:100%;
 			text-align:center;	
 		}
 }
