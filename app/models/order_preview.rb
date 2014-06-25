@@ -108,4 +108,5 @@ end
 
 #line with test creds
 #fedex = FedEx.new(login: "118636975", password: "8jxnO3KQMwoAGER6OY7EC3HW9", key: "wx1qgLtmgAHXWjST", account: "510087380", test: true )
-
+# 3644 6318 Jim
+#Problem is USPS gets .1lb for 1 unit, .75lb for 10
