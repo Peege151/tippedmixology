@@ -7,38 +7,44 @@ class Cart < ActiveRecord::Base
     end
 
     def width
-      if self.total_weight == 1.0
+      if self.total_units == 1.0
         return 6.0
-      elsif self.total_weight <= 3.0
+      elsif self.total_units <= 3.0
         return 6.0
-      elsif self.total_weight <= 6.0
+      elsif self.total_units <= 6.0
         return 12.0 
+      elsif self.total_units <= 12.0
+        return 12.0
       else
-        return 18.0
+        return 12.0
       end
     end
 
     def length
-      if self.total_weight == 1.0
+      if self.total_units == 1.0
         return 6.0
-      elsif self.total_weight <= 3.0
+      elsif self.total_units <= 3.0
         return 18.0
-      elsif self.total_weight <= 6.0
+      elsif self.total_units <= 6.0
         return 18.0 
-      else
+      elsif self.total_units <= 12.0
         return 18.0
+      else
+        return 24.0
       end
     end
 
     def height
-      if self.total_weight == 1.0
+      if self.total_units == 1.0
         return 6.0
-      elsif self.total_weight <= 3.0
+      elsif self.total_units <= 3.0
         return 6.0
-      elsif self.total_weight <= 6.0
+      elsif self.total_units <= 6.0
         return 6.0 
+      elsif self.total_units <= 12.0
+        return 12.0
       else
-        return 18.0
+        return 24.0
       end
     end
 end

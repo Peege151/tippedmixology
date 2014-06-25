@@ -30,8 +30,8 @@ class LineItemsController < ApplicationController
       @line_item = @cart.line_items.build(line_item_params)
       respond_to do |format|
       if  @line_item.save
-          @line_item.set_cart_weight
           @line_item.set_cart_units
+          @line_item.set_cart_weight
         format.html { redirect_to products_path, 
           :notice => 'Item Added to Cart.' }
         format.xml  { render :xml => @line_item,

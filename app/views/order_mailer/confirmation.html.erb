@@ -1,24 +1,35 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
-  </head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style type="text/css" media="screen">
+      h3 { color: #f00; }
+      ul { list-style: none; }
+    </style>
+</head>
   <body>
-    <h1>Your Order Order, #<%= @order.id %></h1>
-    <p>
-        Name: <%= @order.name %>  <br>
-        Address: <%= @order.address %>  <br>
-        Address2: <%= @order.address2 %>  <br>
-        City: <%= @order.city %>  <br>
-        State: <%= @order.state %>  <br>
-        Zip: <%= @order.zip %>  <br>
+    <div id="content">
+        <div id="darkcontainer"> 
+            <%= link_to image_tag('tippedlogods.png', size: "510x202"), root_path %>
+        </div>
+            <h1>Your Order Order, #<%= @order.id %></h1>
+            <p>
+            Name: <%= @order.name %>  <br>
+            Address: <%= @order.address %>  <br>
+            Address2: <%= @order.address2 %>  <br>
+            City: <%= @order.city %>  <br>
+            State: <%= @order.state %>  <br>
+            Zip: <%= @order.zip %>  <br>
 
-        Items:
+            Items:
 
-        <% @order.cart.line_items.each do |item| %>
-            <%= item.product.title %>
-            <%= item.quantity %>
-            <% end %>
-</p>
+            <% @order.cart.line_items.each do |item| %>
+                <%= item.product.title %>
+                <%= item.quantity %>
+                <% end %>
+            </p>
+    </div>
     </body>
 </html>

@@ -48,7 +48,7 @@ class OrderPreview < ActiveRecord::Base
 	#fedex key
 	#wx1qgLtmgAHXWjST
 	def fedex_rates
-	    fedex = FedEx.new(login: "118636975", password: "8jxnO3KQMwoAGER6OY7EC3HW9", key: "wx1qgLtmgAHXWjST", account: "510087380", test: true )
+	    fedex = FedEx.new(login: "106695816", password: "5QERw7k7ZgV5PwzMeZTafUaB8", key: "JLbvzh9IeTmjX0GK", account: "513819846" )
 	    get_rates_from_shipper(fedex)
 	end
 # gatewaybeta.com
@@ -98,3 +98,14 @@ end
 # ---------
 # Tippedmixology
 # Mineral25
+
+# Production Info
+# ---------
+# Authentication Key:	 JLbvzh9IeTmjX0GK
+# Meter Number:	 106695816
+# FedEx Account Number : 513819846
+# Production Password: 5QERw7k7ZgV5PwzMeZTafUaB8
+
+#line with test creds
+#fedex = FedEx.new(login: "118636975", password: "8jxnO3KQMwoAGER6OY7EC3HW9", key: "wx1qgLtmgAHXWjST", account: "510087380", test: true )
+
