@@ -31,6 +31,7 @@ class LineItemsController < ApplicationController
       respond_to do |format|
       if  @line_item.save
           @line_item.set_cart_weight
+          @line_item.set_cart_units
         format.html { redirect_to products_path, 
           :notice => 'Item Added to Cart.' }
         format.xml  { render :xml => @line_item,
@@ -50,12 +51,14 @@ class LineItemsController < ApplicationController
         @line_item.quantity = 5
         @line_item.save
         @line_item.set_cart_weight
+        @line_item.set_cart_units
         flash[:error] = "#{view_context.link_to('Contact Us', new_contact_path)} For Orders of This Size".html_safe
         redirect_to cart_path
       else
         @line_item.update(line_item_params)
             @line_item.set_cart_weight
-        
+            @line_item.set_cart_units
+
         if @line_item.quantity <= 0
            @line_item.destroy
               flash[:success] = "Item Removed"

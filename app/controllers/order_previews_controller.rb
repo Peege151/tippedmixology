@@ -112,7 +112,7 @@ class OrderPreviewsController < ApplicationController
   end
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_preview_params
-      params.fetch(:order_preview, {}).permit(:name, :address, :address2, :city, :state, :zip, :width, :height, :length, :weight, :cylinder, :country, :cart_id, :email, :permalink, :shipping_type, :shipping_price, :sub_total, :grand_total, :ship_option_hash)
+      params.fetch(:order_preview, {}).permit(:name, :address, :address2, :city, :state, :zip, :width, :height, :length, :weight, :cylinder, :country, :cart_id, :email, :permalink, :shipping_type, :shipping_price, :sub_total, :grand_total, :ship_option_hash, :total_units)
     end
     def update_ship_options
       if @order_preview.zip_changed? || @order_preview.weight_changed?

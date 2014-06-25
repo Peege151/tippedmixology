@@ -8,6 +8,12 @@
     <div id="ship_to_from_wrap">
       <div id="shipping_products_preview_wrap">
       <h2>Shipping...</h2>
+       <span style="color:gray">// Test //</span> Width:<%= @order_preview.width %>
+      Length:<%= @order_preview.length %>
+      Height:<%= @order_preview.height %>
+      Weight:<%= @order_preview.weight %>
+      Units: <%= @order_preview.total_units %>
+
         <table id="shipping_products_preview">
             <% @cart.line_items.each do |item| %>
             <tr class="cart_ship_prev">

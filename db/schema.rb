@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140623202849) do
+ActiveRecord::Schema.define(version: 20140625023506) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20140623202849) do
     t.datetime "updated_at"
     t.boolean  "active",       default: true
     t.float    "total_weight"
+    t.float    "total_units"
   end
 
   create_table "categories", force: true do |t|
@@ -88,6 +89,7 @@ ActiveRecord::Schema.define(version: 20140623202849) do
     t.string   "shipping_type"
     t.float    "sub_total"
     t.text     "ship_option_hash"
+    t.float    "total_units"
   end
 
   create_table "orders", force: true do |t|

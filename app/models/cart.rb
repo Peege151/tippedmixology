@@ -6,8 +6,39 @@ class Cart < ActiveRecord::Base
       self.line_items.to_a.sum { |item| item.total_price }
     end
 
+    def width
+      if self.total_weight == 1.0
+        return 6.0
+      elsif self.total_weight <= 3.0
+        return 6.0
+      elsif self.total_weight <= 6.0
+        return 12.0 
+      else
+        return 18.0
+      end
+    end
 
-     #def archive!
-      # update_attribute(:active, false)
-     #end
+    def length
+      if self.total_weight == 1.0
+        return 6.0
+      elsif self.total_weight <= 3.0
+        return 18.0
+      elsif self.total_weight <= 6.0
+        return 18.0 
+      else
+        return 18.0
+      end
+    end
+
+    def height
+      if self.total_weight == 1.0
+        return 6.0
+      elsif self.total_weight <= 3.0
+        return 6.0
+      elsif self.total_weight <= 6.0
+        return 6.0 
+      else
+        return 18.0
+      end
+    end
 end

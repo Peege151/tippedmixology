@@ -16,17 +16,17 @@
   <div id="shipping_table_wrap">
     <table id="shipping_info_table">
       <tr class="shippingrow">
-            <%= f.hidden_field :permalink, value: 12, :size => 50 %>
+            <%= f.hidden_field :permalink, value: 12 %>
         <td class="ship_col1">
           <div class="field">
             <%= f.label :name %><br />
-            <%= f.text_field :name, value: "#{@cart.order_preview.name}",:size => 50 %>
+            <%= f.text_field :name, value: "#{@cart.order_preview.name}"%>
           </div>
         </td>
         <td class="ship_col2">
           <div class="field">
             <%= f.label :email %><br />
-            <%= f.email_field :email, value: "#{@cart.order_preview.email}",:size => 50 %>
+            <%= f.email_field :email, value: "#{@cart.order_preview.email}"%>
           </div>
         </td>
       </tr>
@@ -34,13 +34,13 @@
         <td class="ship_col1">
           <div class="field">
             <%= f.label :address %><br />
-            <%= f.text_field :address, value: "#{@cart.order_preview.address}",:size => 50 %>
+            <%= f.text_field :address, value: "#{@cart.order_preview.address}"%>
           </div>
         </td>
         <td class="ship_col2">
           <div class="field">
             <%= f.label :address2 %><br />
-            <%= f.text_field :address2, value: "#{@cart.order_preview.address2}",size: 50 %> 
+            <%= f.text_field :address2, value: "#{@cart.order_preview.address2}"%> 
           </div>      
         </td>
       </tr>
@@ -48,13 +48,13 @@
         <td class="ship_col1">
           <div class="field">
             <%= f.label :city %> <br />
-            <%= f.text_field :city, value: "#{@cart.order_preview.city}",:size => 50 %>
+            <%= f.text_field :city, value: "#{@cart.order_preview.city}"%>
           </div>
         </td>
         <td class="ship_col2">
           <div class="field">
             <%= f.label :state %><br />
-            <%= f.collection_select :state, State.all, :name, :name, value: "#{@cart.order_preview.state}",:size => 50 %>
+            <%= f.collection_select :state, State.all, :name, :name, value: "#{@cart.order_preview.state}"%>
           </div>
         </td>
       </tr>
@@ -62,14 +62,15 @@
         <td class="ship_col1">
             <div class="field">
             <%= f.label :zip %> <br />
-            <%= f.text_field :zip, :value => "#{@cart.order_preview.zip}", :size => 50 %>
+            <%= f.text_field :zip, :value => "#{@cart.order_preview.zip}" %>
           </div>
         </td>
-            <%= f.hidden_field :country, :value => 'US', :size => 50 %>
-            <%= f.hidden_field :width, value: 10, :size => 50 %>
-            <%= f.hidden_field :height, :value => 10, :size => 50 %>
-            <%= f.hidden_field :weight, value: @cart.total_weight, :size => 50 %>
-            <%= f.hidden_field :length, :value => 10, :size => 50 %>
+            <%= f.hidden_field :country, :value => 'US' %>
+            <%= f.hidden_field :total_units, :value => @cart.total_units %>
+            <%= f.hidden_field :width, value: @cart.width %>
+            <%= f.hidden_field :length, :value => @cart.length %>
+            <%= f.hidden_field :height, :value => @cart.height %>
+            <%= f.hidden_field :weight, value: @cart.total_weight %>
       <tr class="shippingrow">
         <td class="ship_col_full">
           <div class="actions">

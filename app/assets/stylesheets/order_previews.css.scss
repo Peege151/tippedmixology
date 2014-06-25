@@ -21,14 +21,17 @@
 			font-size: 150%;
 			line-height: 150%;
 			textarea {
-				width:321px;
+				width:100%;
+			}
+			input {
+				width:90%;
 			}
 			li {
 			font-family: "Avenir Condensed";
 			text-align: center;
 			}
 			select {
-				width:260px;
+				width:90%;
 				height:25px;
 			}
 }
@@ -51,6 +54,7 @@ td.ship_col_full {
 	width:600px;
 	font-family: "Avenir Condensed";
 	input {
+		margin-top:50px;
 		width:540px;
 	}
 }
