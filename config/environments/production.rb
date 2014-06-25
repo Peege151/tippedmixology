@@ -66,6 +66,7 @@ Tippedmixology::Application.configure do
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { :host => 'hidden-peak-4186.heroku.com', :only_path => false}
+  ActionMailer::Base.asset_host = 'hidden-peak-4186.heroku.com'
   ActionMailer::Base.smtp_settings = {
   :address    => "smtp.sendgrid.net",
   :port       => 587,

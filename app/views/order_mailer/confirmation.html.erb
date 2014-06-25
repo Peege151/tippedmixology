@@ -12,9 +12,10 @@
   <body>
     <div id="content">
         <div id="darkcontainer"> 
-            <%= link_to image_tag('tippedlogods.png', size: "510x202"), root_path %>
+            <%= image_tag('tippedlogods.png', size: "510x202") %>
         </div>
-            <h1>Your Order Order, #<%= @order.id %></h1>
+            <h1>Your Order</h1>
+            <hr>
             <p>
             Name: <%= @order.name %>  <br>
             Address: <%= @order.address %>  <br>
