@@ -63,12 +63,11 @@
             <%= f.text_field :zip, :size => 50 %>
           </div>
         </td>
-            <%= f.hidden_field :country, :value => 'US', :size => 50 %>
-            <%= f.hidden_field :total_units, :value => @cart.total_units %>
-            <%= f.hidden_field :width, value: @cart.width, :size => 50 %>
-            <%= f.hidden_field :height, :value => @cart.height, :size => 50 %>
+            <%= f.hidden_fiel :country, :value => 'US', :size => 50 %>
+            <%= f.hidden_fiel :total_units, :value => @cart.total_units %>
+            <%= f.hidden_fiel :width, value: @cart.width, :size => 50 %>
+            <%= f.hidden_fiel :height, :value => @cart.height, :size => 50 %>
             <%= f.hidden_field :length, :value => @cart.length, :size => 50 %>
-
             <%= f.hidden_field :weight, :value => @cart.total_weight, :size => 50 %>
 
         </div>
