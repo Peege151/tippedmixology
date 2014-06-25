@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
      #before_action :set_order, only: [:show, :edit, :update, :destroy]
-     after_action :new_cart, only: [:show]
+     # after_action :new_cart, only: [:show]
+     rescue_from Exception, :with => :redirect_post_order
 
     def index
       @orders = Order.all
