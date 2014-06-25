@@ -3,14 +3,12 @@ class OrderMailer < ActionMailer::Base
 
   def new_order(order)
   		@order = order
-  		content_type "text/html"
   	    mail(to: 'sales@tippedmixology.com', subject: "New Order #{order.id}")
   end
 
   def confirmation(order)
   		@order = order
-  		content_type "text/html"
-  		mail(to: @order.email, subject: "Order Confirmation: #{order.id}")
+  		mail(to: @order.email, subject: "Order Confirmation: #{order.id}", content_type: "text/html")
   end
 
 end
