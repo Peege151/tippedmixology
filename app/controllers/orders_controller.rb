@@ -1,13 +1,14 @@
 class OrdersController < ApplicationController
-  # before_action :set_order, only: [:show, :edit, :update, :destroy]
-    after_action :new_cart, only: [:show]
+     #before_action :set_order, only: [:show, :edit, :update, :destroy]
+     after_action :new_cart, only: [:show]
+     rescue_from Exception, :with => :redirect_post_order
+
     def index
       @orders = Order.all
     end
 
     def show
         @cart = current_cart
-
         @order = @cart.order
         @line_items = @order.items
         rescue ActiveRecord::RecordNotFound
@@ -49,6 +50,11 @@ class OrdersController < ApplicationController
     end
 
 private
+    def redirect_post_order
+      flash[:success] = "Thanks Again"
+      redirect_to products_path
+    end
+    
     def new_cart
       @cart = @order.cart
       @cart.delete

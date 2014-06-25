@@ -6,59 +6,65 @@
               </div>
    
     <h2> Thank You For Your Order! </h2>
-
     <h3> An email has been sent to <%= @order.email %>! </h3>
-    <div id="shipping_products_preview_wrap">
-    <h2>You Have Ordered</h2>
-      <table id="shipping_products_preview">
-          <% @order.line_items.each do |line_item| %>
-          <tr class="cart_ship_prev">
-            <td class="cart_ship_img"><%= image_tag(line_item.product.image_url(:thumb)) %> </td>
-                <td class="cart_ship_prev_qty"> 
-                <%= "#{line_item.quantity}"  %>
+      <div id="ship_to_from_wrap">
+        <div id="shipping_products_preview_wrap"> 
+                  <h2>You Have Ordered</h2>
+     
+          <table id="shipping_products_preview">
+              <% @order.line_items.each do |line_item| %>
+              <tr class="cart_ship_prev">
+                <td class="cart_ship_img"><%= image_tag(line_item.product.image_url(:thumb)) %> </td>
+                    <td class="cart_ship_prev_qty"> 
+                    <%= "#{line_item.quantity}"  %>
+                    </td>
+                <td class="cart_ship_prev_item"> <%= "#{line_item.product.title}" %>
                 </td>
-            <td class="cart_ship_prev_item"> <%= "#{line_item.product.title}" %>
-            </td>
-            <td class="cart_ship_prev_price">$<%= (line_item.product.price) * (line_item.quantity) %> </td>
+                <td class="cart_ship_prev_price">$<%= (line_item.product.price) * (line_item.quantity) %> </td>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+        <div id="shipping_to_address_wrap">  
+          <h2> ...To... </h2>
+        <table id="shipping_to_address_table">
+          <tr class="ship_row">
+            <td class="ship_label">Name:</td>
+            <td class="info"><%= @order.name %></td>
           </tr>
-        <% end %>
-      </table>
+          <tr class="ship_row">        
+            <td class="ship_label">Address:</td>
+            <td class="info"><%= @order.address %></td>
+          </tr>
+            <% if @order.address2 != nil %>
+            <tr class="ship_row">
+            <td class="ship_label">Address(2):</td>
+            <td class="info"><%= @order.address2 %></td>
+            </tr>
+            <% end %>
+          <tr class="ship_row"> 
+            <td class="ship_label">City:</td> 
+            <td class="info"><%= @order.city %></td>
+          </tr>
+          <tr class="ship_row">  
+            <td class="ship_label">State:</td>
+            <td class="info"><%= @order.state %></td>
+          </tr>
+          <tr class="ship_row">  
+            <td class="ship_label">Zip:</td>
+            <td class="info"><%= @order.zip %></td>
+          </tr>  
+        </table>
+      </div>
+      <br>
+      <div id="shipping_control_wrap">
+        <div id="continue_shopping">
+        <%= button_to "Continue Shopping", products_path, :method => "get", class: "btn btn-primary" %> 
+      </div>
+      </div>
     </div>
-    <div id="shipping_to_address_wrap">  
-      <h2> ...To... </h2>
-    <table id="shipping_to_address_table">
-      <tr class="ship_row">
-        <td class="ship_label">Name:</td>
-        <td class="info"><%= @order.name %></td>
-      </tr>
-      <tr class="ship_row">        
-        <td class="ship_label">Address:</td>
-        <td class="info"><%= @order.address %></td>
-      </tr>
-        <% if @order.address2 != nil %>
-        <tr class="ship_row">
-        <td class="ship_label">Address(2):</td>
-        <td class="info"><%= @order.address2 %></td>
-        </tr>
-        <% end %>
-      <tr class="ship_row"> 
-        <td class="ship_label">City:</td> 
-        <td class="info"><%= @order.city %></td>
-      </tr>
-      <tr class="ship_row">  
-        <td class="ship_label">State:</td>
-        <td class="info"><%= @order.state %></td>
-      </tr>
-      <tr class="ship_row">  
-        <td class="ship_label">Zip:</td>
-        <td class="info"><%= @order.zip %></td>
-      </tr>  
-    </table>
-  </div>
-  <br />
-  
-
-
+  <br>
+  <br>
   </div>
 </div>
      

@@ -5,6 +5,7 @@ class Order < ActiveRecord::Base
 
 	#active record associations
 	belongs_to :cart
+  belongs_to :order_preview
   has_many :line_items, through: :cart
 	# validations
 	validates :name, presence: true
