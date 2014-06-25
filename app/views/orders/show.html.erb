@@ -24,6 +24,24 @@
               </tr>
             <% end %>
           </table>
+     <!--      <div id="bottom_line">
+            <table id="op_bottom_line">
+              <tr ="op_bottom_line">
+                <td class="op_bottom_line_left"> Sub Total: </td>
+                <td class="op_bottom_line_right"><%= number_to_currency(@cart.order_preview.sub_total) %> </td>  
+              </tr>
+                
+              <tr ="op_bottom_line">
+                <td class="op_bottom_line_left"> Shipping -- <%= @order_preview.ship_name %> : </td>
+                 <td class="op_bottom_line_right"> <%= number_to_currency(@order_preview.shipping_price) %> </td>
+              </tr>
+
+              <tr ="op_bottom_line">
+                <td class="op_bottom_line_left"> Grand Total: </td>
+                <td class="op_bottom_line_right"><strong> <%= number_to_currency(@order_preview.grand_total) %> </strong> </td>
+              </tr>
+            </table>
+          </div> -->
         </div>
         <div id="shipping_to_address_wrap">  
           <h2> ...To... </h2>
