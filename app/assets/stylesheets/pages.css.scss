@@ -85,6 +85,7 @@
 				}
 			
 				tr.header {
+					width:43%;
 				height:50px;
 				font-family: "Avenir Condensed";
 				font-size: 200%;
@@ -93,10 +94,15 @@
 			
 				}
 				tr.image {
-				height:200px 
+				height:200px;
+				background-color:whitesmoke;
+
+
 				}
 				td {
 				height:30px;
+				background-color:whitesmoke;
+
 				}
 		}
 }
@@ -104,6 +110,7 @@
 #news_image  {
 	width:200px;
 	margin:0 auto;
+	background-color:whitesmoke;
 	img {
 		border-radius: 10px;
 	}
@@ -114,6 +121,8 @@
 	margin:0 auto;
 	height:auto;
 	padding:10px;
+	background-color:whitesmoke;
+
 	p {
 		font-family: "Avenir Condensed";
 			font-size: 150%;
