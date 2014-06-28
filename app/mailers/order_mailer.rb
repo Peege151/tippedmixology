@@ -11,5 +11,4 @@ class OrderMailer < ActionMailer::Base
   		attachments.inline['tippedlogo_email.png'] = File.read("app/assets/images/tippedlogo_email.png")
   		mail(to: @order.email, subject: "Order Confirmation")
   end
-
 end
