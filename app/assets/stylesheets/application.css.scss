@@ -65,6 +65,10 @@
 				#mailform {
 					input {
 						width:60%;
+						input:after {
+							content: '\A';
+							white-space: pre;
+						}
 					}
 				}
 	}
