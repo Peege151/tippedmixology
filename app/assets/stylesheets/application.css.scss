@@ -30,7 +30,7 @@
 				#darkcontainer {
 					max-width: 100%;
 					min-width: 100%;
-					max-height: 140px;
+					max-height: 130px;
 				
 			img{
 					width: 100%;
@@ -49,6 +49,7 @@
 	.footer{
 		min-width: 100%;
 	}
+	.FAQ {text-align: left}
 	#faq1, #faq2, #faq3, #faq4, #faq5, #faq6, #faq7, #faq8, #faq9, #faq10, #faq11 {min-width:100%}
  // iPad
 	@media screen and (device-aspect-ratio: 3/4) {
