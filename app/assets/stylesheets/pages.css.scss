@@ -39,7 +39,7 @@
 }
 // MAIL FORM MAIL FORM MAIL FORM 
 #mailwrap {
-	height:170px;
+	height:auto;
 	width:100%;
 	background-color:whitesmoke;
 
@@ -49,10 +49,11 @@
 	text-align: center;
 	margin:0 auto;
 	margin-bottom:10px;
+	display:inline-block;
 
 }
 #mailform {
-	height:150px;
+	height:auto;
 	width:60%;
 	margin: 0 auto;
 	background-color: whitesmoke;
@@ -67,10 +68,10 @@
 		text-align:center;
 	}
 	input[type=submit]{
-		width:180px;
+		width:150px;
 		position:relative;
 			top:2px;
-			left:10px;
+		left:17px;
 
 	}
 }
