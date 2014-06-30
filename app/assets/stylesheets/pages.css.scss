@@ -38,14 +38,22 @@
 	}
 }
 // MAIL FORM MAIL FORM MAIL FORM 
-#autoheightwrap {
-	height:auto;
+#mailwrap {
+	height:170px;
 	width:100%;
 	background-color:whitesmoke;
+
+}
+#mailwrap_inputs {
+	width:auto;
+	text-align: center;
+	margin:0 auto;
+	margin-bottom:10px;
+
 }
 #mailform {
-	height:100%;
-	width:600px;
+	height:150px;
+	width:60%;
 	margin: 0 auto;
 	background-color: whitesmoke;
 			padding: 6px 12px;
@@ -56,6 +64,7 @@
 	}
 	input {
 		width:150px;
+		text-align:center;
 	}
 	input[type=submit]{
 		width:180px;

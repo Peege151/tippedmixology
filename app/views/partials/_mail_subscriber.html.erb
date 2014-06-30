@@ -1,16 +1,17 @@
-<div id ="autoheightwrap">
+<div id ="mailwrap">
 	<div id="mailform">
 		<h2> <strong> Join Our Mailing List </strong> </h2>
 		<h3> For exclusive offers and promo codes! </h3>
 	  <%= form_for (@mail_subscriber) do |f| %>
+	  <div id="mailwrap_inputs">
+	  	<div class="form-inputs">
+		    <%= f.label :name %>
+		    <%= f.text_field :name, class: "form-control" %>    
+		    <%= f.label :email %>
+		    <%= f.text_field :email, class: "string required form-control" %>
 
-	  <div class="form-inputs">
-	    <%= f.label :name %>
-	    <%= f.text_field :name, class: "form-control" %>    
-	    <%= f.label :email %>
-	    <%= f.text_field :email, class: "string required form-control" %>
-
-	    <%= f.submit "Join Mailing List", class: "btn btn-large btn-primary form-control"%>
+		    <%= f.submit "Join Mailing List", class: "btn btn-large btn-primary form-control"%>
+		</div>
 	    <% end %>
 	  </div>
 	</div>
