@@ -66,11 +66,12 @@
 	}
 	input {
 		width:150px;
+		color: #ddd;
 		text-align:center;
 	}
 	input[type=submit]{
+		height:33px;
 		width:150px;
-		position:relative;top:2px;
 
 
 	}

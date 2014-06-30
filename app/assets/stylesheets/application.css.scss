@@ -26,7 +26,7 @@
 				.FAQ{
 				line-height: 150%;
 				text-align:left;
-				padding-left: .1em;
+				padding-left: .5em;
 				}
 		}
 		#contentwrap{
@@ -64,11 +64,19 @@
 				}
 				#mailform {
 					input {
-						width:70%;
+						min-width:90%;
+						margin-top:1em;
+
 						}
 					label {
 						display:block	
 						// float:left;
+					}
+				}
+				#mailwrap_inputs {
+					input[type=submit]{
+						width:150px;
+						position:relative;top:2px;
 					}
 				}
 	}

@@ -5,10 +5,8 @@
 	  <%= form_for (@mail_subscriber) do |f| %>
 	  <div id="mailwrap_inputs">
 	  	<div class="form-inputs">
-		    <%= f.label :name %>
-		    <%= f.text_field :name, class: "form-control" %>    
-		    <%= f.label :email %>
-		    <%= f.text_field :email, class: "string required form-control" %>
+		    <%= f.text_field :name, value: "Your Name", class: "form-control" %>    
+		    <%= f.text_field :email, value: "Your Email", class: "string required form-control" %>
 
 		    <%= f.submit "Join Mailing List", class: "btn btn-large btn-primary form-control"%>
 		</div>
