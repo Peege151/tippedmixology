@@ -20,7 +20,7 @@
  // iPhone-5
 	@media screen and (device-aspect-ratio: 40/71) {
 		.cycle-slideshow {
-			max-height:150px !important;
+			max-height:150px;
 			img {max-width:100%;}
 		}
 		#contactform {
