@@ -12,6 +12,25 @@
  *= require_tree .
  */
 @import "bootstrap";
+ // iPhone4/s
+ 	@media screen and (device-aspect-ratio: 2/3) {
+
+ 	}
+
+ // iPhone-5
+	@media screen and (device-aspect-ratio: 40/71) {
+		#darkcontainer {
+			display:none;
+		}
+	}
+
+ // iPad
+	@media screen and (device-aspect-ratio: 3/4) {
+
+	}
+
+
+
 
 @font-face {
         font-family: "Avenir Condensed";
