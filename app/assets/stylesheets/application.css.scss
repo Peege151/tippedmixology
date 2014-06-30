@@ -51,32 +51,6 @@ height: 100%;
 overflow:hidden;}
 .slideshow { width: 70%; height: 500px; margin: auto; border: 1px solid #bbb; background: #ffc }
 .slideshow img { opacity: 0; filter:alpha(opacity=0); }
-#slides {
-	height:500px;
-	width:1065px;
-	margin: 0 auto;
-	ul.pagination {
-			width:100%;
-			text-align: center;
-			li {
-				display:inline-block;
-			}
-    }
-}
-
-           	.slides_container {
-                width:1065px;
-                height:500px;
-
-
-            }
-            .slides_container div {
-                width:1065px;
-                height:500px;
-                display:block;
-
-                	
-            }
 
 
 #darkcontainer {
