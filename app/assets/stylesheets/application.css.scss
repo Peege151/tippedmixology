@@ -18,7 +18,7 @@
  	}
 
  // iPhone-5
-	@media only screen and (min-width: 321px) {
+	@media screen and (device-aspect-ratio: 40/71) {
 		.navbar-brand{
 		visibility:visible;
 		}
@@ -47,7 +47,7 @@
 			min-width: 100%;
 		}
 	}
-	@media only screen and (min-width: 321px) and(orientation:landscape) {
+	@media screen and (device-aspect-ratio: 40/71) and(orientation:landscape) {
 				.mobile_pageheader {
 		visibility:visible;
 		}
@@ -62,7 +62,7 @@
 			max-width:100%;
 		}
 	}
-	@media screen and (min-width : 321px) and (orientation:portrait) {
+	@media screen and (device-aspect-ratio: 40/71) and (orientation:portrait) {
 						#mobile_pageheader {
 		visibility:visible;
 		}
