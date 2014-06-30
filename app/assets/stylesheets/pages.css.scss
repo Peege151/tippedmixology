@@ -56,6 +56,7 @@
 	height:auto;
 	width:60%;
 	margin: 0 auto;
+	text-align:center;
 	background-color: whitesmoke;
 			padding: 6px 12px;
 
@@ -69,9 +70,8 @@
 	}
 	input[type=submit]{
 		width:150px;
-		position:relative;
-			top:2px;
-		left:17px;
+		position:relative;top:2px;
+
 
 	}
 }
