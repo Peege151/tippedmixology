@@ -9,12 +9,7 @@
 	width:100%;
 	min-height:500px;
 }
-#autoheightwrap {
-	height:auto;
-	width:100%;
-	margin:0 auto;
-	background-color:whitesmoke;
-}
+
 #content {
 	margin: 0 auto;
 	width:1095px;
@@ -43,8 +38,13 @@
 	}
 }
 // MAIL FORM MAIL FORM MAIL FORM 
-#mailform {
+#autoheightwrap {
 	height:auto;
+	width:100%;
+	background-color:whitesmoke;
+}
+#mailform {
+	height:100%;
 	width:600px;
 	margin: 0 auto;
 	background-color: whitesmoke;

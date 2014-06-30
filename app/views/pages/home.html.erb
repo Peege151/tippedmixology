@@ -1,17 +1,13 @@
 	<div id="contentcontainer">
-		<div id="slides"> 
-			<div class="slides_container">
-				<div>
+			<div class="cycle-slideshow"
+			    data-cycle-fx=scrollHorz
+   				data-cycle-timeout=2000
+    			data-cycle-center-horz=true
+    			data-cycle-center-vert=true>
 					<%=image_tag("trio_1065x500.jpg") %>
-				</div>
-				<div>
 					<%=image_tag("twodrinks.jpg") %>
-				</div>
-				<div>
 					<%=image_tag("trio_1065x500.jpg") %>
-				</div>
 			</div>
-		</div>
 		<div id="clear70"> </div>
 	    <%= render 'partials/news' %>
 	</div>
