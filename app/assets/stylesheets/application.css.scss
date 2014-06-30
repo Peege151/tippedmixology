@@ -28,22 +28,26 @@
 	}
 	@media screen and (device-aspect-ratio: 40/71) and (orientation:horizontal) {
 				#darkcontainer {
-					max-width: 100%;
+					width: 100%;
 				
 			img{
-				max-width: 100%;
+				max-height: 100%;
+				max-width:100%
 			}		
 		}
 	}
 	@media screen and (device-aspect-ratio: 40/71) {
 		#content {
 			min-width:100%;
+			max-width:100%;
 			margin: 0 auto;
 		}
 		#contentwrap{
 		}
 	}
-
+	.footer{
+		min-width: 100%;
+	}
  // iPad
 	@media screen and (device-aspect-ratio: 3/4) {
 
