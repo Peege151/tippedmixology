@@ -28,9 +28,8 @@
 	}
 	@media screen and (device-aspect-ratio: 40/71) and (orientation:horizontal) {
 				#darkcontainer {
-			height:100px;
 			img{
-				width: 100%;
+				min-width: 100%;
 			}		
 		}
 	}
