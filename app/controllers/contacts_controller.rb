@@ -2,6 +2,7 @@ class ContactsController < ApplicationController
   def new
     @contact = Contact.new
     @cart= current_cart
+    @title = "Contact Us"
 
   end
 
