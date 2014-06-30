@@ -20,14 +20,14 @@
  // iPhone-5
 	@media screen and (device-aspect-ratio: 40/71) {
 		#darkcontainer {
-			height:20%;
+			height:100px;
 			img{
 				width: 100%;
 			}		
 		}
 		#content {
 			width:100%;
-			height: auto;
+			margin: 0 auto;
 		}
 		#contentwrap{
 		}
