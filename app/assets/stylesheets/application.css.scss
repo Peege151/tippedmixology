@@ -64,11 +64,11 @@
 				}
 				#mailform {
 					input {
-						width:60%;
-						input:after {
-							content: '\A';
-							white-space: pre;
+						width:70%;
 						}
+					label {
+						float:left;
+						clear:left;
 					}
 				}
 	}
