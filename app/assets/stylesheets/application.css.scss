@@ -50,13 +50,18 @@
 		}
 		#contentwrap{
 		}
-	}
-	.footer{
-		min-width: 100%;
-	}
+	
+		.footer{
+			min-width: 100%;
+		}
 
-	#faq1, #faq2, #faq3, #faq4, #faq5, #faq6, #faq7, #faq8, #faq9, #faq10, #faq11 {
-		min-width:100%;
+		#faq1, #faq2, #faq3, #faq4, #faq5, #faq6, #faq7, #faq8, #faq9, #faq10, #faq11 {
+			max-width:80%;
+			min-width:80%;
+		}
+		#mailform {
+			min-width: 100%;
+		}
 	}
  // iPad
 	@media screen and (device-aspect-ratio: 3/4) {
