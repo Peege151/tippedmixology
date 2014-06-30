@@ -20,7 +20,14 @@
  // iPhone-5
 	@media screen and (device-aspect-ratio: 40/71) {
 		#darkcontainer {
-			display:none;
+			img {
+				display:none;
+			}
+				background-image: asset-url('tippedlogods.png')
+		}
+
+		#content {
+			width:100%;
 		}
 	}
 
