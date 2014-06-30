@@ -19,6 +19,9 @@
 
  // iPhone-5
 	@media screen and (device-aspect-ratio: 40/71) {
+		#mobile_pageheader {
+		visibility:visible;
+		}
 		#content {
 			min-width:100%;
 			max-width:100%;
@@ -51,6 +54,10 @@
 				height: 100%;
 			}		
 		}
+		#content {
+			min-width:100%;
+			max-width:100%;
+		}
 	}
 	@media screen and (device-aspect-ratio: 40/71) and (orientation:portrait) {
 				#darkcontainer {
@@ -66,7 +73,7 @@
 					input {
 						min-width:90%;
 						margin-top:1em;
-
+						color:#ddd;
 						}
 					label {
 						display:block	
@@ -100,6 +107,9 @@
 
 body {
 height: 100%;
+}
+#mobile_pageheader {
+	visibility:hidden;
 }
 #no_access {
 	margin-top:20%
