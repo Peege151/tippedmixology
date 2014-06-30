@@ -18,8 +18,8 @@
  	}
 
  // iPhone-5
-	@media screen and (device-aspect-ratio: 40/71) {
-		#mobile_pageheader {
+	@media only screen and (min-width: 321px) {
+		.navbar-brand{
 		visibility:visible;
 		}
 		#content {
@@ -47,7 +47,10 @@
 			min-width: 100%;
 		}
 	}
-	@media screen and (device-aspect-ratio: 40/71) and(orientation:landscape) {
+	@media only screen and (min-width: 321px) and(orientation:landscape) {
+				.mobile_pageheader {
+		visibility:visible;
+		}
 		#darkcontainer {
 			height:100px;
 			img{
@@ -59,7 +62,10 @@
 			max-width:100%;
 		}
 	}
-	@media screen and (device-aspect-ratio: 40/71) and (orientation:portrait) {
+	@media screen and (min-width : 321px) and (orientation:portrait) {
+						#mobile_pageheader {
+		visibility:visible;
+		}
 				#darkcontainer {
 					max-width: 100%;
 					min-width: 100%;
@@ -108,7 +114,7 @@
 body {
 height: 100%;
 }
-#mobile_pageheader {
+.navbar-brand {
 	visibility:hidden;
 }
 #no_access {
