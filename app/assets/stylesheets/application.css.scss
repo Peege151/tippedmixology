@@ -18,13 +18,23 @@
  	}
 
  // iPhone-5
-	@media screen and (device-aspect-ratio: 40/71) {
+	@media screen and (device-aspect-ratio: 40/71, orientation:landscape) {
 		#darkcontainer {
 			height:100px;
 			img{
-				width: 100%;
+				height: 100%;
 			}		
 		}
+	}
+	@media screen and (device-aspect-ratio: 40/71, orientation:horizontal) {
+				#darkcontainer {
+			height:100px;
+			img{
+				height: 100%;
+			}		
+		}
+	}
+	@media screen and (device-aspect-ratio: 40/71) {
 		#content {
 			min-width:100%;
 			margin: 0 auto;
