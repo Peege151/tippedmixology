@@ -23,7 +23,9 @@
 			img {
 				display:none;
 			}
-				background-image: asset-url('tippedlogods.png')
+				width: 100%;
+				background-image: asset-url('tippedlogods.png');
+				background-size:cover;
 		}
 
 		#content {
