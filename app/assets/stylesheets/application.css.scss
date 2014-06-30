@@ -20,7 +20,9 @@
  // iPhone-5
 	@media screen and (device-aspect-ratio: 40/71) {
 		.cycle-slideshow {
-			max-height:150px;
+			min-width: 100%;
+			max-height: 150px;
+			overflow:hidden;
 			img {max-width:100%;}
 		}
 		#contactform {
@@ -38,7 +40,7 @@
 			display:none;
 		}
 		.navbar-brand{
-		visibility:visible !important;
+			visibility:visible !important;
 		}
 		#content {
 			min-width:100%;
