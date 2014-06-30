@@ -27,9 +27,6 @@
 			textarea {
 				width:100%;
 			}
-			input[type=submit] {
-				margin-bottom:3em;
-			}
 		}
 
 		.desktop_page_title {
@@ -126,7 +123,13 @@
 body {
 height: 100%;
 }
+.tilde_spacer {
+	width: 100%;
+	text-align: center;
+	    font-family: "Moon Flower";
+	    font-size:200%
 
+}
 .navbar-brand {
 	visibility:hidden;
 }

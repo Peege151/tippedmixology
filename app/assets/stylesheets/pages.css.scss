@@ -30,9 +30,10 @@
 		font-family: "Avenir Condensed";
 		font-size:120%;
 	}
-	p {
-		line-height: 200%;
-		font-size: 200%;
+	p {	
+		padding:.5em;
+		line-height: 120%;
+		font-size: 150%;
 		font-family: "Avenir Condensed";
 
 	}
@@ -148,6 +149,10 @@
 			textarea {
 				width:100%;
 			}
+			input[type=submit] {
+				margin-bottom:3em;
+			}
+
 }
 abbr, accronym{ border-bottom: 0px; } /*try adding !important  after 0px if doesn't work*/
 
