@@ -143,7 +143,21 @@ text-align: center;
 
  // iPhone-5
 	@media screen and (device-aspect-ratio: 40/71) {
+		#store_index_content {
+			max-width: 100%;
+			table {
 
+				min-width: 100%;
+				padding:10px;
+				overflow:hidden;
+				font-size:100%;
+
+			}
+			table:after {
+				content: /A;
+
+			}
+		}
 		#contactform {
 			width:80% !important;
 			input {
@@ -194,14 +208,13 @@ text-align: center;
 		#store_index_content {
 			max-width: 100%;
 			table {
-				max-width: 50%;
+				max-width:50% !important;
 				padding:10px;
 				overflow:hidden;
 				font-size:100%;
 
 			}
 			table:after {
-				content: /A;
 
 			}
 		}		
@@ -224,20 +237,7 @@ text-align: center;
 		}
 	}
 	@media screen and (device-aspect-ratio: 40/71) and (orientation:portrait) {
-		#store_index_content {
-			max-width: 100%;
-			table {
-				max-width: 100%;
-				padding:10px;
-				overflow:hidden;
-				font-size:100%;
-
-			}
-			table:after {
-				content: /A;
-
-			}
-		}	
+			
 			.cycle-slideshow {
 				max-height: 150px !important;
 				min-width: 100%;
