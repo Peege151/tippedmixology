@@ -204,6 +204,21 @@ text-align: center;
 		}
 	}
 	@media screen and (device-aspect-ratio: 40/71) and(orientation:landscape) {
+		
+		#store_index_content {
+			max-width: 100%;
+			table {
+				max-width: 50%;
+				padding:10px;
+				overflow:hidden;
+				font-size:100%;
+
+			}
+			table:after {
+				content: /A;
+
+			}
+		}		
 		.cycle-slideshow {
 			max-height: 300px !important;
 			min-width: 100%;
