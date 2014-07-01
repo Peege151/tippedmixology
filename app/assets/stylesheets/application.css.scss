@@ -143,6 +143,21 @@ text-align: center;
 
  // iPhone-5
 	@media screen and (device-aspect-ratio: 40/71) {
+		#orderform {
+			max-width:100% !important;
+			table {
+				max-width: 100% !important;
+			}
+			input {
+				max-width:50%;
+			}
+			tr.shipping_row {
+				max-width: 100% !important;
+			}
+			td.ship_col1, td.ship_col2, {
+				max-width: 50% !important;
+			}
+		}
 		#cartlist {
 			max-width: 100%;
 			overflow:hidden;
@@ -176,13 +191,9 @@ text-align: center;
 
 			}
 			td.img {
-				img {
-					max-height: 50%;
-					max-width:50%;
-				}
-				text-align: left;
-				padding: 0px;
+				display:none;
 			}
+
 			td.cart_qty {
 				height:100%;
 				border-right: 3px solid #eee;
@@ -235,7 +246,6 @@ text-align: center;
 					input {
 						max-width:100%;
 						max-height: 75;
-
 					}
 			}
 			td.bottom_cart_checkout_button {

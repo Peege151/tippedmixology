@@ -3,7 +3,6 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
  
 #orderform {
-	width: 800px;
 	margin: 0 auto;
 			font-family: "Avenir Condensed";
 			font-size: 150%;
@@ -19,22 +18,22 @@
 #shipping_table_wrap {
 }
 tr.shippingrow {
-			width:600px;
+			width:80% !important;
 			height:50px;
 			font-family: "Avenir Condensed";
 }
 td.ship_col1 {
-	width:300px;
+	width:50%;
 	float:left;
 	font-family: "Avenir Condensed";
 }
 td.ship_col2 {
-	width:300px;
+	width:50%;
 	float:right;
 	font-family: "Avenir Condensed";
 }
 table#shipping_info_table {
-	width:600px;
+	width:70%;
 	margin: 0 auto;
 	text-align: center;
 			font-family: "Avenir Condensed";

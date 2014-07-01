@@ -11,6 +11,7 @@ class CartsController < ApplicationController
   # GET /carts/1
   # GET /carts/1.json
   def show
+    @title = "Your Cart"
    #   if Cart.find_by_id(session[:cart_id]).active? ==false
    #      @cart = Cart.create
    #      session[:cart_id] = @cart

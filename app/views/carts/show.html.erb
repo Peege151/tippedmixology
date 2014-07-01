@@ -3,11 +3,12 @@
 	<div id ="content">
 		<% if @cart.line_items.count == 0 %>
 		<div id="emptycartmsg">
-			<h2> Your Cart is Empty!</h2> <br>
+			<h2 class="desktop_page_title"><strong>Your Cart</strong></h2>
+				 <br>
 			<%= link_to "Go To Store",products_path %>
 		</div>
 		<% else %>
-		<h2>Your Cart</h2>
+			<h2 class="desktop_page_title"><strong>Your Cart</strong></h2>
 			<div id="cartlist">
 
 			<ul>

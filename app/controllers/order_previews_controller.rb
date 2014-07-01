@@ -20,6 +20,7 @@ class OrderPreviewsController < ApplicationController
 
   # GET /order_previews/new
   def new
+    @title = "Shipping Address"
     @cart = current_cart
     @order_preview = OrderPreview.new
   end
