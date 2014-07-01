@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
+gem 'pg'
 # Use SCSS for stylesheets
 gem 'bootstrap-sass', '~>3.1.1.0'
 gem 'sass-rails', '~> 4.0.0'
@@ -39,11 +40,9 @@ gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 		gem 'better_errors'
 		gem 'binding_of_caller'
 		gem 'pry'
-		gem 'pg'
 	end
 	group :production do
 		gem 'rails_12factor'
-		gem 'pg'
 	end
 
 
