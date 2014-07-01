@@ -71,7 +71,7 @@ table#shipping_info_table {
 #shipping_to_address_wrap {
 	width:40%;
 	float:right;
-	margin-right:30px;
+	margin-right:2em;
 	overflow: hidden
 }
 table#shipping_to_address_table {
@@ -112,7 +112,7 @@ table#shipping_to_address_table {
 	width:46%;
 	float:left;
 	margin: 0 auto;
-	margin-left:40px;
+	margin-left:2em;
 
 }
 table#shipping_products_preview {
@@ -172,9 +172,8 @@ table#shipping_products_preview {
 width:46%;
 height:auto;
 display:table;
-margin-left:40px;
+margin-left:2em;
 float:left;
-clear:left;
 }
 #shipping_option_wrapper {
 	height:100px;

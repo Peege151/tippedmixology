@@ -1,0 +1,272 @@
+ // iPhone4/s
+ 	@media screen and (device-aspect-ratio: 2/3) {
+
+ 	}
+
+ // iPhone-5
+	@media screen and (device-aspect-ratio: 40/71) {
+		#shipping_products_preview_wrap{
+			padding-right:2em !important;
+			width: 90% !important;
+		}
+		#shipping_to_address_wrap {
+			float:left!important;
+			overflow:visible !important;
+			width:90% !important;
+			margin-left:2em!important;
+			padding-right:2em !important
+		}
+		#orderform {
+			min-width: 100% !important;
+			max-width:100% !important;
+			table {
+				max-width: 100% !important;
+			}	
+			tr.shipping_row {
+				min-width: 100% !important;
+				input {
+					min-width: 45%;
+				}
+			}
+			td.ship_col1, td.ship_col2, {
+				input {
+					min-width: 40% !important;
+				}
+
+
+			}
+		}
+		#cartlist {
+			max-width: 100%;
+			overflow:hidden;
+			padding: 0px 10px 0px 10px;
+			ul{
+				padding-left:0px;
+			}
+			table {
+				max-width:100% !important;
+			}
+			td.header_cart_description {
+				display:none;
+				
+			}
+			td.header_cart_qty {
+			
+
+			}
+			td.header_cart_item {
+		
+
+			}
+			td.header_cart_price {
+				width:5%;
+				height:50px;
+				text-decoration:underline
+			}
+			tr.top_cart {
+				border: 3px solid #eee;
+				padding-top: 0px;
+
+			}
+			td.img {
+				display:none;
+			}
+
+			td.cart_qty {
+				height:100%;
+				border-right: 3px solid #eee;
+				vertical-align:middle;
+				text-align:center;
+				input {
+					margin: 0 auto;
+
+				}
+			}
+			td.cart_item {
+				text-align:center;
+				border-right: 3px solid #eee;
+			}
+			td.cart_description {
+				display:none;
+
+			}
+			td.cart_price {
+				border-left: 3px solid #eee
+			}
+			td.cart_remove_button {
+				border-left: 3px solid #eee;
+				input {
+					width:100px;
+				}
+
+			}
+			td.bottom_cart_qty {
+
+				vertical-align:middle;
+				text-align:center
+			}
+			td.bottom_cart_item {
+				text-align:center;
+
+				width: 20%;
+			}
+			td.bottom_cart_description {
+				display:none;
+
+			}
+			td.bottom_cart_price {
+				height:50px;
+				margin-left:20px;
+				text-decoration: underline;
+			}
+			td.bottom_cart_remove_button {
+				height:50px;
+					input {
+						max-width:100%;
+						max-height: 75;
+					}
+			}
+			td.bottom_cart_checkout_button {
+					input {
+						max-width:100%;
+						max-height: 75;
+					}
+			}
+
+		}
+
+
+		#store_index_content {
+			max-width: 100%;
+			table {
+
+				min-width: 100%;
+				padding:10px;
+				overflow:hidden;
+				font-size:100%;
+
+			}
+			table:after {
+				content: /A;
+
+			}
+		}
+		#contactform {
+			width:80% !important;
+			input {
+				width:100%;
+			}
+			textarea {
+				width:100%;
+			}
+		}
+		#clear70 {display:none;}
+
+		.desktop_page_title {
+			display:none;
+		}
+		.navbar-brand{
+			visibility:visible !important;
+		}
+		.navbar-header {display:block;}
+
+		#content {
+			min-width:100%;
+			max-width:100%;
+			margin: 0 auto;
+				.FAQ{
+				line-height: 150%;
+				text-align:left;
+				padding-left: .5em;
+				}
+		}
+		#contentwrap{
+			height:auto
+		}
+	
+		.footer{
+			min-width: 100%;
+		}
+
+		#faq1, #faq2, #faq3, #faq4, #faq5, #faq6, #faq7, #faq8, #faq9, #faq10, #faq11 {
+			max-width:80%;
+			min-width:80%;
+		}
+		#mailform {
+			min-width: 100%;
+		}
+	}
+	@media screen and (device-aspect-ratio: 40/71) and(orientation:landscape) {
+		
+		#store_index_content {
+			max-width: 100%;
+			table {
+				max-width:50% !important;
+				padding:10px;
+				overflow:hidden;
+				font-size:100%;
+
+			}
+			table:after {
+
+			}
+		}		
+		.cycle-slideshow {
+			max-height: 300px !important;
+			min-width: 100%;
+			img {
+				max-width:100%;
+				}
+		}
+		#darkcontainer {
+			height:100px;
+			img{
+				height: 100%;
+			}		
+		}
+		#content {
+			min-width:100%;
+			max-width:100%;
+		}
+	}
+	@media screen and (device-aspect-ratio: 40/71) and (orientation:portrait) {
+			
+			.cycle-slideshow {
+				max-height: 150px !important;
+				min-width: 100%;
+					img {
+					max-width:100%;
+					}
+			}	
+				#darkcontainer {
+					max-width: 100%;
+					min-width: 100%;
+					max-height: 130px;
+				
+					img{
+					width: 100%;
+					}		
+				}
+				#mailform {
+					input {
+						min-width:90%;
+						margin-top:1em;
+						color:#ddd;
+						}
+					label {
+						display:block	
+						// float:left;
+					}
+				}
+				#mailwrap_inputs {
+					input[type=submit]{
+						width:150px;
+						position:relative;top:2px;
+					}
+				}
+	}
+
+ // iPad
+	@media screen and (device-aspect-ratio: 3/4) {
+
+	}
