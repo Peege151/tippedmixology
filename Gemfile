@@ -5,6 +5,7 @@ gem 'rails', '4.0.2'
 gem 'bootstrap-sass', '~>3.1.1.0'
 gem 'sass-rails', '~> 4.0.0'
 gem 'carrierwave'
+gem 'cycle2-rails'
 # Use this stuff for mail and forms
 gem 'mail_form'
 gem "simple_form", "~> 3.0.0.rc"
@@ -19,7 +20,6 @@ gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
 gem 'execjs'
 gem 'actionpack'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
