@@ -19,13 +19,7 @@
 
  // iPhone-5
 	@media screen and (device-aspect-ratio: 40/71) {
-		.cycle-slideshow {
-			max-height: 150px !important;
-			min-width: 100%;
-			img {
-				max-width:100%;
-				}
-		}
+
 		#contactform {
 			width:80% !important;
 			input {
@@ -70,7 +64,13 @@
 		}
 	}
 	@media screen and (device-aspect-ratio: 40/71) and(orientation:landscape) {
-
+		.cycle-slideshow {
+			max-height: 300px !important;
+			min-width: 100%;
+			img {
+				max-width:100%;
+				}
+		}
 		#darkcontainer {
 			height:100px;
 			img{
@@ -81,12 +81,15 @@
 			min-width:100%;
 			max-width:100%;
 		}
-		.cycle-slideshow {
-			height:300px !important;
-		}
 	}
 	@media screen and (device-aspect-ratio: 40/71) and (orientation:portrait) {
-	
+			.cycle-slideshow {
+				max-height: 150px !important;
+				min-width: 100%;
+					img {
+					max-width:100%;
+					}
+			}	
 				#darkcontainer {
 					max-width: 100%;
 					min-width: 100%;
