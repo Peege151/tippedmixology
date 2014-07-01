@@ -20,9 +20,8 @@
  // iPhone-5
 	@media screen and (device-aspect-ratio: 40/71) {
 		.cycle-slideshow {
+			max-height: 150px !important;
 			min-width: 100%;
-			max-height:30%;
-			overflow:hidden;
 			img {
 				max-width:100%;
 				}
@@ -167,10 +166,7 @@ height: 100%;
 }
 .cycle-slideshow {
 	width:100;
-	max-height: 500px;
 }
-.slideshow img { opacity: 0; filter:alpha(opacity=0); }
-
 
 #darkcontainer {
 	height:200px;
