@@ -18,20 +18,15 @@
  	}
 
  // iPhone-5
- @media only screen and (max-width: 480px), only screen and (max-device-width: 480px) {
-   .cycle-slideshow { width: 480px;}
-   .cycle-slideshow img { width: 100%; height: auto }
-   .cycle-overlay { padding: 4px }
-   .cycle-caption { bottom: 4px; right: 4px }
-}
-@media only screen and (max-width: 480px), only screen and (max-device-width: 480px) {
-   .cycle-slideshow { width: 720px;}
-   .cycle-slideshow img { width: 100%; height: auto }
-   .cycle-overlay { padding: 4px }
-   .cycle-caption { bottom: 4px; right: 4px }
-}
 	@media screen and (device-aspect-ratio: 40/71) {
-
+		.cycle-slideshow {
+			min-width: 100%;
+			max-height:30%;
+			overflow:hidden;
+			img {
+				max-width:100%;
+				}
+		}
 		#contactform {
 			width:80% !important;
 			input {
@@ -171,7 +166,8 @@ height: 100%;
 	background-color:#fff;
 }
 .cycle-slideshow {
-	height:500px;
+	width:100;
+	max-height: 500px;
 }
 .slideshow img { opacity: 0; filter:alpha(opacity=0); }
 
