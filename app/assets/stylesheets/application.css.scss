@@ -144,18 +144,23 @@ text-align: center;
  // iPhone-5
 	@media screen and (device-aspect-ratio: 40/71) {
 		#orderform {
+			min-width: 100% !important;
 			max-width:100% !important;
 			table {
 				max-width: 100% !important;
-			}
-			input {
-				max-width:50%;
-			}
+			}	
 			tr.shipping_row {
-				max-width: 100% !important;
+				min-width: 100% !important;
+				input {
+					min-width: 45%;
+				}
 			}
 			td.ship_col1, td.ship_col2, {
-				max-width: 50% !important;
+				input {
+					min-width: 40% !important;
+				}
+
+
 			}
 		}
 		#cartlist {

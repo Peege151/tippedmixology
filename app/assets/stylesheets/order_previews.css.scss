@@ -23,47 +23,51 @@
 			textarea {
 				width:100%;
 			}
-			input {
-				width:90%;
-			}
+
 			li {
 			font-family: "Avenir Condensed";
 			text-align: center;
 			}
-			select {
-				width:90%;
-				height:25px;
-			}
-}
-tr.shippingrow {
-			width:100%;
-			height:50px;
-			font-family: "Avenir Condensed";
-}
-td.ship_col1 {
-	width:50%;
-	float:left;
-	font-family: "Avenir Condensed";
-}
-td.ship_col2 {
-	width:50%;
-	float:right;
-	font-family: "Avenir Condensed";
-}
-td.ship_col_full {
-	width:100%;
-	font-family: "Avenir Condensed";
-	input {
-		margin-top:50px;
-		width:540px;
-	}
+
 }
 table#shipping_info_table {
-	width:600px;
+	width:90%;
 	margin: 0 auto;
 	text-align: center;
 	font-family: "Avenir Condensed";
+	input {
+		width:80%;
+	}
+	select {
+		width:80%;
+	}
+
+	tr.shippingrow {
+				width:100%;
+				height:50px;
+				font-family: "Avenir Condensed";
+	}
+	td.ship_col1 {
+		width:50%;
+		float:left;
+		font-family: "Avenir Condensed";
+	}
+	td.ship_col2 {
+		width:50%;
+		float:right;
+		font-family: "Avenir Condensed";
+	}
+	td.ship_col_full {
+		width:100%;
+		font-family: "Avenir Condensed";
+		input {
+			margin:2em 0em 2em 0em;
+			width:90%;
+		}
+
+	}
 }
+
 #shipping_to_address_wrap {
 	width:40%;
 	float:right;

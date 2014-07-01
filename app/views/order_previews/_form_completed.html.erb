@@ -1,5 +1,5 @@
 <% if @cart.order_preview != nil %>
-<h2> Shipping Address </h2>
+<h2 class="desktop_page_title"> Shipping Address </h2>
     <%= form_for(@order_preview, :url => {:controller => "order_previews", :action => "create"}) do |f| %>
       <% if @order_preview.errors.any? %>
         <div id="error_explanation">

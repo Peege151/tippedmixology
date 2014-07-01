@@ -1,46 +1,40 @@
-// Place all the styles related to the Orders controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// // Place all the styles related to the Orders controller here.
+// // They will automatically be included in application.css.
+// // You can use Sass (SCSS) here: http://sass-lang.com/
  
-#orderform {
-	margin: 0 auto;
-			font-family: "Avenir Condensed";
-			font-size: 150%;
-			line-height: 150%;
-			textarea {
-				width:321px;
-			}
-			li {
-			font-family: "Avenir Condensed";
-			text-align: center;
-			}
-}
-#shipping_table_wrap {
-}
-tr.shippingrow {
-			width:80% !important;
-			height:50px;
-			font-family: "Avenir Condensed";
-}
-td.ship_col1 {
-	width:50%;
-	float:left;
-	font-family: "Avenir Condensed";
-}
-td.ship_col2 {
-	width:50%;
-	float:right;
-	font-family: "Avenir Condensed";
-}
-table#shipping_info_table {
-	width:70%;
-	margin: 0 auto;
-	text-align: center;
-			font-family: "Avenir Condensed";
-}
-#continue_shopping{
-	margin-top:20px;
- input {
- 	width: 506px;
- }
-}
+// #orderform {
+// 	margin: 0 auto;
+// 			font-family: "Avenir Condensed";
+// 			font-size: 150%;
+// 			line-height: 150%;
+// 			textarea {
+// 				width:321px;
+// 			}
+// 			li {
+// 			font-family: "Avenir Condensed";
+// 			text-align: center;
+// 			}
+// }
+
+// tr.shippingrow {
+// 			width:80% !important;
+// 			height:50px;
+// 			font-family: "Avenir Condensed";
+// }
+// td.ship_col1 {
+// 	width:50%;
+// 	float:left;
+// 	font-family: "Avenir Condensed";
+// }
+// td.ship_col2 {
+// 	width:50%;
+// 	float:right;
+// 	font-family: "Avenir Condensed";
+// }
+
+// #continue_shopping{
+// 	margin-top:20px;
+//  input {
+//  	width: 506px;
+//  }
+// }
