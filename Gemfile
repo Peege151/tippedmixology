@@ -6,6 +6,7 @@ gem 'pg'
 gem 'bootstrap-sass', '~>3.1.1.0'
 gem 'sass-rails', '~> 4.0.0'
 gem 'carrierwave'
+gem 'jquery-rails'
 gem 'cycle2-rails'
 # Use this stuff for mail and forms
 gem 'mail_form'

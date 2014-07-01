@@ -185,6 +185,7 @@ DEPENDENCIES
   devise
   execjs
   jbuilder (~> 1.2)
+  jquery-rails
   mail_form
   mini_magick
   pg
