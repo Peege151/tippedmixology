@@ -146,14 +146,11 @@ text-align: center;
 		#store_index_content {
 			max-width: 100%;
 			table {
-				max-width: 320px;
-				max-height: 90%;
+
+				min-width: 100%;
 				padding:10px;
 				overflow:hidden;
 				font-size:100%;
-					tr.desc {
-						max-width:100%;
-					}
 
 			}
 			table:after {
