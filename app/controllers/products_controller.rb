@@ -7,6 +7,7 @@ class ProductsController < ApplicationController
     @products = Product.all
     @line_item = LineItem.new
     @cart = current_cart
+    @title = "Store"
   end
 
   # GET /products/1

@@ -27,7 +27,7 @@
 
 		table {
 			float: left;
-			width:250px;
+			width:33%;
 				th {
 				text-align:center;
 				width:33%;
@@ -48,13 +48,19 @@
 				vertical-align: middle;
 				}
 				tr.desc {
-					height: 160px;
 					p {
+						padding:1em;
+						line-height:130%;
+						font-size: 120%;
+						text-align:center;
 						margin-bottom: 0px;
 						padding-bottom: 0px;
 					}
 				}
 		}
+}
+#store_wrap {
+	height:auto;
 }
 .admin_store_controls {
 				width:130px;

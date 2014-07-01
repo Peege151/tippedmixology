@@ -12,6 +12,130 @@
  *= require_tree .
  */
 @import "bootstrap";
+
+
+
+@font-face {
+        font-family: "Avenir Condensed";
+        src: font-url('AvenirCondensedHand.ttf') format("truetype");
+}
+@font-face {
+        font-family: "Moon Flower";
+        src: font-url('Moon_Flower.ttf') format("truetype");
+    }
+
+body {
+height: 100%;
+}
+.tilde_spacer {
+	width: 100%;
+	text-align: center;
+	    font-family: "Moon Flower";
+	    font-size:200%
+
+}
+.navbar-brand {
+	visibility:hidden;
+}
+#no_access {
+	margin-top:20%
+}
+.navbar {
+	margin-bottom:0px;
+	li.items_here {
+		 a {
+		  &:visited {
+    		color: blue;
+  			}
+  		  &:link {
+  		  	color:blue
+  			}
+		}
+	}
+}
+.hidden { display: none; }
+
+#page {
+	width:100%;
+	background-color:#fff;
+}
+.cycle-slideshow {
+	width:100;
+}
+
+#darkcontainer {
+	height:200px;
+	width:100%;
+	border: none;
+	text-align:center;
+	img {
+		position:relative;
+			right:-7px;
+	}
+
+}
+
+#contentcontainer {
+	width:100%;
+   	background-image: asset-url('paperbg.jpg');
+
+
+}
+.navbar-default {
+	margin-bottom:0px;
+}
+.navbar-header {
+	display:none;
+}
+
+.navbar .navbar-nav {
+  display: inline-block;
+  float: none;
+}
+
+.navbar .navbar-collapse {
+  text-align: center;
+}
+
+#clear70 {
+	border-top: 1px solid #eee;
+	height:70px; 
+	width: 100%;
+	background-color: whitesmoke;
+}
+/*flash*/
+.alert {
+	display:none;
+	text-align:center;
+	margin-bottom:0px !important
+}
+.alert-error {
+background-color: #f2dede;
+border-color: #eed3d7;
+color: #b94a48;
+text-align: center;
+}
+
+.alert-alert {
+background-color: #f2dede;
+border-color: #eed3d7;
+color: #b94a48;
+text-align: center;
+}
+
+.alert-success {
+background-color: #dff0d8;
+border-color: #d6e9c6;
+color: #468847;
+text-align: center;
+}
+
+.alert-notice {
+background-color: #dff0d8;
+border-color: #d6e9c6;
+color: #468847;
+text-align: center;
+}
  // iPhone4/s
  	@media screen and (device-aspect-ratio: 2/3) {
 
@@ -19,7 +143,24 @@
 
  // iPhone-5
 	@media screen and (device-aspect-ratio: 40/71) {
+		#store_index_content {
+			max-width: 100%;
+			table {
+				max-width: 320px;
+				max-height: 90%;
+				padding:10px;
+				overflow:hidden;
+				font-size:100%;
+					tr.desc {
+						max-width:100%;
+					}
 
+			}
+			table:after {
+				content: /A;
+
+			}
+		}
 		#contactform {
 			width:80% !important;
 			input {
@@ -37,6 +178,8 @@
 		.navbar-brand{
 			visibility:visible !important;
 		}
+		.navbar-header {display:block;}
+
 		#content {
 			min-width:100%;
 			max-width:100%;
@@ -124,125 +267,3 @@
 	}
 
 
-
-
-@font-face {
-        font-family: "Avenir Condensed";
-        src: font-url('AvenirCondensedHand.ttf') format("truetype");
-}
-@font-face {
-        font-family: "Moon Flower";
-        src: font-url('Moon_Flower.ttf') format("truetype");
-    }
-
-body {
-height: 100%;
-}
-.tilde_spacer {
-	width: 100%;
-	text-align: center;
-	    font-family: "Moon Flower";
-	    font-size:200%
-
-}
-.navbar-brand {
-	visibility:hidden;
-}
-#no_access {
-	margin-top:20%
-}
-.navbar {
-	margin-bottom:0px;
-	li.items_here {
-		 a {
-		  &:visited {
-    		color: blue;
-  			}
-  		  &:link {
-  		  	color:blue
-  			}
-		}
-	}
-}
-.hidden { display: none; }
-
-#page {
-	width:100%;
-	background-color:#fff;
-}
-.cycle-slideshow {
-	width:100;
-}
-
-#darkcontainer {
-	height:200px;
-	width:100%;
-	border: none;
-
-
-	// background-image: url('cbbg1.jpg');
-	// background-size: cover;
-	// background-position: bottom 100px center;
-	background-color:whitesmoke;
-	text-align:center;
-
-}
-
-#contentcontainer {
-	width:100%;
-   	background-image: asset-url('paperbg.jpg');
-
-
-}
-.navbar-default {
-	margin-bottom:0px;
-}
-
-.navbar .navbar-nav {
-  display: inline-block;
-  float: none;
-}
-
-.navbar .navbar-collapse {
-  text-align: center;
-}
-
-#clear70 {
-	border-top: 1px solid #eee;
-	height:70px; 
-	width: 100%;
-	background-color: whitesmoke;
-}
-/*flash*/
-.alert {
-	display:none;
-	text-align:center;
-	margin-bottom:0px !important
-}
-.alert-error {
-background-color: #f2dede;
-border-color: #eed3d7;
-color: #b94a48;
-text-align: center;
-}
-
-.alert-alert {
-background-color: #f2dede;
-border-color: #eed3d7;
-color: #b94a48;
-text-align: center;
-}
-
-.alert-success {
-background-color: #dff0d8;
-border-color: #d6e9c6;
-color: #468847;
-text-align: center;
-}
-
-.alert-notice {
-background-color: #dff0d8;
-border-color: #d6e9c6;
-color: #468847;
-text-align: center;
-}

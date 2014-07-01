@@ -1,74 +1,71 @@
 <div id="contentwrap">
   <div id="store_index_content">
-   <h1>Tipped Mixology Store </h1>
-   <h1 style="text-align:left; margin-left:70px"> Drinks: </h1>
-    <% @products.each do |product| %>
-     <table>
-      <tr class="header">
-        <th> <%= link_to "#{product.title}", :action => 'show', :id => product %> </th>
-      </tr>
-        <tr class="image">
-          <td>
-            <div id="news_image">
-              <%= link_to(image_tag("#{product.image_url}", :size => "200x200"), product) %>
-            </div>
-          </td>
-        </tr>
-        <tr class="desc">
-          <td>
-            <div id="news_desc">
-              <p>
-                <%= truncate product.description, length: 180 %> <%= link_to "read more", product %>
-              </p>
-            </div>
-          </td>
-        </tr>
-        <tr class="index_store_control">
-          <td>
-            <div id="store_index_control">
-              <div class="index_store_price">
-              $<%= product.price %>
-              </div>
-              <div class="index_store_fl">
-              <%= form_for(( @cart.line_items.find_by(product_id:product.id) || LineItem.new)) do |f| %>  
-                <%= f.hidden_field :product_id, value:product.id %>
-                <%= f.hidden_field :weight, value: product.weight %>
-                <%= f.select :quantity, options_for_select([1,2,3]) %> 
-                </div> <br>
-              </td>
+      <h2 class="desktop_page_title"><strong>Store</strong></h2>   
+      <h1 style="text-align:left; margin-left:70px"> Drinks: </h1>
+        <% @products.each do |product| %>
+         <table>
+          <tr class="header">
+            <th> <%= link_to "#{product.title}", :action => 'show', :id => product %> </th>
           </tr>
-          <tr>
-            <td class="store_index_control">
-                <div class="index_store_add">              
-                <% if @cart.line_items.find_by(product_id:product.id).nil?  %>
-                  <%= f.submit 'Add to Cart', class: "btn btn-primary" %>
-                <% else %>
-                  <%= f.submit 'Update Quantity', class: "btn btn-primary" %>              
-                <% end %>
-
-              <% end %>
-              </div>
-          </td>
-        </tr>
+            <tr class="image">
+              <td>
+                <div id="news_image">
+                  <%= link_to(image_tag("#{product.image_url}", :size => "200x200"), product) %>
+                </div>
+              </td>
+            </tr>
+            <tr class="desc">
+              <td>
+                  <p>
+                    <%= truncate product.description, length: 180 %> <%= link_to "read more", product %>
+                  </p>
+              </td>
+            </tr>
+            <tr class="index_store_control">
+              <td>
+                <div id="store_index_control">
+                  <div class="index_store_price">
+                  $<%= product.price %>
+                  </div>
+                  <div class="index_store_fl">
+                  <%= form_for(( @cart.line_items.find_by(product_id:product.id) || LineItem.new)) do |f| %>  
+                    <%= f.hidden_field :product_id, value:product.id %>
+                    <%= f.hidden_field :weight, value: product.weight %>
+                    <%= f.select :quantity, options_for_select([1,2,3]) %> 
+                  </div> <br>
+              </td>
+            </tr>
+            <tr>
+              <td class="store_index_control">
+                  <div class="index_store_add">              
+                    <% if @cart.line_items.find_by(product_id:product.id).nil?  %>
+                      <%= f.submit 'Add to Cart', class: "btn btn-primary" %>
+                    <% else %>
+                      <%= f.submit 'Update Quantity', class: "btn btn-primary" %>              
+                    <% end %>
+                  <% end %>
+                  </div>
+              </td>
+            </tr>
             </div>
-          </td>
-        </tr>
-      <% if current_admin != nil %>
-        <tr>
-          <td>
-          <div class="admin_store_controls">
-            <%= link_to 'Show', product %>
-            <%= link_to 'Edit', edit_product_path(product) %>
-            <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
-          </td>
-          </div>
-        </tr>
+              </td>
+            </tr>
+          <% if current_admin != nil %>
+            <tr>
+              <td>
+              <div class="admin_store_controls">
+                <%= link_to 'Show', product %>
+                <%= link_to 'Edit', edit_product_path(product) %>
+                <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
+              </td>
+              </div>
+            </tr>
+              <% end %>
+          </table> 
+        <% end %>
+          <% if current_admin.nil? == false %>    
+            <%= link_to 'New Product', new_product_path %>
           <% end %>
-      </table> 
-    <% end %>
-      <% if current_admin.nil? == false %>    
-      <%= link_to 'New Product', new_product_path %>
-      <% end %>
   </div>
 </div>
 
