@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require jquery.cycle2
+//= require jquery.cycle2.center
 //= require_tree .
